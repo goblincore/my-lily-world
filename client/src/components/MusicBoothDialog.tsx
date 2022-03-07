@@ -9,11 +9,12 @@ import { closeMusicBoothDialog } from '../stores/MusicBoothStore'
 const Backdrop = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  padding: 16px 180px 16px 16px;
+  max-width:400px;
+  padding: 16px 16px 16px 16px;
 `
 const Wrapper = styled.div`
   width: 100%;
