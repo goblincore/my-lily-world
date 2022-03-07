@@ -43,6 +43,10 @@ export default class Bootstrap extends Phaser.Scene {
       frameWidth: 64,
       frameHeight: 64,
     })
+    this.load.spritesheet('musicBooths', 'assets/items/musicBooth.png', {
+      frameWidth: 64,
+      frameHeight: 64,
+    })
     this.load.spritesheet('vendingmachines', 'assets/items/vendingmachine.png', {
       frameWidth: 48,
       frameHeight: 72,
