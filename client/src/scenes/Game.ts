@@ -7,6 +7,7 @@ import Item from '../items/Item'
 import Chair from '../items/Chair'
 import Computer from '../items/Computer'
 import Whiteboard from '../items/Whiteboard'
+import MusicBooth from '../items/MusicBooth'
 import VendingMachine from '../items/VendingMachine'
 import '../characters/MyPlayer'
 import '../characters/OtherPlayer'
@@ -33,6 +34,7 @@ export default class Game extends Phaser.Scene {
   private otherPlayerMap = new Map<string, OtherPlayer>()
   computerMap = new Map<string, Computer>()
   private whiteboardMap = new Map<string, Whiteboard>()
+  private musicBoothMap = new Map<string, MusicBooth>()
 
   constructor() {
     super('game')
@@ -102,19 +104,34 @@ export default class Game extends Phaser.Scene {
     })
 
     // import whiteboards objects from Tiled map to Phaser
-    const whiteboards = this.physics.add.staticGroup({ classType: Whiteboard })
-    const whiteboardLayer = this.map.getObjectLayer('Whiteboard')
-    whiteboardLayer.objects.forEach((obj, i) => {
-      const item = this.addObjectFromTiled(
-        whiteboards,
-        obj,
-        'whiteboards',
-        'whiteboard'
-      ) as Whiteboard
-      const id = `${i}`
-      item.id = id
-      this.whiteboardMap.set(id, item)
-    })
+    // const whiteboards = this.physics.add.staticGroup({ classType: Whiteboard })
+    // const whiteboardLayer = this.map.getObjectLayer('Whiteboard')
+    // whiteboardLayer.objects.forEach((obj, i) => {
+    //   const item = this.addObjectFromTiled(
+    //     whiteboards,
+    //     obj,
+    //     'whiteboards',
+    //     'whiteboard'
+    //   ) as Whiteboard
+    //   const id = `${i}`
+    //   item.id = id
+    //   this.whiteboardMap.set(id, item)
+    // })
+
+     // import music booth objects from Tiled map to Phaser
+     const musicBooths = this.physics.add.staticGroup({ classType: MusicBooth })
+     const musicBoothLayer = this.map.getObjectLayer('MusicBooth')
+     musicBoothLayer.objects.forEach((obj, i) => {
+       const item = this.addObjectFromTiled(
+         musicBooths,
+         obj,
+         'musicBooths',
+         'musicBooth'
+       ) as MusicBooth
+       const id = `${i}`
+       item.id = id
+       this.musicBoothMap.set(id, item)
+     })
 
     // import vending machine objects from Tiled map to Phaser
     const vendingMachines = this.physics.add.staticGroup({ classType: VendingMachine })
@@ -141,7 +158,7 @@ export default class Game extends Phaser.Scene {
 
     this.physics.add.overlap(
       this.playerSelector,
-      [chairs, computers, whiteboards, vendingMachines],
+      [chairs, computers, musicBooths, vendingMachines],
       this.handleItemSelectorOverlap,
       undefined,
       this

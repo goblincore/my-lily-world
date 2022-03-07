@@ -3876,7 +3876,7 @@
         {
          "draworder":"topdown",
          "id":10,
-         "name":"Whiteboard",
+         "name":"MusicBooth",
          "objects":[
                 {
                  "gid":4685,
@@ -27346,11 +27346,11 @@
         {
          "columns":1,
          "firstgid":4685,
-         "image":"..\/items\/whiteboard.png",
+         "image":"..\/items\/musicBooth.png",
          "imageheight":192,
          "imagewidth":64,
          "margin":0,
-         "name":"whiteboard",
+         "name":"musicBooth",
          "spacing":0,
          "tilecount":3,
          "tileheight":64,
