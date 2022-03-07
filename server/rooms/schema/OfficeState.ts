@@ -4,6 +4,7 @@ import {
   IOfficeState,
   IComputer,
   IWhiteboard,
+  IMusicBooth,
   IChatMessage,
 } from '../../../types/IOfficeState'
 
@@ -31,6 +32,11 @@ export class ChatMessage extends Schema implements IChatMessage {
   @type('string') content = ''
 }
 
+export class MusicBooth extends Schema implements IMusicBooth {
+  @type('string') roomId = getRoomId()
+  @type({ set: 'string' }) connectedUser = new SetSchema<string>()
+}
+
 export class OfficeState extends Schema implements IOfficeState {
   @type({ map: Player })
   players = new MapSchema<Player>()
@@ -40,6 +46,9 @@ export class OfficeState extends Schema implements IOfficeState {
 
   @type({ map: Whiteboard })
   whiteboards = new MapSchema<Whiteboard>()
+
+  @type({ map: MusicBooth })
+  musicBooths = new MapSchema<MusicBooth>()
 
   @type([ChatMessage])
   chatMessages = new ArraySchema<ChatMessage>()
