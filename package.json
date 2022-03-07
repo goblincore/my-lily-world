@@ -43,6 +43,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "phaser": "^3.55.2",
+    "phaser3-rex-plugins": "^1.1.67",
     "regenerator-runtime": "^0.13.7",
     "tslib": "^2.3.0"
   }
