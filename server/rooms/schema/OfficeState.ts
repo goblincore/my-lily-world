@@ -54,6 +54,7 @@ export class OfficeState extends Schema implements IOfficeState {
   chatMessages = new ArraySchema<ChatMessage>()
 }
 
+export const musicBoothIds = new Set<string>()
 export const whiteboardRoomIds = new Set<string>()
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 const charactersLength = characters.length
@@ -68,6 +69,14 @@ function getRoomId() {
     return result
   } else {
     console.log('roomId exists, remaking another one.')
+    getRoomId()
+  }
+
+  if (!musicBoothIds.has(result)) {
+    musicBoothIds.add(result)
+    return result
+  } else {
+    console.log('musicbooth roomId exists, remaking another one.')
     getRoomId()
   }
 }
