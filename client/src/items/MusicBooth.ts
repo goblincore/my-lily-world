@@ -2,7 +2,7 @@ import { ItemType } from '../../../types/Items'
 import store from '../stores'
 import Item from './Item'
 import Network from '../services/Network'
-import { openWhiteboardDialog } from '../stores/WhiteboardStore'
+import { openMusicBoothDialog } from '../stores/MusicBoothStore'
 
 export default class MusicBooth extends Item {
   id?: string
@@ -26,6 +26,7 @@ export default class MusicBooth extends Item {
   }
 
   onOverlapDialog() {
+      console.log('onOverlapDialog');
     if (this.currentUsers.size === 0) {
       this.setDialogBox('Press R to use musicbooth')
     } else {
@@ -46,8 +47,9 @@ export default class MusicBooth extends Item {
   }
 
   openDialog(network: Network) {
+      console.log('MusicBooth instance open Dialog');
     if (!this.id) return
-    store.dispatch(openWhiteboardDialog(this.id))
-    network.connectToWhiteboard(this.id)
+    store.dispatch(openMusicBoothDialog(this.id))
+    network.connectToMusicBooth(this.id)
   }
 }

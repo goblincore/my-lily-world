@@ -15,6 +15,12 @@ import {
   WhiteboardAddUserCommand,
   WhiteboardRemoveUserCommand,
 } from './commands/WhiteboardUpdateArrayCommand'
+
+import {
+  MusicBoothAddUserCommand,
+  MusicBoothRemoveUserCommand,
+} from './commands/MusicBoothUpdateArrayCommand'
+
 import ChatMessageUpdateCommand from './commands/ChatMessageUpdateCommand'
 
 export class SkyOffice extends Room<OfficeState> {
@@ -85,6 +91,14 @@ export class SkyOffice extends Room<OfficeState> {
       })
     })
 
+    // when a player connects to a music booth, add the user to the musicBooth connectedUser array
+    this.onMessage(Message.CONNECT_TO_MUSIC_BOOTH, (client, message: { musicBoothId: string }) => {
+      this.dispatcher.dispatch(new MusicBoothAddUserCommand(), {
+        client,
+        musicBoothId: message.musicBoothId,
+      })
+    })
+
     // when a player disconnect from a whiteboard, remove from the whiteboard connectedUser array
     this.onMessage(
       Message.DISCONNECT_FROM_WHITEBOARD,
@@ -92,6 +106,17 @@ export class SkyOffice extends Room<OfficeState> {
         this.dispatcher.dispatch(new WhiteboardRemoveUserCommand(), {
           client,
           whiteboardId: message.whiteboardId,
+        })
+      }
+    )
+
+    // when a player disconnects from a music booth, remove the user to the musicBooth connectedUser array
+    this.onMessage(
+      Message.DISCONNECT_FROM_MUSIC_BOOTH,
+      (client, message: { musicBoothId: string }) => {
+        this.dispatcher.dispatch(new MusicBoothRemoveUserCommand(), {
+          client,
+          musicBoothId: message.musicBoothId,
         })
       }
     )

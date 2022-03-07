@@ -23,6 +23,7 @@ export const musicBoothSlice = createSlice({
   initialState,
   reducers: {
     openMusicBoothDialog: (state, action: PayloadAction<string>) => {
+        console.log('openMusicBoothDialog reducer', state, action);
       state.musicBoothDialogOpen = true
       state.musicBoothId = action.payload
       const url = state.urls.get(action.payload)

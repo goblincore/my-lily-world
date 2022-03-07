@@ -7,6 +7,7 @@ import Network from '../services/Network'
 import Chair from '../items/Chair'
 import Computer from '../items/Computer'
 import Whiteboard from '../items/Whiteboard'
+import MusicBooth from '../items/MusicBooth'
 
 import { phaserEvents, Event } from '../events/EventCenter'
 import store from '../stores'
@@ -61,6 +62,10 @@ export default class MyPlayer extends Player {
           const whiteboard = item as Whiteboard
           whiteboard.openDialog(network)
           break
+        case ItemType.MUSICBOOTH:
+            const musicBooth = item as MusicBooth
+            musicBooth.openDialog(network)
+            break  
         case ItemType.VENDINGMACHINE:
           // hacky and hard-coded, but leaving it as is for now
           window.open('https://www.buymeacoffee.com/skyoffice', '_blank')
