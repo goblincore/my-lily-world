@@ -11,7 +11,7 @@ export default class MusicBooth extends Item {
   constructor(scene: Phaser.Scene, x: number, y: number, texture: string, frame?: string | number) {
     super(scene, x, y, texture, frame)
 
-    this.itemType = ItemType.WHITEBOARD
+    this.itemType = ItemType.MUSICBOOTH
   }
 
   private updateStatus() {
@@ -27,7 +27,7 @@ export default class MusicBooth extends Item {
 
   onOverlapDialog() {
     if (this.currentUsers.size === 0) {
-      this.setDialogBox('Press R to use whiteboard')
+      this.setDialogBox('Press R to use musicbooth')
     } else {
       this.setDialogBox('Press R join')
     }
