@@ -1,5 +1,5 @@
 import { Client, Room } from 'colyseus.js'
-import { IComputer, IOfficeState, IPlayer, IWhiteboard } from '../../../types/IOfficeState'
+import { IComputer, IOfficeState, IPlayer, IWhiteboard, IMusicBooth } from '../../../types/IOfficeState'
 import { Message } from '../../../types/Messages'
 import { IRoomData, RoomType } from '../../../types/Rooms'
 import { ItemType } from '../../../types/Items'
@@ -20,7 +20,11 @@ import {
   pushPlayerLeftMessage,
 } from '../stores/ChatStore'
 import { setWhiteboardUrls } from '../stores/WhiteboardStore'
+import { setMusicBoothUrls } from '../stores/MusicBoothStore'
 
+// This class centralizes the handling of network events from the server
+// mostly the socket events
+// then dispatches them to update redux store
 export default class Network {
   private client: Client
   private room?: Room<IOfficeState>
@@ -152,6 +156,23 @@ export default class Network {
       }
       whiteboard.connectedUser.onRemove = (item, index) => {
         phaserEvents.emit(Event.ITEM_USER_REMOVED, item, key, ItemType.WHITEBOARD)
+      }
+    }
+
+ // new instance added to the music booth MapSchema
+    this.room.state.musicBooths.onAdd = (musicBooth: IMusicBooth, key: string) => {
+      store.dispatch(
+        setMusicBoothUrls({
+          musicBoothId: key,
+          roomId: musicBooth.roomId,
+        })
+      )
+      // track changes on every child object's connectedUser
+      musicBooth.connectedUser.onAdd = (item, index) => {
+        phaserEvents.emit(Event.ITEM_USER_ADDED, item, key, ItemType.MUSICBOOTH)
+      }
+      musicBooth.connectedUser.onRemove = (item, index) => {
+        phaserEvents.emit(Event.ITEM_USER_REMOVED, item, key, ItemType.MUSICBOOTH)
       }
     }
 
