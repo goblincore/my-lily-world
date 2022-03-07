@@ -9,6 +9,7 @@ import Computer from '../items/Computer'
 import Whiteboard from '../items/Whiteboard'
 import MusicBooth from '../items/MusicBooth'
 import VendingMachine from '../items/VendingMachine'
+import {  LilYoutubePlayer } from "../items/MediaPlayer";
 import '../characters/MyPlayer'
 import '../characters/OtherPlayer'
 import MyPlayer from '../characters/MyPlayer'
@@ -35,6 +36,7 @@ export default class Game extends Phaser.Scene {
   computerMap = new Map<string, Computer>()
   private whiteboardMap = new Map<string, Whiteboard>()
   private musicBoothMap = new Map<string, MusicBooth>()
+  private youtubePlayer?: LilYoutubePlayer
 
   constructor() {
     super('game')
@@ -171,6 +173,17 @@ export default class Game extends Phaser.Scene {
       undefined,
       this
     )
+
+    // Youtube embed test
+    const youtubePlayerProps = {
+      scene: this,
+      x: 300,
+      y: 200,
+      width: 320,
+      height: 240,
+    }
+    this.youtubePlayer = new LilYoutubePlayer({...youtubePlayerProps});
+    this.youtubePlayer.load('Csev9IUatzc', false);
 
     // register network event listeners
     this.network.onPlayerJoined(this.handlePlayerJoined, this)
