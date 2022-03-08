@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
-
+import Game from '../scenes/Game'
+import phaserGame from '../PhaserGame'
 import { useAppSelector, useAppDispatch } from '../hooks'
 import { closeMusicBoothDialog } from '../stores/MusicBoothStore'
 
@@ -48,6 +49,14 @@ const MusicBoothWrapper = styled.div`
 export default function MusicBoothDialog() {
   const musicBoothUrl = useAppSelector((state) => state.musicBooth.musicBoothUrl)
   const dispatch = useAppDispatch()
+  const game = phaserGame.scene.keys.game as Game
+
+  console.log('musicBoothUrl', musicBoothUrl);
+
+  const handlePlay=()=>{
+      console.log('handlePlay');
+    game.network.startMusicShare('43C9zEYf8Lc');
+  }
 
   return (
     <Backdrop>
@@ -59,11 +68,11 @@ export default function MusicBoothDialog() {
         >
           <CloseIcon />
         </IconButton>
-        {musicBoothUrl && (
+        {/* {musicBoothUrl && ( */}
           <MusicBoothWrapper>
-            <iframe title="white board" src={musicBoothUrl} />
+             <button onClick={handlePlay}>PLAY SONG</button>
           </MusicBoothWrapper>
-        )}
+        {/* )} */}
       </Wrapper>
     </Backdrop>
   )

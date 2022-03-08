@@ -56,7 +56,7 @@ export class SkyOffice extends Room<OfficeState> {
     //   this.state.whiteboards.set(String(i), new Whiteboard())
     // }
 
-     // HARD-CODED: Add 3 whiteboards in a room
+    // HARD-CODED: Add 3 whiteboards in a room
     for (let i = 0; i < 3; i++) {
       this.state.musicBooths.set(String(i), new MusicBooth())
     }
@@ -97,7 +97,19 @@ export class SkyOffice extends Room<OfficeState> {
       })
     })
 
-    // when a player connects to a music booth, add the user to the musicBooth connectedUser array
+    // when a player starts playing a song
+    this.onMessage(Message.START_MUSIC_SHARE, (client, message: { musicBoothId: string }) => {
+      console.log('player initiated starting playing music command')
+      this.dispatcher.dispatch(new MusicBoothStartPlaySongUserCommand(), {
+        client,
+        musicBoothId: message.musicBoothId,
+      })
+
+      // broadcast to all currently connected clients except the sender (to render in-game dialog on top of the character)
+      this.broadcast(Message.START_MUSIC_SHARE, { clientId: client.sessionId })
+    })
+
+    // when a player connects to a music booth
     this.onMessage(Message.CONNECT_TO_MUSIC_BOOTH, (client, message: { musicBoothId: string }) => {
       this.dispatcher.dispatch(new MusicBoothAddUserCommand(), {
         client,
@@ -206,7 +218,6 @@ export class SkyOffice extends Room<OfficeState> {
       description: this.description,
     })
   }
-
 
   onLeave(client: Client, consented: boolean) {
     if (this.state.players.has(client.sessionId)) {

@@ -201,11 +201,24 @@ export default class Network {
       const computerState = store.getState().computer
       computerState.shareScreenManager?.onUserLeft(clientId)
     })
+
+    this.room.onMessage(Message.START_MUSIC_SHARE, ({clientId, content}) => {
+      console.log('NETWORK start music share command clientId', clientId);
+      phaserEvents.emit(Event.START_PLAYING_MEDIA, clientId, content)
+    })
   }
+
+  /* The below are commands that can be accessed and invoked from a component, the above are handlers for when
+  the message type is recieved from the functions below, what to do, eg update store, update in game etc */
 
   // method to register event listener and call back function when a item user added
   onChatMessageAdded(callback: (playerId: string, content: string) => void, context?: any) {
     phaserEvents.on(Event.UPDATE_DIALOG_BUBBLE, callback, context)
+  }
+
+  onStartMusicShare(callback: (playerId: string, content: string) => void, context?: any) {
+    console.log('on Network client service start music share');
+    phaserEvents.on(Event.START_PLAYING_MEDIA, callback, context) // how to update within phaser game instance
   }
 
   // method to register event listener and call back function when a item user added
@@ -284,10 +297,6 @@ export default class Network {
     this.room?.send(Message.CONNECT_TO_COMPUTER, { computerId: id })
   }
 
-  // method to announce starting music playing sesh
-  startMusicShare(id: string) {
-    this.room?.send(Message.START_MUSIC_SHARE, {computerId: id})
-  }
 
   disconnectFromComputer(id: string) {
     this.room?.send(Message.DISCONNECT_FROM_COMPUTER, { computerId: id })
@@ -314,6 +323,13 @@ export default class Network {
   onStopScreenShare(id: string) {
     this.room?.send(Message.STOP_SCREEN_SHARE, { computerId: id })
   }
+  // method to announce starting music playing sesh
+  startMusicShare(content:string) {
+    console.log('Network client Start music share');
+    this.room?.send(Message.START_MUSIC_SHARE, {content})
+  }
+
+
 
   onStopMusicShare(id: string) {
     this.room?.send(Message.STOP_MUSIC_SHARE, { computerId: id })

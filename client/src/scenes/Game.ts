@@ -194,6 +194,7 @@ export default class Game extends Phaser.Scene {
     this.network.onItemUserAdded(this.handleItemUserAdded, this)
     this.network.onItemUserRemoved(this.handleItemUserRemoved, this)
     this.network.onChatMessageAdded(this.handleChatMessageAdded, this)
+    this.network.onStartMusicShare(this.handleStartMusicShare, this)
   }
 
   private handleItemSelectorOverlap(playerSelector, selectionItem) {
@@ -302,8 +303,15 @@ export default class Game extends Phaser.Scene {
   }
 
   private handleChatMessageAdded(playerId: string, content: string) {
+    console.log('handleChatMessageAdded');
     const otherPlayer = this.otherPlayerMap.get(playerId)
     otherPlayer?.updateDialogBubble(content)
+  }
+
+
+  private handleStartMusicShare(playerId: string, content: string){
+    console.log('in game startMusic playing!!')
+    this.youtubePlayer?.play();
   }
 
   update(t: number, dt: number) {
