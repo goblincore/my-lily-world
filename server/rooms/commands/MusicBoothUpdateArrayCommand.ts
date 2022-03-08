@@ -18,6 +18,13 @@ export class MusicBoothAddUserCommand extends Command<IOfficeState, Payload> {
   }
 }
 
+export class MusicBoothStartPlaySongUserCommand extends Command<IOfficeState, Payload> {
+    execute(data: Payload){
+        console.log('data');
+
+    }
+}
+
 export class MusicBoothRemoveUserCommand extends Command<IOfficeState, Payload> {
   execute(data: Payload) {
     const { client, musicBoothId } = data
