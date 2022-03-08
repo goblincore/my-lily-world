@@ -1,10 +1,10 @@
 import bcrypt from 'bcrypt'
 import { Room, Client, ServerError } from 'colyseus'
 import { Dispatcher } from '@colyseus/command'
-import { Player, OfficeState, Computer, Whiteboard } from './schema/OfficeState'
+import { Player, OfficeState, Computer, Whiteboard, MusicBooth } from './schema/OfficeState'
 import { Message } from '../../types/Messages'
 import { IRoomData } from '../../types/Rooms'
-import { whiteboardRoomIds } from './schema/OfficeState'
+import { whiteboardRoomIds, musicBoothIds } from './schema/OfficeState'
 import PlayerUpdateCommand from './commands/PlayerUpdateCommand'
 import PlayerUpdateNameCommand from './commands/PlayerUpdateNameCommand'
 import {
@@ -19,6 +19,7 @@ import {
 import {
   MusicBoothAddUserCommand,
   MusicBoothRemoveUserCommand,
+  MusicBoothStartPlaySongUserCommand,
 } from './commands/MusicBoothUpdateArrayCommand'
 
 import ChatMessageUpdateCommand from './commands/ChatMessageUpdateCommand'
@@ -51,8 +52,13 @@ export class SkyOffice extends Room<OfficeState> {
     }
 
     // HARD-CODED: Add 3 whiteboards in a room
+    // for (let i = 0; i < 3; i++) {
+    //   this.state.whiteboards.set(String(i), new Whiteboard())
+    // }
+
+     // HARD-CODED: Add 3 whiteboards in a room
     for (let i = 0; i < 3; i++) {
-      this.state.whiteboards.set(String(i), new Whiteboard())
+      this.state.musicBooths.set(String(i), new MusicBooth())
     }
 
     // when a player connect to a computer, add to the computer connectedUser array
