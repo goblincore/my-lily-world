@@ -196,6 +196,8 @@ export class SkyOffice extends Room<OfficeState> {
     return true
   }
 
+  // When a new player joins, send room data
+
   onJoin(client: Client, options: any) {
     this.state.players.set(client.sessionId, new Player())
     client.send(Message.SEND_ROOM_DATA, {
@@ -204,6 +206,7 @@ export class SkyOffice extends Room<OfficeState> {
       description: this.description,
     })
   }
+
 
   onLeave(client: Client, consented: boolean) {
     if (this.state.players.has(client.sessionId)) {
@@ -217,6 +220,11 @@ export class SkyOffice extends Room<OfficeState> {
     this.state.whiteboards.forEach((whiteboard) => {
       if (whiteboard.connectedUser.has(client.sessionId)) {
         whiteboard.connectedUser.delete(client.sessionId)
+      }
+    })
+    this.state.musicBooths.forEach((musicBooth) => {
+      if (musicBooth.connectedUser.has(client.sessionId)) {
+        musicBooth.connectedUser.delete(client.sessionId)
       }
     })
   }
