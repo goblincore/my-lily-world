@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import styled from 'styled-components'
+import InputBase from '@mui/material/InputBase'
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
 import Game from '../scenes/Game'
 import phaserGame from '../PhaserGame'
 import { useAppSelector, useAppDispatch } from '../hooks'
 import { closeMusicBoothDialog } from '../stores/MusicBoothStore'
-
+import axios from 'axios'
 
 const Backdrop = styled.div`
   position: fixed;
@@ -15,7 +16,7 @@ const Backdrop = styled.div`
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  max-width:400px;
+  max-width: 400px;
   padding: 16px 16px 16px 16px;
 `
 const Wrapper = styled.div`
@@ -40,11 +41,9 @@ const MusicBoothWrapper = styled.div`
   flex: 1;
   border-radius: 25px;
   overflow: hidden;
-  margin-right: 50px;
-  iframe {
-    width: 100%;
-    height: 100%;
-  }
+  margin:0px;
+  width: 100%;
+  height: 100%;
 `
 
 export default function MusicBoothDialog() {
@@ -52,24 +51,12 @@ export default function MusicBoothDialog() {
   const dispatch = useAppDispatch()
   const game = phaserGame.scene.keys.game as Game
 
-  console.log('musicBoothUrl', musicBoothUrl);
+  console.log('musicBoothUrl', musicBoothUrl)
 
-  const handlePlay=()=>{
-      console.log('handlePlay');
-    game.network.startMusicShare('234234');
+  const handlePlay = () => {
+    console.log('handlePlay')
+    game.network.startMusicShare('234234')
   }
-
-//   const getYoutubeData = async() => {
-//       const data = await GetData("dj lostboi", false, 24);
-//       console.log('YOUTUBE DATA', data);
-//       return data;
-//   }
-
-  useEffect(()=>{
-
-    // getYoutubeData()
-
-  },[])
 
   return (
     <Backdrop>
@@ -82,13 +69,120 @@ export default function MusicBoothDialog() {
           <CloseIcon />
         </IconButton>
         {/* {musicBoothUrl && ( */}
-          <MusicBoothWrapper>
-             <button onClick={handlePlay}>PLAY SONG</button>
-
-            
-          </MusicBoothWrapper>
+        <MusicBoothWrapper>
+          <button onClick={handlePlay}>PLAY SONG</button>
+          <MusicSearch />
+        </MusicBoothWrapper>
         {/* )} */}
       </Wrapper>
     </Backdrop>
   )
+}
+
+const InputWrapper = styled.form`
+  box-shadow: 10px 10px 10px #00000018;
+  border: 1px solid #42eacb;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(180deg, #000000c1, #242424c0);
+`
+
+const InputTextField = styled(InputBase)`
+  border-radius: 10px;
+  input {
+    padding: 5px;
+  }
+`
+
+const MusicSearch = () => {
+  const [data, setData] = useState([])
+  const [inputValue, setInputValue] = useState('')
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    axios.get('http://localhost:2567/youtube').then((response) => {
+      console.log('res', response)
+      setData(response?.data?.items)
+    })
+  }, [])
+
+  console.log('data', data);
+
+  const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
+    setInputValue(event.currentTarget.value)
+  }
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setInputValue('')
+  }
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Escape') {
+      inputRef.current?.blur()
+    }
+  }
+
+  const resultsList = data?.length > 0 && data?.map( result => {
+      const { title, thumbnail, length, id} = result;
+      return (
+          <YoutubeResult key={id} title={title} thumbnail={thumbnail} length={length} id={id} />
+      )
+  })
+
+  return (
+      <section>
+    <InputWrapper onSubmit={handleSubmit}>
+      <InputTextField
+        ref={inputRef}
+        fullWidth
+        placeholder="Search"
+        value={inputValue}
+        onKeyDown={handleKeyDown}
+        onChange={handleChange}
+      />
+    </InputWrapper>
+
+    <ul>
+
+    {resultsList}
+
+    </ul>
+
+    </section>
+  )
+}
+
+
+const ListItem = styled.li`
+  border-radius: 0px;
+  padding: 10px;
+  display: flex;
+  color: #eee;
+  flex-direction: row;
+  border-bottom:1px solid grey;
+  justify-content: space-between;
+
+  h4 {
+      color: #eee;
+  }
+`
+
+const YoutubeResult = ({id, thumbnail, title, length}) => {
+
+    const lengthText = length?.simpleText;
+
+    return(
+        <ListItem>
+            <section>
+                <h4>{title}</h4>
+            </section>
+            <section>
+                {lengthText}
+            </section>
+
+        </ListItem>
+
+    );
 }
