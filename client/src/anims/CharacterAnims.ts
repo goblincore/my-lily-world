@@ -126,8 +126,8 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'lucy_idle_right',
     frames: anims.generateFrameNames('lucy', {
-      start: 0,
-      end: 5,
+      start: 8,
+      end: 8,
     }),
     repeat: -1,
     frameRate: animsFrameRate * 0.6,
@@ -136,8 +136,8 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'lucy_idle_up',
     frames: anims.generateFrameNames('lucy', {
-      start: 6,
-      end: 11,
+      start: 3,
+      end: 5,
     }),
     repeat: -1,
     frameRate: animsFrameRate * 0.6,
@@ -146,8 +146,8 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'lucy_idle_left',
     frames: anims.generateFrameNames('lucy', {
-      start: 12,
-      end: 17,
+      start: 6,
+      end: 6,
     }),
     repeat: -1,
     frameRate: animsFrameRate * 0.6,
@@ -156,8 +156,8 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'lucy_idle_down',
     frames: anims.generateFrameNames('lucy', {
-      start: 18,
-      end: 23,
+      start: 0,
+      end: 2,
     }),
     repeat: -1,
     frameRate: animsFrameRate * 0.6,
@@ -166,8 +166,8 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'lucy_run_right',
     frames: anims.generateFrameNames('lucy', {
-      start: 24,
-      end: 29,
+      start: 8,
+      end: 9,
     }),
     repeat: -1,
     frameRate: animsFrameRate,
@@ -176,8 +176,8 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'lucy_run_up',
     frames: anims.generateFrameNames('lucy', {
-      start: 30,
-      end: 35,
+      start: 3,
+      end: 5,
     }),
     repeat: -1,
     frameRate: animsFrameRate,
@@ -186,8 +186,8 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'lucy_run_left',
     frames: anims.generateFrameNames('lucy', {
-      start: 36,
-      end: 41,
+      start: 6,
+      end: 7,
     }),
     repeat: -1,
     frameRate: animsFrameRate,
@@ -196,8 +196,8 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'lucy_run_down',
     frames: anims.generateFrameNames('lucy', {
-      start: 42,
-      end: 47,
+      start: 0,
+      end: 2,
     }),
     repeat: -1,
     frameRate: animsFrameRate,
@@ -206,8 +206,8 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'lucy_sit_down',
     frames: anims.generateFrameNames('lucy', {
-      start: 48,
-      end: 48,
+      start: 0,
+      end: 0,
     }),
     repeat: 0,
     frameRate: animsFrameRate,
@@ -216,8 +216,8 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'lucy_sit_left',
     frames: anims.generateFrameNames('lucy', {
-      start: 49,
-      end: 49,
+      start: 6,
+      end: 6,
     }),
     repeat: 0,
     frameRate: animsFrameRate,
@@ -226,8 +226,8 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'lucy_sit_right',
     frames: anims.generateFrameNames('lucy', {
-      start: 50,
-      end: 50,
+      start: 9,
+      end: 9,
     }),
     repeat: 0,
     frameRate: animsFrameRate,
@@ -236,8 +236,8 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'lucy_sit_up',
     frames: anims.generateFrameNames('lucy', {
-      start: 51,
-      end: 51,
+      start: 4,
+      end: 4,
     }),
     repeat: 0,
     frameRate: animsFrameRate,

@@ -38,6 +38,14 @@ const Wrapper = styled.div`
 
 const FabWrapper = styled.div`
   margin-top: auto;
+
+  button {
+    font-size: 14px;
+    text-transform: lowercase !important;
+    line-height: 100%;
+    background-color: white !important;
+  }
+
 `
 
 const ChatHeader = styled.div`

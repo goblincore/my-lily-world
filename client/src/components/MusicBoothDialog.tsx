@@ -24,7 +24,7 @@ const Backdrop = styled.div`
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  background: #222639;
+  background: #fff;
   border-radius: 16px;
   padding: 16px;
   color: #eee;
@@ -87,12 +87,14 @@ const InputWrapper = styled.form`
   border: 1px solid #42eacb;
   border-radius: 10px;
   display: flex;
+  color: #666;
   flex-direction: row;
-  background: linear-gradient(180deg, #000000c1, #242424c0);
+  background: #ccc;
 `
 
 const InputTextField = styled(InputBase)`
   border-radius: 10px;
+  color: #666;
   input {
     padding: 5px;
   }
@@ -176,13 +178,13 @@ const ListItem = styled.li`
   border-radius: 0px;
   padding: 10px;
   display: flex;
-  color: #eee;
+  color: #666;
   flex-direction: row;
   border-bottom:1px solid grey;
   justify-content: space-between;
 
   h4 {
-      color: #eee;
+      color: #666;
   }
 `
 

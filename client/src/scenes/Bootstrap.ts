@@ -46,8 +46,8 @@ export default class Bootstrap extends Phaser.Scene {
       frameHeight: 64,
     })
     this.load.spritesheet('musicBooths', 'assets/items/musicBooth.png', {
-      frameWidth: 64,
-      frameHeight: 64,
+      frameWidth: 82,
+      frameHeight: 55,
     })
     this.load.spritesheet('vendingmachines', 'assets/items/vendingmachine.png', {
       frameWidth: 48,
@@ -73,9 +73,9 @@ export default class Bootstrap extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 48,
     })
-    this.load.spritesheet('lucy', 'assets/character/lucy.png', {
-      frameWidth: 32,
-      frameHeight: 48,
+    this.load.spritesheet('lucy', 'assets/character/lilwiggle.png', {
+      frameWidth: 16,
+      frameHeight: 16,
     })
     this.load.spritesheet('nancy', 'assets/character/nancy.png', {
       frameWidth: 32,

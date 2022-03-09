@@ -182,10 +182,10 @@ export default class Game extends Phaser.Scene {
     // Youtube embed test
     const youtubePlayerProps = {
       scene: this,
-      x: 650,
-      y: 100,
-      width: 320,
-      height: 240,
+      x: 800,
+      y: 180,
+      width: 240,
+      height: 180,
     }
     this.youtubePlayer = new LilYoutubePlayer({...youtubePlayerProps});
     this.youtubePlayer.load(this.youtubeUrl, false);
