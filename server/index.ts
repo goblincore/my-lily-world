@@ -5,6 +5,7 @@ import { Server, LobbyRoom } from 'colyseus'
 import { monitor } from '@colyseus/monitor'
 import { RoomType } from '../types/Rooms'
 import * as yt from 'youtube-search-without-api-key'
+import * as youtube from './Youtube';
 // import socialRoutes from "@colyseus/social/express"
 
 import { SkyOffice } from './rooms/SkyOffice'
@@ -45,15 +46,14 @@ app.use('/colyseus', monitor())
 gameServer.listen(port)
 console.log(`Listening on ws://localhost:${port}`)
 
-app.get('/youtube', async (req, res) => {
+app.get('/youtube', async (req, res, next) => {
   try {
     // We will be coding here
-    const videos = await yt.search('dj lostboi')
-
-    console.log('videos', videos)
-
+    // const videos = await yt.search('dj lostboi')
+    const videos = await youtube.GetData('dj lostboi', false, 24);
     res.json(videos)
   } catch (e) {
     console.log('e', e)
+    return next(e);
   }
 })

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
@@ -6,6 +6,7 @@ import Game from '../scenes/Game'
 import phaserGame from '../PhaserGame'
 import { useAppSelector, useAppDispatch } from '../hooks'
 import { closeMusicBoothDialog } from '../stores/MusicBoothStore'
+
 
 const Backdrop = styled.div`
   position: fixed;
@@ -55,8 +56,20 @@ export default function MusicBoothDialog() {
 
   const handlePlay=()=>{
       console.log('handlePlay');
-    game.network.startMusicShare('43C9zEYf8Lc');
+    game.network.startMusicShare('234234');
   }
+
+//   const getYoutubeData = async() => {
+//       const data = await GetData("dj lostboi", false, 24);
+//       console.log('YOUTUBE DATA', data);
+//       return data;
+//   }
+
+  useEffect(()=>{
+
+    // getYoutubeData()
+
+  },[])
 
   return (
     <Backdrop>
@@ -71,6 +84,8 @@ export default function MusicBoothDialog() {
         {/* {musicBoothUrl && ( */}
           <MusicBoothWrapper>
              <button onClick={handlePlay}>PLAY SONG</button>
+
+            
           </MusicBoothWrapper>
         {/* )} */}
       </Wrapper>
