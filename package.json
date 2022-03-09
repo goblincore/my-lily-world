@@ -37,6 +37,7 @@
     "@colyseus/arena": "^0.14.9",
     "@colyseus/command": "^0.1.7",
     "@colyseus/monitor": "^0.14.0",
+    "axios": "^0.26.0",
     "bcrypt": "^5.0.1",
     "colyseus": "^0.14.0",
     "colyseus.js": "^0.14.12",
