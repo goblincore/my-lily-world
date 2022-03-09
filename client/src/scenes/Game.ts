@@ -141,11 +141,11 @@ export default class Game extends Phaser.Scene {
      })
 
     // import vending machine objects from Tiled map to Phaser
-    const vendingMachines = this.physics.add.staticGroup({ classType: VendingMachine })
-    const vendingMachineLayer = this.map.getObjectLayer('VendingMachine')
-    vendingMachineLayer.objects.forEach((obj, i) => {
-      this.addObjectFromTiled(vendingMachines, obj, 'vendingmachines', 'vendingmachine')
-    })
+    // const vendingMachines = this.physics.add.staticGroup({ classType: VendingMachine })
+    // const vendingMachineLayer = this.map.getObjectLayer('VendingMachine')
+    // vendingMachineLayer.objects.forEach((obj, i) => {
+    //   this.addObjectFromTiled(vendingMachines, obj, 'vendingmachines', 'vendingmachine')
+    // })
 
     // import other objects from Tiled map to Phaser
     // this.addGroupFromTiled('Wall', 'tiles_wall', 'FloorAndGround', false)
@@ -157,15 +157,15 @@ export default class Game extends Phaser.Scene {
 
     this.otherPlayers = this.physics.add.group({ classType: OtherPlayer })
 
-    this.cameras.main.zoom = 1.0
+    this.cameras.main.zoom = 1.5
     this.cameras.main.startFollow(this.myPlayer, true)
 
     this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], groundLayer)
-    this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], vendingMachines)
+    // this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], vendingMachines)
 
     this.physics.add.overlap(
       this.playerSelector,
-      [musicBooths, vendingMachines],
+      [musicBooths],
       this.handleItemSelectorOverlap,
       undefined,
       this

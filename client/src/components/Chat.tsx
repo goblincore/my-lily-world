@@ -43,11 +43,11 @@ const FabWrapper = styled.div`
 const ChatHeader = styled.div`
   position: relative;
   height: 35px;
-  background: #000000a7;
+  background: #eee;
   border-radius: 10px 10px 0px 0px;
 
   h3 {
-    color: #fff;
+    color: #666;
     margin: 7px;
     font-size: 17px;
     text-align: center;
@@ -64,8 +64,11 @@ const ChatBox = styled(Box)`
   height: 100%;
   width: 100%;
   overflow: auto;
-  background: #2c2c2c;
+  background: #eee;
   border: 1px solid #00000029;
+  p, span {
+    color: black !important;
+  }
 `
 
 const MessageWrapper = styled.div`
@@ -78,6 +81,7 @@ const MessageWrapper = styled.div`
     text-shadow: 0.3px 0.3px black;
     font-size: 15px;
     font-weight: bold;
+    color: green;
     line-height: 1.4;
     overflow-wrap: anywhere;
   }
@@ -99,17 +103,21 @@ const MessageWrapper = styled.div`
 
 const InputWrapper = styled.form`
   box-shadow: 10px 10px 10px #00000018;
-  border: 1px solid #42eacb;
+  border: 1px solid grey;
   border-radius: 0px 0px 10px 10px;
   display: flex;
   flex-direction: row;
-  background: linear-gradient(180deg, #000000c1, #242424c0);
+  color: black;
+  font-family: monospace;
+  background: #efefef;
 `
 
 const InputTextField = styled(InputBase)`
   border-radius: 0px 0px 10px 10px;
   input {
     padding: 5px;
+    color: black;
+    font-family: monospace;
   }
 `
 
@@ -276,7 +284,7 @@ export default function Chat() {
                 dispatch(setFocused(true))
               }}
             >
-              <ChatBubbleOutlineIcon />
+              Open Chat
             </Fab>
           </FabWrapper>
         )}

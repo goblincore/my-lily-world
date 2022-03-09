@@ -28,7 +28,7 @@ export default class MusicBooth extends Item {
   onOverlapDialog() {
       console.log('onOverlapDialog');
     if (this.currentUsers.size === 0) {
-      this.setDialogBox('Press R to use musicbooth')
+      this.setDialogBox('Press R to be the DJ')
     } else {
       this.setDialogBox('Press R join')
     }
