@@ -8,6 +8,8 @@ import phaserGame from '../PhaserGame'
 import { useAppSelector, useAppDispatch } from '../hooks'
 import { closeMusicBoothDialog } from '../stores/MusicBoothStore'
 import axios from 'axios'
+import { useSnapshot } from 'valtio';
+import { playlistStore } from '../stores/PlaylistStore'
 
 const Backdrop = styled.div`
   position: fixed;
@@ -95,17 +97,25 @@ const InputTextField = styled(InputBase)`
   }
 `
 
+const SearchList =styled.ul`
+  padding:0px;
+  margin:0px;
+`
+
 const MusicSearch = () => {
   const [data, setData] = useState([])
   const [inputValue, setInputValue] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
+  const { url } = useSnapshot(playlistStore);
 
   useEffect(() => {
-    axios.get('http://localhost:2567/youtube').then((response) => {
-      console.log('res', response)
+      console.log('PLAYLIST STORE URL', url);
+     axios.get(`http://localhost:2567/youtube/${inputValue}`).then((response) => {
+      
       setData(response?.data?.items)
     })
-  }, [])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inputValue])
 
   console.log('data', data);
 
@@ -124,10 +134,14 @@ const MusicSearch = () => {
     }
   }
 
+  const handleClick = (url:string) => {
+      playlistStore.url = url;
+  }
+
   const resultsList = data?.length > 0 && data?.map( result => {
       const { title, thumbnail, length, id} = result;
       return (
-          <YoutubeResult key={id} title={title} thumbnail={thumbnail} length={length} id={id} />
+          <YoutubeResult onClick={()=>handleClick(id)} key={id} title={title} thumbnail={thumbnail} length={length} id={id} />
       )
   })
 
@@ -144,11 +158,11 @@ const MusicSearch = () => {
       />
     </InputWrapper>
 
-    <ul>
+    <SearchList>
 
     {resultsList}
 
-    </ul>
+    </SearchList>
 
     </section>
   )
@@ -169,12 +183,12 @@ const ListItem = styled.li`
   }
 `
 
-const YoutubeResult = ({id, thumbnail, title, length}) => {
+const YoutubeResult = ({id, thumbnail, title, length, onClick}) => {
 
     const lengthText = length?.simpleText;
 
     return(
-        <ListItem>
+        <ListItem onClick={onClick}>
             <section>
                 <h4>{title}</h4>
             </section>
