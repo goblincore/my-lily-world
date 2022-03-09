@@ -47,6 +47,7 @@
     "phaser3-rex-plugins": "^1.1.67",
     "regenerator-runtime": "^0.13.7",
     "tslib": "^2.3.0",
-    "youtube-search-without-api-key": "^1.0.7"
+    "youtube-search-without-api-key": "^1.0.7",
+    "zustand": "^3.7.1"
   }
 }
