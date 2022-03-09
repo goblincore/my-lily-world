@@ -42,7 +42,7 @@ function App() {
         <>
           <Chat />
           {/* Render VideoConnectionDialog if user is not connected to a webcam. */}
-          {!videoConnected && <VideoConnectionDialog />}
+          {/* {!videoConnected && <VideoConnectionDialog />} */}
         </>
       )
     }

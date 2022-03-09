@@ -36,12 +36,14 @@ const Wrapper = styled.div`
     position: absolute;
     top: 16px;
     right: 16px;
+    z-index: 2;
   }
 `
 
 const MusicBoothWrapper = styled.div`
   flex: 1;
-  border-radius: 25px;
+  border-radius: 0px;
+  padding-top:50px;
   overflow: hidden;
   margin:0px;
   width: 100%;
@@ -72,7 +74,6 @@ export default function MusicBoothDialog() {
         </IconButton>
         {/* {musicBoothUrl && ( */}
         <MusicBoothWrapper>
-          <button onClick={handlePlay}>PLAY SONG</button>
           <MusicSearch />
         </MusicBoothWrapper>
         {/* )} */}

@@ -91,24 +91,24 @@ export default class Game extends Phaser.Scene {
     this.playerSelector = new PlayerSelector(this, 0, 0, 16, 16)
 
     // import chair objects from Tiled map to Phaser
-    const chairs = this.physics.add.staticGroup({ classType: Chair })
-    const chairLayer = this.map.getObjectLayer('Chair')
-    chairLayer.objects.forEach((chairObj) => {
-      const item = this.addObjectFromTiled(chairs, chairObj, 'chairs', 'chair') as Chair
-      // custom properties[0] is the object direction specified in Tiled
-      item.itemDirection = chairObj.properties[0].value
-    })
+    // const chairs = this.physics.add.staticGroup({ classType: Chair })
+    // const chairLayer = this.map.getObjectLayer('Chair')
+    // chairLayer.objects.forEach((chairObj) => {
+    //   const item = this.addObjectFromTiled(chairs, chairObj, 'chairs', 'chair') as Chair
+    //   // custom properties[0] is the object direction specified in Tiled
+    //   item.itemDirection = chairObj.properties[0].value
+    // })
 
     // import computers objects from Tiled map to Phaser
-    const computers = this.physics.add.staticGroup({ classType: Computer })
-    const computerLayer = this.map.getObjectLayer('Computer')
-    computerLayer.objects.forEach((obj, i) => {
-      const item = this.addObjectFromTiled(computers, obj, 'computers', 'computer') as Computer
-      item.setDepth(item.y + item.height * 0.27)
-      const id = `${i}`
-      item.id = id
-      this.computerMap.set(id, item)
-    })
+    // const computers = this.physics.add.staticGroup({ classType: Computer })
+    // const computerLayer = this.map.getObjectLayer('Computer')
+    // computerLayer.objects.forEach((obj, i) => {
+    //   const item = this.addObjectFromTiled(computers, obj, 'computers', 'computer') as Computer
+    //   item.setDepth(item.y + item.height * 0.27)
+    //   const id = `${i}`
+    //   item.id = id
+    //   this.computerMap.set(id, item)
+    // })
 
     // import whiteboards objects from Tiled map to Phaser
     // const whiteboards = this.physics.add.staticGroup({ classType: Whiteboard })
@@ -148,12 +148,12 @@ export default class Game extends Phaser.Scene {
     })
 
     // import other objects from Tiled map to Phaser
-    this.addGroupFromTiled('Wall', 'tiles_wall', 'FloorAndGround', false)
-    this.addGroupFromTiled('Objects', 'office', 'Modern_Office_Black_Shadow', false)
-    this.addGroupFromTiled('ObjectsOnCollide', 'office', 'Modern_Office_Black_Shadow', true)
-    this.addGroupFromTiled('GenericObjects', 'generic', 'Generic', false)
-    this.addGroupFromTiled('GenericObjectsOnCollide', 'generic', 'Generic', true)
-    this.addGroupFromTiled('Basement', 'basement', 'Basement', true)
+    // this.addGroupFromTiled('Wall', 'tiles_wall', 'FloorAndGround', false)
+    // this.addGroupFromTiled('Objects', 'office', 'Modern_Office_Black_Shadow', false)
+    // this.addGroupFromTiled('ObjectsOnCollide', 'office', 'Modern_Office_Black_Shadow', true)
+    // this.addGroupFromTiled('GenericObjects', 'generic', 'Generic', false)
+    // this.addGroupFromTiled('GenericObjectsOnCollide', 'generic', 'Generic', true)
+    // this.addGroupFromTiled('Basement', 'basement', 'Basement', true)
 
     this.otherPlayers = this.physics.add.group({ classType: OtherPlayer })
 
@@ -165,7 +165,7 @@ export default class Game extends Phaser.Scene {
 
     this.physics.add.overlap(
       this.playerSelector,
-      [chairs, computers, musicBooths, vendingMachines],
+      [musicBooths, vendingMachines],
       this.handleItemSelectorOverlap,
       undefined,
       this
@@ -182,8 +182,8 @@ export default class Game extends Phaser.Scene {
     // Youtube embed test
     const youtubePlayerProps = {
       scene: this,
-      x: 300,
-      y: 200,
+      x: 650,
+      y: 100,
       width: 320,
       height: 240,
     }

@@ -114,7 +114,7 @@ export default function HelperButtonGroup() {
 
   return (
     <Backdrop>
-      <div className="wrapper-group">
+      {/* <div className="wrapper-group">
         {showRoomInfo && (
           <Wrapper>
             <IconButton className="close" onClick={() => setShowRoomInfo(false)} size="small">
@@ -214,7 +214,7 @@ export default function HelperButtonGroup() {
             {backgroundMode === BackgroundMode.DAY ? <DarkModeIcon /> : <LightModeIcon />}
           </StyledFab>
         </Tooltip>
-      </ButtonGroup>
+      </ButtonGroup> */}
     </Backdrop>
   )
 }
