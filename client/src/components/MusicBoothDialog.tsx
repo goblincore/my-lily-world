@@ -107,6 +107,7 @@ const MusicSearch = () => {
   const [inputValue, setInputValue] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
   const { url } = useSnapshot(playlistStore);
+  const game = phaserGame.scene.keys.game as Game
 
   useEffect(() => {
       console.log('PLAYLIST STORE URL', url);
@@ -136,6 +137,7 @@ const MusicSearch = () => {
 
   const handleClick = (url:string) => {
       playlistStore.url = url;
+      game.network.startMusicShare(url);
   }
 
   const resultsList = data?.length > 0 && data?.map( result => {

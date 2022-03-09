@@ -22,6 +22,9 @@ import { ItemType } from '../../../types/Items'
 
 import store from '../stores'
 import { setFocused, setShowChat } from '../stores/ChatStore'
+import { proxy, subscribe, snapshot } from 'valtio/vanilla'
+import { playlistStore } from '../stores/PlaylistStore'
+
 
 export default class Game extends Phaser.Scene {
   network!: Network
@@ -37,6 +40,8 @@ export default class Game extends Phaser.Scene {
   private whiteboardMap = new Map<string, Whiteboard>()
   private musicBoothMap = new Map<string, MusicBooth>()
   private youtubePlayer?: LilYoutubePlayer
+  private youtubeUrl: string = ''
+  
 
   constructor() {
     super('game')
@@ -183,7 +188,13 @@ export default class Game extends Phaser.Scene {
       height: 240,
     }
     this.youtubePlayer = new LilYoutubePlayer({...youtubePlayerProps});
-    this.youtubePlayer.load('Csev9IUatzc', false);
+    this.youtubePlayer.load(this.youtubeUrl, false);
+
+    // subscribe(playlistStore, () => {
+    //   console.log('youtube url game state is mutated')
+    //   this.youtubePlayer?.load(playlistStore.url);
+    //   this.network.startMusicShare(playlistStore.url);
+    // })
 
     // register network event listeners
     this.network.onPlayerJoined(this.handlePlayerJoined, this)
@@ -309,9 +320,11 @@ export default class Game extends Phaser.Scene {
   }
 
 
-  private handleStartMusicShare(playerId: string, content: string){
-    console.log('in game startMusic playing!!')
-    this.youtubePlayer?.play();
+  private handleStartMusicShare(playerId: string, content: any){
+    console.log( 'in game startMusic playing content!!', content);
+    const url = content.content;
+    this.youtubePlayer?.load(url, true)
+    // this.youtubePlayer?.play();
   }
 
   update(t: number, dt: number) {

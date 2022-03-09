@@ -203,7 +203,7 @@ export default class Network {
     })
 
     this.room.onMessage(Message.START_MUSIC_SHARE, ({clientId, content}) => {
-      console.log('NETWORK start music share command clientId', clientId);
+      console.log('NETWORK start music share command content', content);
       phaserEvents.emit(Event.START_PLAYING_MEDIA, clientId, content)
     })
   }
@@ -325,7 +325,7 @@ export default class Network {
   }
   // method to announce starting music playing sesh
   startMusicShare(content:string) {
-    console.log('Network client Start music share');
+    console.log('Network client Start music share send to server to broadcast', content);
     this.room?.send(Message.START_MUSIC_SHARE, {content})
   }
 

@@ -4,7 +4,8 @@ import { IOfficeState } from '../../../types/IOfficeState'
 
 type Payload = {
   client: Client
-  musicBoothId: string
+  musicBoothId?: string
+  content: string
 }
 
 export class MusicBoothAddUserCommand extends Command<IOfficeState, Payload> {
@@ -20,7 +21,7 @@ export class MusicBoothAddUserCommand extends Command<IOfficeState, Payload> {
 
 export class MusicBoothStartPlaySongUserCommand extends Command<IOfficeState, Payload> {
     execute(data: Payload){
-        console.log('data');
+        console.log('data', data);
 
     }
 }

@@ -98,15 +98,15 @@ export class SkyOffice extends Room<OfficeState> {
     })
 
     // when a player starts playing a song
-    this.onMessage(Message.START_MUSIC_SHARE, (client, message: { musicBoothId: string }) => {
-      console.log('player initiated starting playing music command')
+    this.onMessage(Message.START_MUSIC_SHARE, (client, content) => {
+      console.log('player initiated starting playing music command', content)
       this.dispatcher.dispatch(new MusicBoothStartPlaySongUserCommand(), {
         client,
-        musicBoothId: message.musicBoothId,
+        content,
       })
 
       // broadcast to all currently connected clients except the sender (to render in-game dialog on top of the character)
-      this.broadcast(Message.START_MUSIC_SHARE, { clientId: client.sessionId })
+      this.broadcast(Message.START_MUSIC_SHARE, { clientId: client.sessionId, content })
     })
 
     // when a player connects to a music booth
