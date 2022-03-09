@@ -189,6 +189,7 @@ export default class Game extends Phaser.Scene {
     }
     this.youtubePlayer = new LilYoutubePlayer({...youtubePlayerProps});
     this.youtubePlayer.load(this.youtubeUrl, false);
+    this.youtubePlayer.alpha = 0;
 
     // subscribe(playlistStore, () => {
     //   console.log('youtube url game state is mutated')
@@ -324,6 +325,11 @@ export default class Game extends Phaser.Scene {
     console.log( 'in game startMusic playing content!!', content);
     const url = content.content;
     this.youtubePlayer?.load(url, true)
+    if(this.youtubePlayer) {
+      this.youtubePlayer.alpha = 1;
+      this.youtubePlayer.blendMode = Phaser.BlendModes.SCREEN;
+    }
+
     // this.youtubePlayer?.play();
   }
 

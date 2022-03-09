@@ -366,8 +366,10 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'adam_idle_right',
     frames: anims.generateFrameNames('adam', {
-      start: 0,
-      end: 5,
+      start: 16,
+      end: 31,
+      prefix: 'mutant-idle-',
+      suffix: '.png'
     }),
     repeat: -1,
     frameRate: animsFrameRate * 0.6,
@@ -376,8 +378,10 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'adam_idle_up',
     frames: anims.generateFrameNames('adam', {
-      start: 6,
-      end: 11,
+      start: 80,
+      end: 95,
+      prefix: 'mutant-idle-',
+      suffix: '.png'
     }),
     repeat: -1,
     frameRate: animsFrameRate * 0.6,
@@ -386,8 +390,10 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'adam_idle_left',
     frames: anims.generateFrameNames('adam', {
-      start: 12,
-      end: 17,
+      start: 64,
+      end: 79,
+      prefix: 'mutant-idle-',
+      suffix: '.png'
     }),
     repeat: -1,
     frameRate: animsFrameRate * 0.6,
@@ -396,8 +402,10 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'adam_idle_down',
     frames: anims.generateFrameNames('adam', {
-      start: 18,
-      end: 23,
+      start: 48,
+      end: 63,
+      prefix: 'mutant-idle-',
+      suffix: '.png'
     }),
     repeat: -1,
     frameRate: animsFrameRate * 0.6,
@@ -406,8 +414,10 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'adam_run_right',
     frames: anims.generateFrameNames('adam', {
-      start: 24,
-      end: 29,
+      start: 10,
+      end: 19,
+      prefix: 'mutant-walk-',
+      suffix: '.png'
     }),
     repeat: -1,
     frameRate: animsFrameRate,
@@ -416,8 +426,10 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'adam_run_up',
     frames: anims.generateFrameNames('adam', {
-      start: 30,
-      end: 35,
+      start: 50,
+      end: 59,
+      prefix: 'mutant-walk-',
+      suffix: '.png'
     }),
     repeat: -1,
     frameRate: animsFrameRate,
@@ -426,8 +438,11 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'adam_run_left',
     frames: anims.generateFrameNames('adam', {
-      start: 36,
-      end: 41,
+      start: 40,
+      end: 49,
+      prefix: 'mutant-walk-',
+      suffix: '.png'
+      
     }),
     repeat: -1,
     frameRate: animsFrameRate,
@@ -436,8 +451,10 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
   anims.create({
     key: 'adam_run_down',
     frames: anims.generateFrameNames('adam', {
-      start: 42,
-      end: 47,
+      start: 20,
+      end: 29,
+      prefix: 'mutant-walk-',
+      suffix: '.png'
     }),
     repeat: -1,
     frameRate: animsFrameRate,
@@ -448,6 +465,8 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
     frames: anims.generateFrameNames('adam', {
       start: 48,
       end: 48,
+      prefix: 'mutant-idle-',
+      suffix: '.png'
     }),
     repeat: 0,
     frameRate: animsFrameRate,
@@ -458,6 +477,8 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
     frames: anims.generateFrameNames('adam', {
       start: 49,
       end: 49,
+      prefix: 'mutant-idle-',
+      suffix: '.png'
     }),
     repeat: 0,
     frameRate: animsFrameRate,
@@ -468,6 +489,8 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
     frames: anims.generateFrameNames('adam', {
       start: 50,
       end: 50,
+      prefix: 'mutant-idle-',
+      suffix: '.png'
     }),
     repeat: 0,
     frameRate: animsFrameRate,
@@ -478,6 +501,8 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
     frames: anims.generateFrameNames('adam', {
       start: 51,
       end: 51,
+      prefix: 'mutant-idle-',
+      suffix: '.png'
     }),
     repeat: 0,
     frameRate: animsFrameRate,
