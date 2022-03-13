@@ -6,6 +6,7 @@ import {
   IWhiteboard,
   IMusicBooth,
   IChatMessage,
+  IPlaylistItem,
 } from '../../../types/IOfficeState'
 
 export class Player extends Schema implements IPlayer {
@@ -32,6 +33,13 @@ export class ChatMessage extends Schema implements IChatMessage {
   @type('string') content = ''
 }
 
+export class PlaylistItem extends Schema implements IPlaylistItem {
+  @type('string') id = ''
+  @type('string') currentTime = ''
+  @type('string') length = ''
+  @type('string') name = ''
+}
+
 export class MusicBooth extends Schema implements IMusicBooth {
   @type('string') roomId = getRoomId()
   @type({ set: 'string' }) connectedUser = new SetSchema<string>()
@@ -52,10 +60,16 @@ export class OfficeState extends Schema implements IOfficeState {
 
   @type([ChatMessage])
   chatMessages = new ArraySchema<ChatMessage>()
+
+  @type([PlaylistItem])
+  playlistItems = new ArraySchema<PlaylistItem>()
 }
+
+
 
 export const musicBoothIds = new Set<string>()
 export const whiteboardRoomIds = new Set<string>()
+export const playlistIds = new Set<string>()
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 const charactersLength = characters.length
 

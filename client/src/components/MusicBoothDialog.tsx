@@ -10,6 +10,7 @@ import { closeMusicBoothDialog } from '../stores/MusicBoothStore'
 import axios from 'axios'
 import { useSnapshot } from 'valtio';
 import { playlistStore } from '../stores/PlaylistStore'
+import { playlistStore2 } from '../stores/PlaylistStore';
 
 const Backdrop = styled.div`
   position: fixed;
@@ -140,6 +141,7 @@ const MusicSearch = () => {
 
   const handleClick = (url:string) => {
       playlistStore.url = url;
+      playlistStore2.set.current(url);
       game.network.startMusicShare(url);
   }
 

@@ -1,6 +1,7 @@
 import { Command } from '@colyseus/command'
 import { Client } from 'colyseus'
 import { IOfficeState } from '../../../types/IOfficeState'
+import { PlaylistItem } from '../schema/OfficeState'
 
 type Payload = {
   client: Client
@@ -21,7 +22,17 @@ export class MusicBoothAddUserCommand extends Command<IOfficeState, Payload> {
 
 export class MusicBoothStartPlaySongUserCommand extends Command<IOfficeState, Payload> {
     execute(data: Payload){
-        console.log('data', data);
+        const playlist  = this.room.state.playlistItems;
+        // console.log('music booth start play song user command data', data);
+        const { content } = data;
+        console.log('data content', content);
+        if ( playlist.length >= 100)  playlist.shift()
+  
+        const newPlaylistItem = new PlaylistItem();
+
+        newPlaylistItem.id = content.content,
+        // newMessage.content = content
+        playlist.push(newPlaylistItem);
 
     }
 }
@@ -40,3 +51,5 @@ export class MusicBoothRemoveUserCommand extends Command<IOfficeState, Payload> 
     }
   }
 }
+
+

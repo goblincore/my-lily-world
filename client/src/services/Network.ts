@@ -21,6 +21,7 @@ import {
 } from '../stores/ChatStore'
 import { setWhiteboardUrls } from '../stores/WhiteboardStore'
 import { setMusicBoothUrls } from '../stores/MusicBoothStore'
+import { playlistStore } from '../stores/PlaylistStore'
 
 // This class centralizes the handling of network events from the server
 // mostly the socket events
@@ -178,7 +179,13 @@ export default class Network {
 
     // new instance added to the chatMessages ArraySchema
     this.room.state.chatMessages.onAdd = (item, index) => {
+      console.log('chatMessages add', item);
       store.dispatch(pushChatMessage(item))
+    }
+
+    this.room.state.playlistItems.onAdd = (item, index) => {
+      console.log('this room state playlist items on add', item);
+      playlistStore.url = item.id
     }
 
     // when the server sends room data
@@ -190,6 +197,13 @@ export default class Network {
     this.room.onMessage(Message.ADD_CHAT_MESSAGE, ({ clientId, content }) => {
       phaserEvents.emit(Event.UPDATE_DIALOG_BUBBLE, clientId, content)
     })
+
+
+    // when a user sends a message
+    this.room.onMessage(Message.ADD_PLAYLIST_ITEM, ({ clientId, content }) => {
+      // phaserEvents.emit(Event.UPDATE_DIALOG_BUBBLE, clientId, content)
+    })
+
 
     // when a peer disconnects with myPeer
     this.room.onMessage(Message.DISCONNECT_STREAM, (clientId: string) => {
@@ -327,6 +341,11 @@ export default class Network {
   startMusicShare(content:string) {
     console.log('Network client Start music share send to server to broadcast', content);
     this.room?.send(Message.START_MUSIC_SHARE, {content})
+  }
+
+  addPlaylistItem(content:string) {
+    console.log('Network client Add playlist Item send to server to broadcast', content);
+    this.room?.send(Message.ADD_PLAYLIST_ITEM, {content})
   }
 
 

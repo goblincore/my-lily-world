@@ -29,10 +29,18 @@ export interface IChatMessage extends Schema {
   content: string
 }
 
+export interface IPlaylistItem extends Schema {
+  id: string
+  currentTime: string
+  length: string
+  name: string
+}
+
 export interface IOfficeState extends Schema {
   players: MapSchema<IPlayer>
   computers: MapSchema<IComputer>
   whiteboards: MapSchema<IWhiteboard>
   musicBooths: MapSchema<IMusicBooth>
   chatMessages: ArraySchema<IChatMessage>
+  playlistItems: ArraySchema<IPlaylistItem>
 }

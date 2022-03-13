@@ -196,6 +196,24 @@ export class SkyOffice extends Room<OfficeState> {
         { except: client }
       )
     })
+
+      // when a player send a chat message, update the message array and broadcast to all connected clients except the sender
+      this.onMessage(Message.ADD_PLAYLIST_ITEM, (client, message: { content: string }) => {
+        // update the message array (so that players join later can also see the message)
+        this.dispatcher.dispatch(new MusicBoothStartPlaySongUserCommand(), {
+          client,
+          content: message.content,
+        })
+  
+        // broadcast to all currently connected clients except the sender (to render in-game dialog on top of the character)
+        this.broadcast(
+          Message.ADD_PLAYLIST_ITEM,
+          { clientId: client.sessionId, content: message.content },
+          { except: client }
+        )
+      })
+
+
   }
 
   async onAuth(client: Client, options: { password: string | null }) {
@@ -216,6 +234,7 @@ export class SkyOffice extends Room<OfficeState> {
       id: this.roomId,
       name: this.name,
       description: this.description,
+      playlistItems: this.state.playlistItems
     })
   }
 

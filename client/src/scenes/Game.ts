@@ -191,11 +191,16 @@ export default class Game extends Phaser.Scene {
     this.youtubePlayer.load(this.youtubeUrl, false);
     this.youtubePlayer.alpha = 0;
 
-    // subscribe(playlistStore, () => {
-    //   console.log('youtube url game state is mutated')
-    //   this.youtubePlayer?.load(playlistStore.url);
-    //   this.network.startMusicShare(playlistStore.url);
-    // })
+    subscribe(playlistStore, () => {
+      console.log('game subscribe playlist store');
+      this.youtubePlayer?.load(playlistStore.url);
+      if(this.youtubePlayer) {
+      this.youtubePlayer.alpha = 1;
+      this.youtubePlayer.blendMode = Phaser.BlendModes.SCREEN;
+    }
+      this.youtubePlayer?.play()
+      // this.network.startMusicShare(playlistStore.url);
+    })
 
     // register network event listeners
     this.network.onPlayerJoined(this.handlePlayerJoined, this)
@@ -278,6 +283,8 @@ export default class Game extends Phaser.Scene {
 
   private handleMyPlayerReady() {
     this.myPlayer.readyToConnect = true
+    console.log('handleMyPlayeRReady');
+    console.log('paylistSTore', playlistStore);
   }
 
   private handleMyVideoConnected() {
@@ -324,11 +331,12 @@ export default class Game extends Phaser.Scene {
   private handleStartMusicShare(playerId: string, content: any){
     console.log( 'in game startMusic playing content!!', content);
     const url = content.content;
-    this.youtubePlayer?.load(url, true)
-    if(this.youtubePlayer) {
-      this.youtubePlayer.alpha = 1;
-      this.youtubePlayer.blendMode = Phaser.BlendModes.SCREEN;
-    }
+    playlistStore.url = url;
+    // this.youtubePlayer?.load(url, true)
+    // if(this.youtubePlayer) {
+    //   this.youtubePlayer.alpha = 1;
+    //   this.youtubePlayer.blendMode = Phaser.BlendModes.SCREEN;
+    // }
 
     // this.youtubePlayer?.play();
   }
