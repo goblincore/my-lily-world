@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt'
-import { Room, Client, ServerError } from 'colyseus'
+import { Room, Client, ServerError, Delayed } from 'colyseus'
 import { Dispatcher } from '@colyseus/command'
 import { Player, OfficeState, Computer, Whiteboard, MusicBooth } from './schema/OfficeState'
 import { Message } from '../../types/Messages'
@@ -20,6 +20,7 @@ import {
   MusicBoothAddUserCommand,
   MusicBoothRemoveUserCommand,
   MusicBoothStartPlaySongUserCommand,
+  AddItemToUserPlaylistUserCommand,
 } from './commands/MusicBoothUpdateArrayCommand'
 
 import ChatMessageUpdateCommand from './commands/ChatMessageUpdateCommand'
@@ -29,12 +30,21 @@ export class SkyOffice extends Room<OfficeState> {
   private name: string
   private description: string
   private password: string | null = null
+  private currentDj: Player | null = null
+  public delayedInterval!: Delayed;
 
   async onCreate(options: IRoomData) {
     const { name, description, password, autoDispose } = options
     this.name = name
     this.description = description
     this.autoDispose = autoDispose
+
+
+    // Set an interval and store a reference to it
+    // so that we may clear it later
+    this.delayedInterval = this.clock.setInterval(() => {
+        console.log("Time now " + this.clock.elapsedTime);
+    }, 1000);
 
     let hasPassword = false
     if (password) {
@@ -100,17 +110,27 @@ export class SkyOffice extends Room<OfficeState> {
     // when a player starts playing a song
     this.onMessage(Message.START_MUSIC_SHARE, (client, content) => {
       console.log('player initiated starting playing music command', content)
+      console.log('this.server state playlist', this.state.playlistItems);
+      this.clock.clear();
       this.dispatcher.dispatch(new MusicBoothStartPlaySongUserCommand(), {
         client,
-        content,
+        content: content.content,
       })
 
+      const player = this.state.players.get(client.sessionId);
+      this.currentDj = player;
+
+       
+      const userPlaylist = player.userPlaylist;
+      // if ( playlist.length >= 100)  playlist.shift()
+
       // broadcast to all currently connected clients except the sender (to render in-game dialog on top of the character)
-      this.broadcast(Message.START_MUSIC_SHARE, { clientId: client.sessionId, content })
+      this.broadcast(Message.START_MUSIC_SHARE, { clientId: client.sessionId, content: player.userPlaylist[0]  })
     })
 
     // when a player connects to a music booth
     this.onMessage(Message.CONNECT_TO_MUSIC_BOOTH, (client, message: { musicBoothId: string }) => {
+      console.log('add user to musc booth');
       this.dispatcher.dispatch(new MusicBoothAddUserCommand(), {
         client,
         musicBoothId: message.musicBoothId,
@@ -162,8 +182,15 @@ export class SkyOffice extends Room<OfficeState> {
 
     // when a player is ready to connect, call the PlayerReadyToConnectCommand
     this.onMessage(Message.READY_TO_CONNECT, (client) => {
+      console.log('THIS PAYER READDY TO CONNECT', client);
       const player = this.state.players.get(client.sessionId)
       if (player) player.readyToConnect = true
+    })
+
+
+    this.onMessage(Message.GET_PLAYBACK_SYNC, (client) => {
+      console.log('GET PLAYBACK SYNC', client);
+
     })
 
     // when a player is ready to connect, call the PlayerReadyToConnectCommand
@@ -198,18 +225,18 @@ export class SkyOffice extends Room<OfficeState> {
     })
 
       // when a player send a chat message, update the message array and broadcast to all connected clients except the sender
-      this.onMessage(Message.ADD_PLAYLIST_ITEM, (client, message: { content: string }) => {
+      this.onMessage(Message.ADD_PLAYLIST_ITEM, (client, message: { url: string }) => {
         // update the message array (so that players join later can also see the message)
-        this.dispatcher.dispatch(new MusicBoothStartPlaySongUserCommand(), {
+        console.log('ADD ITEM to user playlist content', message)
+        this.dispatcher.dispatch(new AddItemToUserPlaylistUserCommand(), {
           client,
-          content: message.content,
+          content: message.url,
         })
   
         // broadcast to all currently connected clients except the sender (to render in-game dialog on top of the character)
         this.broadcast(
           Message.ADD_PLAYLIST_ITEM,
-          { clientId: client.sessionId, content: message.content },
-          { except: client }
+          { clientId: client.sessionId, content: message.url },
         )
       })
 
@@ -228,13 +255,18 @@ export class SkyOffice extends Room<OfficeState> {
 
   // When a new player joins, send room data
 
-  onJoin(client: Client, options: any) {
+  async onJoin(client: Client, options: any) {
+    console.log('ON JOIN SERVER event', client);
+    if(this.state.playlistItems?.length > 0) {
+      console.log('playlistitems exist', this.state.playlistItems);
+    }
     this.state.players.set(client.sessionId, new Player())
     client.send(Message.SEND_ROOM_DATA, {
       id: this.roomId,
       name: this.name,
       description: this.description,
-      playlistItems: this.state.playlistItems
+      playlistItems: this.state.playlistItems,
+      currentDj: this.currentDj,
     })
   }
 
@@ -265,6 +297,7 @@ export class SkyOffice extends Room<OfficeState> {
     })
 
     console.log('room', this.roomId, 'disposing...')
+    this.delayedInterval.clear()
     this.dispatcher.stop()
   }
 }

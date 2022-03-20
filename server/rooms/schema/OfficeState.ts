@@ -9,6 +9,14 @@ import {
   IPlaylistItem,
 } from '../../../types/IOfficeState'
 
+export class PlaylistItem extends Schema implements IPlaylistItem {
+  @type('string') id = ''
+  @type('string') userId = ''
+  @type('string') currentTime = ''
+  @type('string') length = ''
+  @type('string') name = ''
+}
+
 export class Player extends Schema implements IPlayer {
   @type('string') name = ''
   @type('number') x = 705
@@ -16,6 +24,8 @@ export class Player extends Schema implements IPlayer {
   @type('string') anim = 'adam_idle_down'
   @type('boolean') readyToConnect = false
   @type('boolean') videoConnected = false
+  @type([PlaylistItem]) userPlaylist = []
+  @type('boolean') isCurrentDj = false
 }
 
 export class Computer extends Schema implements IComputer {
@@ -33,12 +43,6 @@ export class ChatMessage extends Schema implements IChatMessage {
   @type('string') content = ''
 }
 
-export class PlaylistItem extends Schema implements IPlaylistItem {
-  @type('string') id = ''
-  @type('string') currentTime = ''
-  @type('string') length = ''
-  @type('string') name = ''
-}
 
 export class MusicBooth extends Schema implements IMusicBooth {
   @type('string') roomId = getRoomId()

@@ -7,6 +7,8 @@ export interface IPlayer extends Schema {
   anim: string
   readyToConnect: boolean
   videoConnected: boolean
+  isCurrentDj?: boolean
+  userPlaylist?: ArraySchema<IPlaylistItem>
 }
 
 export interface IComputer extends Schema {
@@ -34,6 +36,7 @@ export interface IPlaylistItem extends Schema {
   currentTime: string
   length: string
   name: string
+  userId: string
 }
 
 export interface IOfficeState extends Schema {
@@ -43,4 +46,5 @@ export interface IOfficeState extends Schema {
   musicBooths: MapSchema<IMusicBooth>
   chatMessages: ArraySchema<IChatMessage>
   playlistItems: ArraySchema<IPlaylistItem>
+  currentPlaylistItem: IPlaylistItem
 }

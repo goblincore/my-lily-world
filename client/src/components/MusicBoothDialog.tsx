@@ -104,17 +104,23 @@ const InputTextField = styled(InputBase)`
 const SearchList =styled.ul`
   padding:0px;
   margin:0px;
+  p {
+      color: #666;
+  }
 `
 
 const MusicSearch = () => {
   const [data, setData] = useState([])
   const [inputValue, setInputValue] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
-  const { url } = useSnapshot(playlistStore);
+  const playlist = useSnapshot(playlistStore);
   const game = phaserGame.scene.keys.game as Game
+  const playListItems = useAppSelector((state) => state.room.playList);
 
+  console.log('playListItems', playListItems);
+  
   useEffect(() => {
-      console.log('PLAYLIST STORE URL', url);
+     
      axios.get(`http://localhost:2567/youtube/${inputValue}`).then((response) => {
       
       setData(response?.data?.items)
@@ -139,18 +145,49 @@ const MusicSearch = () => {
     }
   }
 
-  const handleClick = (url:string) => {
-      playlistStore.url = url;
-      playlistStore2.set.current(url);
-      game.network.startMusicShare(url);
+  const handleClick = (result: any) => {
+    const { title, thumbnail, id} = result;
+      console.log('handleClick playlistItem', result);
+    //   playlistStore.url = url;
+        playlistStore.push({id, title, thumbnail});
+        // playlistStore2.set.playlistItems(...playlistStore2.)
+      //game.network.addPlaylistItem(url);
   }
 
   const resultsList = data?.length > 0 && data?.map( result => {
-      const { title, thumbnail, length, id} = result;
+      const { title, id, thumbnail, length } = result;
+  
       return (
-          <YoutubeResult onClick={()=>handleClick(id)} key={id} title={title} thumbnail={thumbnail} length={length} id={id} />
+          <YoutubeResult onClick={()=>handleClick(result)} key={id} title={title} thumbnail={thumbnail} length={length} id={id} />
       )
   })
+
+  console.log('playlistStore', playlist);
+
+
+  const handleAddToServerPlaylist=({title, id})=>{
+    game.network.addPlaylistItem(id);
+  }
+
+  const userPlaylist = playlist.map(item => {
+    const { title, thumbnail, id} = item;
+      return (
+      <div onClick={()=>handleAddToServerPlaylist({title, id})}>
+          <p>{title} </p>
+          <p>{id} </p>
+      
+      </div>
+      );
+  })
+
+
+
+  const renderList = inputValue.trim() === '' && playlistStore?.length > 0 ? userPlaylist : resultsList;
+
+  const handleStartPlay=()=>{
+      game.network.startMusicShare('DLK_vfuE5_A');
+  }
+
 
   return (
       <section>
@@ -164,10 +201,11 @@ const MusicSearch = () => {
         onChange={handleChange}
       />
     </InputWrapper>
+    <button onClick={handleStartPlay}>Start Playing</button>
 
     <SearchList>
 
-    {resultsList}
+    {renderList}
 
     </SearchList>
 

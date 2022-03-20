@@ -1,13 +1,14 @@
-import { proxy, useSnapshot } from 'valtio';
+import { proxy } from 'valtio/vanilla';
 import { watch } from 'valtio/utils'
 import { createStore,  } from '@udecode/zustood';
 
-export const playlistStore = proxy({ url: '', time: 0  })
+
+export const playlistStore = proxy(new Array<any>() )
 
 export const playlistStore2 = createStore('playlist')({
     current: '',
     playerId:'',
-
+    playlistItems: new Array<any>()
 })
 
  

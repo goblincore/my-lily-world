@@ -22,18 +22,36 @@ export class MusicBoothAddUserCommand extends Command<IOfficeState, Payload> {
 
 export class MusicBoothStartPlaySongUserCommand extends Command<IOfficeState, Payload> {
     execute(data: Payload){
-        const playlist  = this.room.state.playlistItems;
-        // console.log('music booth start play song user command data', data);
-        const { content } = data;
-        console.log('data content', content);
-        if ( playlist.length >= 100)  playlist.shift()
-  
+        const playlist  = this.room.state.playlistItems
+    //    console.log('music booth start play song user command data', playlist);
+        const { client, content } = data;
+        // console.log('data content userId', client?.id);
+        const player = this.room.state.players.get(client.sessionId);
+        const userPlaylist = player.userPlaylist;
+        // if ( playlist.length >= 100)  playlist.shift()
+        console.log('userPlaylist?.[0]', userPlaylist?.[0]);
+        // const newPlaylistItem = new PlaylistItem();
+
+        // newPlaylistItem.id = content,
+        // newPlaylistItem.userId = client.id,
+        // // newMessage.content = content
+        playlist.push(userPlaylist?.[0]);
+
+    }
+}
+
+export class AddItemToUserPlaylistUserCommand extends Command<IOfficeState, Payload> {
+    execute(data: Payload){
+        const { client, content } = data;
+        // Take payload data, get current player and add to their player playlist
+        console.log('AddItemToUserPlaylistUserComand payload', data);
+        const player = this.room.state.players.get(client.sessionId);
         const newPlaylistItem = new PlaylistItem();
-
-        newPlaylistItem.id = content.content,
-        // newMessage.content = content
-        playlist.push(newPlaylistItem);
-
+        console.log('newPlaylistItem', newPlaylistItem);
+        newPlaylistItem.id = content,
+        newPlaylistItem.userId = client.id,
+        console.log('player.userplaylist',  player.userPlaylist);
+        player.userPlaylist.push(newPlaylistItem);
     }
 }
 

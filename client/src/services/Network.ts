@@ -13,6 +13,7 @@ import {
   setAvailableRooms,
   addAvailableRooms,
   removeAvailableRooms,
+  setPlaylistItems,
 } from '../stores/RoomStore'
 import {
   pushChatMessage,
@@ -185,11 +186,14 @@ export default class Network {
 
     this.room.state.playlistItems.onAdd = (item, index) => {
       console.log('this room state playlist items on add', item);
-      playlistStore.url = item.id
+      // playlistStore.items.push(item)
+      store.dispatch(setPlaylistItems(item));
+      // console.log('playlistStore', playlistStore.items);
     }
 
     // when the server sends room data
     this.room.onMessage(Message.SEND_ROOM_DATA, (content) => {
+      console.log('Network istance this room on Message send room data', content);
       store.dispatch(setJoinedRoomData(content))
     })
 
@@ -199,8 +203,12 @@ export default class Network {
     })
 
 
-    // when a user sends a message
+    // when a user adds a playlist item
     this.room.onMessage(Message.ADD_PLAYLIST_ITEM, ({ clientId, content }) => {
+      console.log('RECIEVE FROM SERVER MESSAGE ADD PLASLIST ITEM',clientId, content );
+      store.dispatch(setPlaylistItems(content))
+      // playlistStore.url = content;
+     
       // phaserEvents.emit(Event.UPDATE_DIALOG_BUBBLE, clientId, content)
     })
 
@@ -253,6 +261,7 @@ export default class Network {
 
   // method to register event listener and call back function when a player joined
   onPlayerJoined(callback: (Player: IPlayer, key: string) => void, context?: any) {
+    console.log('network client on player joined', context);
     phaserEvents.on(Event.PLAYER_JOINED, callback, context)
   }
 
@@ -264,6 +273,7 @@ export default class Network {
   // method to register event listener and call back function when myPlayer is ready to connect
   onMyPlayerReady(callback: (key: string) => void, context?: any) {
     phaserEvents.on(Event.MY_PLAYER_READY, callback, context)
+    console.log('client network on my playe ready');
   }
 
   // method to register event listener and call back function when my video is connected
@@ -343,9 +353,9 @@ export default class Network {
     this.room?.send(Message.START_MUSIC_SHARE, {content})
   }
 
-  addPlaylistItem(content:string) {
-    console.log('Network client Add playlist Item send to server to broadcast', content);
-    this.room?.send(Message.ADD_PLAYLIST_ITEM, {content})
+  addPlaylistItem(url:string, userId?: string) {
+    console.log('Network client Add playlist Item send to server to broadcast', url);
+    this.room?.send(Message.ADD_PLAYLIST_ITEM, {url})
   }
 
 

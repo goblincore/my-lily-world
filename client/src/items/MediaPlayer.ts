@@ -31,8 +31,6 @@ export class LilYoutubePlayer extends YoutubePlayer {
         // console.log('playlistStore2', playlistStore2.get.current());
     }
 
-    private updateStatus() {
-        console.log('youtube player updatetStatus', this.playbackTime);
-      }
+   
     
 }

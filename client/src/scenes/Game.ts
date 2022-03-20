@@ -33,6 +33,7 @@ export default class Game extends Phaser.Scene {
   private keyR!: Phaser.Input.Keyboard.Key
   private map!: Phaser.Tilemaps.Tilemap
   myPlayer!: MyPlayer
+  private timerTest: any
   private playerSelector!: Phaser.GameObjects.Zone
   private otherPlayers!: Phaser.Physics.Arcade.Group
   private otherPlayerMap = new Map<string, OtherPlayer>()
@@ -41,6 +42,7 @@ export default class Game extends Phaser.Scene {
   private musicBoothMap = new Map<string, MusicBooth>()
   private youtubePlayer?: LilYoutubePlayer
   private youtubeUrl: string = ''
+ 
   
 
   constructor() {
@@ -90,41 +92,7 @@ export default class Game extends Phaser.Scene {
     this.myPlayer = this.add.myPlayer(705, 500, 'adam', this.network.mySessionId)
     this.playerSelector = new PlayerSelector(this, 0, 0, 16, 16)
 
-    // import chair objects from Tiled map to Phaser
-    // const chairs = this.physics.add.staticGroup({ classType: Chair })
-    // const chairLayer = this.map.getObjectLayer('Chair')
-    // chairLayer.objects.forEach((chairObj) => {
-    //   const item = this.addObjectFromTiled(chairs, chairObj, 'chairs', 'chair') as Chair
-    //   // custom properties[0] is the object direction specified in Tiled
-    //   item.itemDirection = chairObj.properties[0].value
-    // })
-
-    // import computers objects from Tiled map to Phaser
-    // const computers = this.physics.add.staticGroup({ classType: Computer })
-    // const computerLayer = this.map.getObjectLayer('Computer')
-    // computerLayer.objects.forEach((obj, i) => {
-    //   const item = this.addObjectFromTiled(computers, obj, 'computers', 'computer') as Computer
-    //   item.setDepth(item.y + item.height * 0.27)
-    //   const id = `${i}`
-    //   item.id = id
-    //   this.computerMap.set(id, item)
-    // })
-
-    // import whiteboards objects from Tiled map to Phaser
-    // const whiteboards = this.physics.add.staticGroup({ classType: Whiteboard })
-    // const whiteboardLayer = this.map.getObjectLayer('Whiteboard')
-    // whiteboardLayer.objects.forEach((obj, i) => {
-    //   const item = this.addObjectFromTiled(
-    //     whiteboards,
-    //     obj,
-    //     'whiteboards',
-    //     'whiteboard'
-    //   ) as Whiteboard
-    //   const id = `${i}`
-    //   item.id = id
-    //   this.whiteboardMap.set(id, item)
-    // })
-
+   
      // import music booth objects from Tiled map to Phaser
      const musicBooths = this.physics.add.staticGroup({ classType: MusicBooth })
      const musicBoothLayer = this.map.getObjectLayer('MusicBooth')
@@ -140,12 +108,6 @@ export default class Game extends Phaser.Scene {
        this.musicBoothMap.set(id, item)
      })
 
-    // import vending machine objects from Tiled map to Phaser
-    // const vendingMachines = this.physics.add.staticGroup({ classType: VendingMachine })
-    // const vendingMachineLayer = this.map.getObjectLayer('VendingMachine')
-    // vendingMachineLayer.objects.forEach((obj, i) => {
-    //   this.addObjectFromTiled(vendingMachines, obj, 'vendingmachines', 'vendingmachine')
-    // })
 
     // import other objects from Tiled map to Phaser
     // this.addGroupFromTiled('Wall', 'tiles_wall', 'FloorAndGround', false)
@@ -171,6 +133,13 @@ export default class Game extends Phaser.Scene {
       this
     )
 
+    this.timerTest = this.time.addEvent({
+      callback: this.timerEvent,
+      callbackScope: this,
+      delay: 1000, // 1000 = 1 second
+      loop: true
+    })
+
     this.physics.add.overlap(
       this.myPlayer,
       this.otherPlayers,
@@ -186,21 +155,29 @@ export default class Game extends Phaser.Scene {
       y: 180,
       width: 240,
       height: 180,
+
     }
     this.youtubePlayer = new LilYoutubePlayer({...youtubePlayerProps});
-    this.youtubePlayer.load(this.youtubeUrl, false);
     this.youtubePlayer.alpha = 0;
+    this.youtubePlayer.on('statechange', function (player) {
+      console.log('video player state change'
+      , player.videoStateString);
+   })
 
     subscribe(playlistStore, () => {
       console.log('game subscribe playlist store');
-      this.youtubePlayer?.load(playlistStore.url);
-      if(this.youtubePlayer) {
-      this.youtubePlayer.alpha = 1;
-      this.youtubePlayer.blendMode = Phaser.BlendModes.SCREEN;
-    }
-      this.youtubePlayer?.play()
+    //   this.youtubePlayer?.load(playlistStore.url);
+    //   if(this.youtubePlayer) {
+    //     console.log('this.youtubePlayertime', this.youtubePlayer.playbackTime);
+    //   this.youtubePlayer.alpha = 1;
+    
+    // }
+   
+    //   this.youtubePlayer?.play()
       // this.network.startMusicShare(playlistStore.url);
     })
+
+  
 
     // register network event listeners
     this.network.onPlayerJoined(this.handlePlayerJoined, this)
@@ -212,6 +189,12 @@ export default class Game extends Phaser.Scene {
     this.network.onItemUserRemoved(this.handleItemUserRemoved, this)
     this.network.onChatMessageAdded(this.handleChatMessageAdded, this)
     this.network.onStartMusicShare(this.handleStartMusicShare, this)
+  }
+
+  public timerEvent(): void {
+    console.log('timerEvent');
+  
+    // Create your new object here.
   }
 
   private handleItemSelectorOverlap(playerSelector, selectionItem) {
@@ -330,18 +313,20 @@ export default class Game extends Phaser.Scene {
 
   private handleStartMusicShare(playerId: string, content: any){
     console.log( 'in game startMusic playing content!!', content);
-    const url = content.content;
-    playlistStore.url = url;
-    // this.youtubePlayer?.load(url, true)
-    // if(this.youtubePlayer) {
-    //   this.youtubePlayer.alpha = 1;
-    //   this.youtubePlayer.blendMode = Phaser.BlendModes.SCREEN;
-    // }
+    const url = content.id;
+    this.youtubePlayer?.load(url, true)
+    if(this.youtubePlayer) {
+      this.youtubePlayer.alpha = 1;
+      this.youtubePlayer.blendMode = Phaser.BlendModes.SCREEN;
+    }
 
-    // this.youtubePlayer?.play();
+    this.youtubePlayer?.play();
   }
 
   update(t: number, dt: number) {
+    // if(this.youtubePlayer){
+    //   console.log('this.youtubeplayer', this.youtubePlayer?.playbackTime)
+    // }
     if (this.myPlayer && this.network) {
       this.playerSelector.update(this.myPlayer, this.cursors)
       this.myPlayer.update(this.playerSelector, this.cursors, this.keyE, this.keyR, this.network)
