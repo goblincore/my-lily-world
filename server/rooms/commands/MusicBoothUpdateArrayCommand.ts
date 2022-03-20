@@ -27,6 +27,7 @@ export class MusicBoothStartPlaySongUserCommand extends Command<IOfficeState, Pa
         const { client, content } = data;
         // console.log('data content userId', client?.id);
         const player = this.room.state.players.get(client.sessionId);
+        this.state.currentDjId = client.sessionId;
         const userPlaylist = player.userPlaylist;
         // if ( playlist.length >= 100)  playlist.shift()
         console.log('userPlaylist?.[0]', userPlaylist?.[0]);
@@ -66,6 +67,7 @@ export class MusicBoothRemoveUserCommand extends Command<IOfficeState, Payload> 
 
     if (musicBooth?.connectedUser.has(client.sessionId)) {
       musicBooth.connectedUser.delete(client.sessionId)
+      this.state.currentDjId = '';
     }
   }
 }

@@ -48,4 +48,5 @@ export interface IOfficeState extends Schema {
   playlistItems: ArraySchema<IPlaylistItem>
   currentPlaylistItem: IPlaylistItem
   currentPlaybackTime: number
+  currentDjId: string
 }

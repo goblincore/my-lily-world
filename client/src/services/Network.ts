@@ -248,6 +248,7 @@ export default class Network {
     callback: (playerId: string, key: string, itemType: ItemType) => void,
     context?: any
   ) {
+    console.log('onItemUserAdded');
     phaserEvents.on(Event.ITEM_USER_ADDED, callback, context)
   }
 
@@ -256,6 +257,7 @@ export default class Network {
     callback: (playerId: string, key: string, itemType: ItemType) => void,
     context?: any
   ) {
+    console.log('ON ITEM USER REMOVED');
     phaserEvents.on(Event.ITEM_USER_REMOVED, callback, context)
   }
 

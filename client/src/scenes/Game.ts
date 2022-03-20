@@ -192,6 +192,7 @@ export default class Game extends Phaser.Scene {
     this.network.onItemUserRemoved(this.handleItemUserRemoved, this)
     this.network.onChatMessageAdded(this.handleChatMessageAdded, this)
     this.network.onStartMusicShare(this.handleStartMusicShare, this)
+    
   }
 
   public timerEvent(): void {
@@ -326,6 +327,9 @@ export default class Game extends Phaser.Scene {
     } else if (itemType === ItemType.WHITEBOARD) {
       const whiteboard = this.whiteboardMap.get(itemId)
       whiteboard?.addCurrentUser(playerId)
+    } else if (itemType === ItemType.MUSICBOOTH) {
+      const musicBooth= this.musicBoothMap.get(itemId)
+      musicBooth?.addCurrentUser(playerId)
     }
   }
 
@@ -333,7 +337,11 @@ export default class Game extends Phaser.Scene {
     if (itemType === ItemType.COMPUTER) {
       const computer = this.computerMap.get(itemId)
       computer?.removeCurrentUser(playerId)
-    } else if (itemType === ItemType.WHITEBOARD) {
+    } else if (itemType === ItemType.MUSICBOOTH) {
+      const musicBooth = this.musicBoothMap.get(itemId)
+      console.log('REMOVE USER FROM MUSICBOOTH');
+      musicBooth?.removeCurrentUser(playerId)
+    }else if (itemType === ItemType.WHITEBOARD) {
       const whiteboard = this.whiteboardMap.get(itemId)
       whiteboard?.removeCurrentUser(playerId)
     }

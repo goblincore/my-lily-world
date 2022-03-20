@@ -66,10 +66,13 @@ export class OfficeState extends Schema implements IOfficeState {
   chatMessages = new ArraySchema<ChatMessage>()
 
   @type([PlaylistItem])
-  playlistItems = new ArraySchema<PlaylistItem>()
+  playlistItems = new ArraySchema<any>()
 
   @type('number')
   currentPlaybackTime = 0
+
+  @type('string')
+  currentDjId = ''
 }
 
 

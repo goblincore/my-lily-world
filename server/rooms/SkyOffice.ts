@@ -33,7 +33,6 @@ export class SkyOffice extends Room<OfficeState> {
   private name: string
   private description: string
   private password: string | null = null
-  private currentDj: Player | null = null
   public delayedInterval!: Delayed;
 
   async onCreate(options: IRoomData) {
@@ -121,9 +120,8 @@ export class SkyOffice extends Room<OfficeState> {
       })
 
       const player = this.state.players.get(client.sessionId);
-      this.currentDj = player;
-
-       
+ 
+      
       const userPlaylist = player.userPlaylist;
       // if ( playlist.length >= 100)  playlist.shift()
 
@@ -276,7 +274,7 @@ export class SkyOffice extends Room<OfficeState> {
       name: this.name,
       description: this.description,
       playlistItems: this.state.playlistItems,
-      currentDj: this.currentDj,
+      currentDj: this.state.currentDjId,
       currentPlaybackTime: this.state.currentPlaybackTime
     })
   }
@@ -306,7 +304,10 @@ export class SkyOffice extends Room<OfficeState> {
     this.state.whiteboards.forEach((whiteboard) => {
       if (whiteboardRoomIds.has(whiteboard.roomId)) whiteboardRoomIds.delete(whiteboard.roomId)
     })
-     this.currentDj = null;
+    this.state.musicBooths.forEach((musicBooth) => {
+      if (musicBoothIds.has(musicBooth.roomId)) musicBoothIds.delete(musicBooth.roomId)
+    })
+     this.state.currentDjId = '';
     console.log('room', this.roomId, 'disposing...')
     // this.delayedInterval.clear()
     this.dispatcher.stop()

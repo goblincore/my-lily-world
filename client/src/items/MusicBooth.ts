@@ -30,7 +30,7 @@ export default class MusicBooth extends Item {
     if (this.currentUsers.size === 0) {
       this.setDialogBox('Press R to be the DJ')
     } else {
-      this.setDialogBox('Press R join')
+      this.setDialogBox('Press R to join the queue')
     }
   }
 
