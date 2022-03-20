@@ -131,7 +131,7 @@ export class SkyOffice extends Room<OfficeState> {
 
     // when a player connects to a music booth
     this.onMessage(Message.CONNECT_TO_MUSIC_BOOTH, (client, message: { musicBoothId: string }) => {
-      console.log('add user to musc booth');
+      console.log('add user to musc booth', client, 'musicboothId', message);
       this.dispatcher.dispatch(new MusicBoothAddUserCommand(), {
         client,
         musicBoothId: message.musicBoothId,

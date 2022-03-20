@@ -169,11 +169,15 @@ export default class Network {
           roomId: musicBooth.roomId,
         })
       )
+
+      console.log('musicBooth on add', musicBooth);
       // track changes on every child object's connectedUser
       musicBooth.connectedUser.onAdd = (item, index) => {
+        console.log('musicBooth connected user Add', item);
         phaserEvents.emit(Event.ITEM_USER_ADDED, item, key, ItemType.MUSICBOOTH)
       }
       musicBooth.connectedUser.onRemove = (item, index) => {
+        console.log('msicBooth connectedUser remove', item);
         phaserEvents.emit(Event.ITEM_USER_REMOVED, item, key, ItemType.MUSICBOOTH)
       }
     }
@@ -342,7 +346,7 @@ export default class Network {
 
   connectToMusicBooth(id: string) {
     console.log('Connect to music booth');
-    this.room?.send(Message.CONNECT_TO_MUSIC_BOOTH, { whiteboardId: id })
+    this.room?.send(Message.CONNECT_TO_MUSIC_BOOTH, { musicBoothId: id })
   }
 
   disconnectFromMusicBooth(id: string) {

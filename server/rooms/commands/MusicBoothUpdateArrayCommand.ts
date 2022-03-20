@@ -15,6 +15,8 @@ export class MusicBoothAddUserCommand extends Command<IOfficeState, Payload> {
     const musicBooth = this.room.state.musicBooths.get(musicBoothId)
     const clientId = client.sessionId
 
+    console.log('musicBooth', musicBooth);
+
     if (!musicBooth || musicBooth.connectedUser.has(clientId)) return
     musicBooth.connectedUser.add(clientId)
   }
@@ -63,6 +65,7 @@ export class MusicBoothRemoveUserCommand extends Command<IOfficeState, Payload> 
     const musicBooth = this.state.musicBooths.get(musicBoothId)
     console.log('musicBoothId', musicBoothId);
 
+ 
     console.log('musicBooth', musicBooth);
 
     if (musicBooth?.connectedUser.has(client.sessionId)) {
