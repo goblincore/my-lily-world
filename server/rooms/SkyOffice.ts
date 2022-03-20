@@ -17,6 +17,9 @@ import {
 } from './commands/WhiteboardUpdateArrayCommand'
 
 import {
+  PlaybackTimeUpdateCommand
+} from './commands/PlaybackTimeUpdateCommand'
+import {
   MusicBoothAddUserCommand,
   MusicBoothRemoveUserCommand,
   MusicBoothStartPlaySongUserCommand,
@@ -40,11 +43,11 @@ export class SkyOffice extends Room<OfficeState> {
     this.autoDispose = autoDispose
 
 
-    // Set an interval and store a reference to it
-    // so that we may clear it later
-    this.delayedInterval = this.clock.setInterval(() => {
-        console.log("Time now " + this.clock.elapsedTime);
-    }, 1000);
+    // // Set an interval and store a reference to it
+    // // so that we may clear it later
+    // this.delayedInterval = this.clock.setInterval(() => {
+    //     console.log("Time now " + this.clock.elapsedTime);
+    // }, 1000);
 
     let hasPassword = false
     if (password) {
@@ -111,7 +114,7 @@ export class SkyOffice extends Room<OfficeState> {
     this.onMessage(Message.START_MUSIC_SHARE, (client, content) => {
       console.log('player initiated starting playing music command', content)
       console.log('this.server state playlist', this.state.playlistItems);
-      this.clock.clear();
+   
       this.dispatcher.dispatch(new MusicBoothStartPlaySongUserCommand(), {
         client,
         content: content.content,
@@ -193,6 +196,13 @@ export class SkyOffice extends Room<OfficeState> {
 
     })
 
+    this.onMessage(Message.SET_PLAYBACK_TIME, (client, message) => {
+      console.log('SET PLAYBACK TIME', client.id, 'time', message);
+      this.dispatcher.dispatch(new PlaybackTimeUpdateCommand(), {
+        time: message.time
+      })
+    })
+
     // when a player is ready to connect, call the PlayerReadyToConnectCommand
     this.onMessage(Message.VIDEO_CONNECTED, (client) => {
       const player = this.state.players.get(client.sessionId)
@@ -267,6 +277,7 @@ export class SkyOffice extends Room<OfficeState> {
       description: this.description,
       playlistItems: this.state.playlistItems,
       currentDj: this.currentDj,
+      currentPlaybackTime: this.state.currentPlaybackTime
     })
   }
 
@@ -295,9 +306,9 @@ export class SkyOffice extends Room<OfficeState> {
     this.state.whiteboards.forEach((whiteboard) => {
       if (whiteboardRoomIds.has(whiteboard.roomId)) whiteboardRoomIds.delete(whiteboard.roomId)
     })
-
+     this.currentDj = null;
     console.log('room', this.roomId, 'disposing...')
-    this.delayedInterval.clear()
+    // this.delayedInterval.clear()
     this.dispatcher.stop()
   }
 }

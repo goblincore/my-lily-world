@@ -33,7 +33,7 @@ export default class Game extends Phaser.Scene {
   private keyR!: Phaser.Input.Keyboard.Key
   private map!: Phaser.Tilemaps.Tilemap
   myPlayer!: MyPlayer
-  private timerTest: any
+  private timerTest: Phaser.Time.TimerEvent
   private playerSelector!: Phaser.GameObjects.Zone
   private otherPlayers!: Phaser.Physics.Arcade.Group
   private otherPlayerMap = new Map<string, OtherPlayer>()
@@ -42,6 +42,7 @@ export default class Game extends Phaser.Scene {
   private musicBoothMap = new Map<string, MusicBooth>()
   private youtubePlayer?: LilYoutubePlayer
   private youtubeUrl: string = ''
+  private currentDj?: string | null = null;
  
   
 
@@ -136,7 +137,7 @@ export default class Game extends Phaser.Scene {
     this.timerTest = this.time.addEvent({
       callback: this.timerEvent,
       callbackScope: this,
-      delay: 1000, // 1000 = 1 second
+      delay: 100, // 1000 = 1 second
       loop: true
     })
 
@@ -155,6 +156,8 @@ export default class Game extends Phaser.Scene {
       y: 180,
       width: 240,
       height: 180,
+      controls: false,
+      modestBranding: true,
 
     }
     this.youtubePlayer = new LilYoutubePlayer({...youtubePlayerProps});
@@ -192,8 +195,15 @@ export default class Game extends Phaser.Scene {
   }
 
   public timerEvent(): void {
-    console.log('timerEvent');
-  
+    if(this.youtubePlayer){
+       
+    }
+    if(this.myPlayer.playerId === this.currentDj && this.youtubePlayer?.isPlaying ){
+      console.log('this.myPlayer.playerId',this.myPlayer.playerId );
+      this.network.setCurrentPlaybackTime(this.myPlayer.playerId, this.youtubePlayer.playbackTime);
+    } else {
+      
+    }
     // Create your new object here.
   }
 
@@ -252,6 +262,9 @@ export default class Game extends Phaser.Scene {
     const otherPlayer = this.add.otherPlayer(newPlayer.x, newPlayer.y, 'adam', id, newPlayer.name)
     this.otherPlayers.add(otherPlayer)
     this.otherPlayerMap.set(id, otherPlayer)
+    if(this.myPlayer.playerId === this.currentDj && this.youtubePlayer?.isPlaying){
+      this.network.setCurrentPlaybackTime(this.myPlayer.playerId, this.youtubePlayer.playbackTime)
+    }
   }
 
   // function to remove the player who left from the otherPlayer group
@@ -267,7 +280,29 @@ export default class Game extends Phaser.Scene {
   private handleMyPlayerReady() {
     this.myPlayer.readyToConnect = true
     console.log('handleMyPlayeRReady');
-    console.log('paylistSTore', playlistStore);
+    const roomState =  store.getState().room;
+    if(roomState.currentDj){
+    console.log('room store', roomState)
+    let setTime = false;
+    this.youtubePlayer?.load(roomState.playList[roomState.playList.length - 1].id, true);
+    this.youtubePlayer?.on('playing', function(player){
+      if(!setTime){
+      player?.setPlaybackTime(roomState.currentPlaybackTime);
+      setTime = true
+      }
+
+    })
+   console.log('currentPlaybackTime', roomState.currentPlaybackTime)
+    if(this.youtubePlayer) {
+      this.youtubePlayer.alpha = 1;
+      this.youtubePlayer.blendMode = Phaser.BlendModes.SCREEN;
+   
+   
+    }
+  }
+    
+   
+
   }
 
   private handleMyVideoConnected() {
@@ -312,13 +347,15 @@ export default class Game extends Phaser.Scene {
 
 
   private handleStartMusicShare(playerId: string, content: any){
-    console.log( 'in game startMusic playing content!!', content);
+    console.log( 'in game startMusic playing content!!', content, 'playerId', playerId);
     const url = content.id;
     this.youtubePlayer?.load(url, true)
     if(this.youtubePlayer) {
       this.youtubePlayer.alpha = 1;
       this.youtubePlayer.blendMode = Phaser.BlendModes.SCREEN;
     }
+
+    this.currentDj = playerId;
 
     this.youtubePlayer?.play();
   }
@@ -327,6 +364,9 @@ export default class Game extends Phaser.Scene {
     // if(this.youtubePlayer){
     //   console.log('this.youtubeplayer', this.youtubePlayer?.playbackTime)
     // }
+   
+    
+
     if (this.myPlayer && this.network) {
       this.playerSelector.update(this.myPlayer, this.cursors)
       this.myPlayer.update(this.playerSelector, this.cursors, this.keyE, this.keyR, this.network)

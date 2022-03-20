@@ -67,6 +67,9 @@ export class OfficeState extends Schema implements IOfficeState {
 
   @type([PlaylistItem])
   playlistItems = new ArraySchema<PlaylistItem>()
+
+  @type('number')
+  currentPlaybackTime = 0
 }
 
 

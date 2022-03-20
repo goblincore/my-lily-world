@@ -8,6 +8,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
+    "strictPropertyInitialization": false,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -21,5 +22,5 @@
     "sourceMap": true,
     "downlevelIteration": true
   },
-  "include": ["src"]
+  "include": ["src", "../server/Youtube.js"]
 }

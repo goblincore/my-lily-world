@@ -23,9 +23,15 @@ export const roomSlice = createSlice({
     roomDescription: '',
     availableRooms: new Array<RoomAvailable>(),
     playList: new Array<any>(),
+    currentDj: null,
+    currentPlaybackTime: 0,
   },
 
   reducers: {
+    setCurrentDj: (state, action: PayloadAction<any>) => {
+      console.log('setCurrentDj', setCurrentDj);
+      state.currentDj = action.payload
+    },
     setLobbyJoined: (state, action: PayloadAction<boolean>) => {
       state.lobbyJoined = action.payload
     },
@@ -39,7 +45,7 @@ export const roomSlice = createSlice({
     },
     setJoinedRoomData: (
       state,
-      action: PayloadAction<{ id: string; name: string; description: string, playlistItems: any }>
+      action: PayloadAction<{ id: string; name: string; description: string, playlistItems: any, currentDj: any, currentPlaybackTime: any }>
     ) => {
 
       console.log('setJoinedRoomData', state, 'action', action);
@@ -47,6 +53,9 @@ export const roomSlice = createSlice({
       state.roomName = action.payload.name
       state.roomDescription = action.payload.description
       state.playList = action.payload.playlistItems
+      state.currentDj = action.payload.currentDj
+      state.currentPlaybackTime = action.payload.currentPlaybackTime
+
     },
     setAvailableRooms: (state, action: PayloadAction<RoomAvailable[]>) => {
       state.availableRooms = action.payload.filter((room) => isCustomRoom(room))
@@ -76,6 +85,7 @@ export const {
   addAvailableRooms,
   removeAvailableRooms,
   setPlaylistItems,
+  setCurrentDj,
 } = roomSlice.actions
 
 export default roomSlice.reducer

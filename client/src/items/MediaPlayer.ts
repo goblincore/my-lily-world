@@ -10,15 +10,19 @@ interface Props {
     y: number;
     width: number;
     height: number;
+    controls?: boolean;
+    modestBranding?: boolean;
     config?: any; 
   }
 
 
 export class LilYoutubePlayer extends YoutubePlayer { 
     private current;
+    private timeoutID?: number;
 
-    constructor({ scene, x, y, width, height, config }: Props) {
-        super(scene, x, y, width, height, config);
+    constructor({ scene, x, y, width, height, controls, modestBranding, config }: Props) {
+    
+        super(scene, x, y, width, height, {controls, modestBranding });
         scene.add.existing(this);
       
     }
@@ -31,6 +35,7 @@ export class LilYoutubePlayer extends YoutubePlayer {
         // console.log('playlistStore2', playlistStore2.get.current());
     }
 
+  
    
     
 }

@@ -47,4 +47,5 @@ export interface IOfficeState extends Schema {
   chatMessages: ArraySchema<IChatMessage>
   playlistItems: ArraySchema<IPlaylistItem>
   currentPlaylistItem: IPlaylistItem
+  currentPlaybackTime: number
 }

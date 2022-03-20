@@ -321,6 +321,10 @@ export default class Network {
     this.room?.send(Message.CONNECT_TO_COMPUTER, { computerId: id })
   }
 
+  setCurrentPlaybackTime(id:string, time: any){
+    
+    this.room?.send(Message.SET_PLAYBACK_TIME, {clientId: id, time})
+  }
 
   disconnectFromComputer(id: string) {
     this.room?.send(Message.DISCONNECT_FROM_COMPUTER, { computerId: id })
@@ -348,7 +352,7 @@ export default class Network {
     this.room?.send(Message.STOP_SCREEN_SHARE, { computerId: id })
   }
   // method to announce starting music playing sesh
-  startMusicShare(content:string) {
+  startMusicShare(content?:string) {
     console.log('Network client Start music share send to server to broadcast', content);
     this.room?.send(Message.START_MUSIC_SHARE, {content})
   }
@@ -357,7 +361,6 @@ export default class Network {
     console.log('Network client Add playlist Item send to server to broadcast', url);
     this.room?.send(Message.ADD_PLAYLIST_ITEM, {url})
   }
-
 
 
   onStopMusicShare(id: string) {
