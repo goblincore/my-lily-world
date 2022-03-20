@@ -322,7 +322,7 @@ export default class Network {
   }
 
   setCurrentPlaybackTime(id:string, time: any){
-    
+
     this.room?.send(Message.SET_PLAYBACK_TIME, {clientId: id, time})
   }
 
@@ -345,7 +345,7 @@ export default class Network {
 
   disconnectFromMusicBooth(id: string) {
     console.log('DisConnect to music booth');
-    this.room?.send(Message.DISCONNECT_FROM_MUSIC_BOOTH, { whiteboardId: id })
+    this.room?.send(Message.DISCONNECT_FROM_MUSIC_BOOTH, { musicBoothId: id })
   }
 
   onStopScreenShare(id: string) {

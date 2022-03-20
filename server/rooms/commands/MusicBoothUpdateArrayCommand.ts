@@ -58,8 +58,8 @@ export class AddItemToUserPlaylistUserCommand extends Command<IOfficeState, Payl
 export class MusicBoothRemoveUserCommand extends Command<IOfficeState, Payload> {
   execute(data: Payload) {
     const { client, musicBoothId } = data
+    console.log('MUSIC BOOTH REMOVE USER', client);
     const musicBooth = this.state.musicBooths.get(musicBoothId)
-
     console.log('musicBoothId', musicBoothId);
 
     console.log('musicBooth', musicBooth);
