@@ -24,6 +24,7 @@ export const roomSlice = createSlice({
     availableRooms: new Array<RoomAvailable>(),
     playList: new Array<any>(),
     currentDj: null,
+    currentPlaybackItem: null,
     currentPlaybackTime: 0,
   },
 

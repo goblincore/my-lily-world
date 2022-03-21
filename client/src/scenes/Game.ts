@@ -21,6 +21,7 @@ import { PlayerBehavior } from '../../../types/PlayerBehavior'
 import { ItemType } from '../../../types/Items'
 
 import store from '../stores'
+import { openPlaylistDialogue } from '../stores/UserStore'
 import { setFocused, setShowChat } from '../stores/ChatStore'
 import { proxy, subscribe, snapshot } from 'valtio/vanilla'
 import { playlistStore } from '../stores/PlaylistStore'
@@ -56,6 +57,9 @@ export default class Game extends Phaser.Scene {
     this.keyE = this.input.keyboard.addKey('E')
     this.keyR = this.input.keyboard.addKey('R')
     this.input.keyboard.disableGlobalCapture()
+    this.input.keyboard.on('keydown-P', (event) => {
+      store.dispatch(openPlaylistDialogue('true'))
+    })
     this.input.keyboard.on('keydown-ENTER', (event) => {
       store.dispatch(setShowChat(true))
       store.dispatch(setFocused(true))
@@ -162,10 +166,14 @@ export default class Game extends Phaser.Scene {
     }
     this.youtubePlayer = new LilYoutubePlayer({...youtubePlayerProps});
     this.youtubePlayer.alpha = 0;
+    const network = this.network;
     this.youtubePlayer.on('statechange', function (player) {
       console.log('video player state change'
       , player.videoStateString);
+      network.playbackStateChange(player.videoStateString);
    })
+
+
 
     subscribe(playlistStore, () => {
       console.log('game subscribe playlist store');
@@ -282,28 +290,27 @@ export default class Game extends Phaser.Scene {
     this.myPlayer.readyToConnect = true
     console.log('handleMyPlayeRReady');
     const roomState =  store.getState().room;
-    if(roomState.currentDj){
-    console.log('room store', roomState)
-    let setTime = false;
-    this.youtubePlayer?.load(roomState.playList[roomState.playList.length - 1].id, true);
-    this.youtubePlayer?.on('playing', function(player){
-      if(!setTime){
-      player?.setPlaybackTime(roomState.currentPlaybackTime);
-      setTime = true
+      if(roomState.currentDj && roomState.currentPlaybackItem){
+          console.log('room store', roomState)
+          let setTime = false;
+          this.youtubePlayer?.load(roomState.currentPlaybackItem, true);
+          this.youtubePlayer?.on('playing', function(player){
+            if(!setTime){
+            player?.setPlaybackTime(roomState.currentPlaybackTime);
+            setTime = true
+            }
+
+          })
+        console.log('currentPlaybackTime', roomState.currentPlaybackTime)
+          if(this.youtubePlayer) {
+            this.youtubePlayer.alpha = 1;
+            this.youtubePlayer.blendMode = Phaser.BlendModes.SCREEN;
+        
+        
+          }
       }
-
-    })
-   console.log('currentPlaybackTime', roomState.currentPlaybackTime)
-    if(this.youtubePlayer) {
-      this.youtubePlayer.alpha = 1;
-      this.youtubePlayer.blendMode = Phaser.BlendModes.SCREEN;
-   
-   
-    }
-  }
     
-   
-
+  
   }
 
   private handleMyVideoConnected() {
@@ -361,6 +368,7 @@ export default class Game extends Phaser.Scene {
     if(this.youtubePlayer) {
       this.youtubePlayer.alpha = 1;
       this.youtubePlayer.blendMode = Phaser.BlendModes.SCREEN;
+  
     }
 
     this.currentDj = playerId;

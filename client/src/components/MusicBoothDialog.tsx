@@ -150,6 +150,7 @@ const MusicSearch = () => {
       console.log('handleClick playlistItem', result);
     //   playlistStore.url = url;
         playlistStore.push({id, title, thumbnail});
+        game.network.addPlaylistItem(id);
         // playlistStore2.set.playlistItems(...playlistStore2.)
       //game.network.addPlaylistItem(url);
   }
@@ -166,7 +167,7 @@ const MusicSearch = () => {
 
 
   const handleAddToServerPlaylist=({title, id})=>{
-    game.network.addPlaylistItem(id);
+    // game.network.addPlaylistItem(id);
   }
 
   const userPlaylist = playlist.map(item => {
@@ -185,7 +186,7 @@ const MusicSearch = () => {
   const renderList = inputValue.trim() === '' && playlistStore?.length > 0 ? userPlaylist : resultsList;
 
   const handleStartPlay=()=>{
-      game.network.startMusicShare('DLK_vfuE5_A');
+      game.network.startMusicShare();
   }
 
 

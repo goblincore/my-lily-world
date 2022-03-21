@@ -34,12 +34,14 @@ export class SkyOffice extends Room<OfficeState> {
   private description: string
   private password: string | null = null
   public delayedInterval!: Delayed;
+  public djQueue?: any[] | [];
 
   async onCreate(options: IRoomData) {
     const { name, description, password, autoDispose } = options
     this.name = name
     this.description = description
     this.autoDispose = autoDispose
+    this.djQueue = [];
 
 
     // // Set an interval and store a reference to it
@@ -59,7 +61,7 @@ export class SkyOffice extends Room<OfficeState> {
     this.setState(new OfficeState())
 
     // HARD-CODED: Add 5 computers in a room
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 1; i++) {
       this.state.computers.set(String(i), new Computer())
     }
 
@@ -69,7 +71,7 @@ export class SkyOffice extends Room<OfficeState> {
     // }
 
     // HARD-CODED: Add 3 whiteboards in a room
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 1; i++) {
       this.state.musicBooths.set(String(i), new MusicBooth())
     }
 
@@ -126,8 +128,36 @@ export class SkyOffice extends Room<OfficeState> {
       // if ( playlist.length >= 100)  playlist.shift()
 
       // broadcast to all currently connected clients except the sender (to render in-game dialog on top of the character)
-      this.broadcast(Message.START_MUSIC_SHARE, { clientId: client.sessionId, content: player.userPlaylist[0]  })
+      // this.broadcast(Message.START_MUSIC_SHARE, { clientId: client.sessionId, content: player.userPlaylist[0]  })
     })
+
+
+    this.onMessage(Message.PLAYBACK_STATE_CHANGE, (client, message) => {
+      console.log('playback state changed', message, 'client', client.id);
+      if(this.state.currentDjId === client.id){
+
+        switch (message) {
+          case 'ended':
+            const player = this.state.players.get(client.sessionId);
+            player.userPlaylist.shift();
+            this.djQueue.shift();
+     
+            break;
+          case 'playing':
+            console.log('dj playing');
+          break;
+          case 'unstarted':
+          case 'buffering':
+            console.log('dj buffering');
+            // expected output: "Mangoes and papayas are $2.79 a pound."
+            break;
+          default:
+            console.log('default');
+        }
+      }
+    })
+
+
 
     // when a player connects to a music booth
     this.onMessage(Message.CONNECT_TO_MUSIC_BOOTH, (client, message: { musicBoothId: string }) => {
@@ -136,6 +166,21 @@ export class SkyOffice extends Room<OfficeState> {
         client,
         musicBoothId: message.musicBoothId,
       })
+      const player = this.state.players.get(client.sessionId);
+      const queuePlayerObj = {
+        userPlayist: player.userPlaylist,
+        id: client.id,
+      }
+      if(!this.djQueue || this.djQueue?.length === 0){
+        this.state.currentDjId = client.id;
+        
+      }
+      this.djQueue.push(queuePlayerObj as never);
+      console.log('playeruserplaylist', player.userPlaylist);
+      if(player.userPlaylist?.length > 0){
+       
+      this.broadcast(Message.START_MUSIC_SHARE, { clientId: client.sessionId, content: player.userPlaylist[0]  })
+      }
     })
 
     // when a player disconnect from a whiteboard, remove from the whiteboard connectedUser array
@@ -157,6 +202,10 @@ export class SkyOffice extends Room<OfficeState> {
           client,
           musicBoothId: message.musicBoothId,
         })
+       
+
+        this.djQueue = this.djQueue.filter(dj => dj.id !== client.id);
+         console.log('this.djQueue', this.djQueue);
       }
     )
 
@@ -195,7 +244,7 @@ export class SkyOffice extends Room<OfficeState> {
     })
 
     this.onMessage(Message.SET_PLAYBACK_TIME, (client, message) => {
-      console.log('SET PLAYBACK TIME', client.id, 'time', message);
+      // console.log('SET PLAYBACK TIME', client.id, 'time', message);
       this.dispatcher.dispatch(new PlaybackTimeUpdateCommand(), {
         time: message.time
       })
@@ -242,10 +291,10 @@ export class SkyOffice extends Room<OfficeState> {
         })
   
         // broadcast to all currently connected clients except the sender (to render in-game dialog on top of the character)
-        this.broadcast(
-          Message.ADD_PLAYLIST_ITEM,
-          { clientId: client.sessionId, content: message.url },
-        )
+        // this.broadcast(
+        //   Message.ADD_PLAYLIST_ITEM,
+        //   { clientId: client.sessionId, content: message.url },
+        // )
       })
 
 

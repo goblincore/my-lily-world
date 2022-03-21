@@ -161,6 +161,14 @@ export default class Network {
       }
     }
 
+    this.room.state.listen('currentPlaylistItem', change => {
+      console.log('currentPlaylistItem changed listner');
+    })
+
+    // this.room.onStateChange(state => {
+    //   console.log('room state change', state);
+    // })
+
  // new instance added to the music booth MapSchema
     this.room.state.musicBooths.onAdd = (musicBooth: IMusicBooth, key: string) => {
       store.dispatch(
@@ -352,6 +360,16 @@ export default class Network {
   disconnectFromMusicBooth(id: string) {
     console.log('DisConnect to music booth');
     this.room?.send(Message.DISCONNECT_FROM_MUSIC_BOOTH, { musicBoothId: id })
+  }
+
+  loadNextMedia(id: string) {
+    console.log('load next song', id);
+    this.room?.send(Message.LOAD_NEXT_MEDIA, { musicBoothId: id })
+  }
+
+  playbackStateChange(state: string) {
+    console.log('client send server video state change', state);
+    this.room?.send(Message.PLAYBACK_STATE_CHANGE, state);
   }
 
   onStopScreenShare(id: string) {

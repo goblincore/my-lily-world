@@ -18,6 +18,7 @@ export const userSlice = createSlice({
     videoConnected: false,
     loggedIn: false,
     playerNameMap: new Map<string, string>(),
+    userPlaylistDialogueOpen: false,
   },
   reducers: {
     toggleBackgroundMode: (state) => {
@@ -43,6 +44,10 @@ export const userSlice = createSlice({
     removePlayerNameMap: (state, action: PayloadAction<string>) => {
       state.playerNameMap.delete(sanitizeId(action.payload))
     },
+    openPlaylistDialogue: (state, action: PayloadAction<string>) => {
+      console.log('openUserPlaylistDialogue reducer', state, action);
+      state.userPlaylistDialogueOpen = !state.userPlaylistDialogueOpen
+    },
   },
 })
 
@@ -53,6 +58,7 @@ export const {
   setLoggedIn,
   setPlayerNameMap,
   removePlayerNameMap,
+  openPlaylistDialogue,
 } = userSlice.actions
 
 export default userSlice.reducer

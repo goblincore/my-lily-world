@@ -65,7 +65,11 @@ export class MusicBoothRemoveUserCommand extends Command<IOfficeState, Payload> 
     const musicBooth = this.state.musicBooths.get(musicBoothId)
     console.log('musicBoothId', musicBoothId);
 
- 
+    const player = this.state.players.get(client.sessionId);
+    if(this.state.currentDjId === client.id){
+      player.userPlaylist.shift();
+
+    }
     console.log('musicBooth', musicBooth);
 
     if (musicBooth?.connectedUser.has(client.sessionId)) {

@@ -8,6 +8,7 @@ import {
   IChatMessage,
   IPlaylistItem,
 } from '../../../types/IOfficeState'
+import Queue from '../Queue';
 
 export class PlaylistItem extends Schema implements IPlaylistItem {
   @type('string') id = ''
@@ -67,6 +68,12 @@ export class OfficeState extends Schema implements IOfficeState {
 
   @type([PlaylistItem])
   playlistItems = new ArraySchema<any>()
+
+  @type([Player])
+  djQueueList = new ArraySchema<any>()
+
+  @type(PlaylistItem)
+  currentPlayingItem = new PlaylistItem()
 
   @type('number')
   currentPlaybackTime = 0
