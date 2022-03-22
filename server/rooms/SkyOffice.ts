@@ -56,7 +56,7 @@ export class SkyOffice extends Room<OfficeState> {
     //   this.state.whiteboards.set(String(i), new Whiteboard())
     // }
 
-    // HARD-CODED: Add 3 whiteboards in a room
+    // HARD-CODED: Add 3 musicbooths in a room
     for (let i = 0; i < 3; i++) {
       this.state.musicBooths.set(String(i), new MusicBooth())
     }
@@ -132,6 +132,7 @@ export class SkyOffice extends Room<OfficeState> {
     this.onMessage(
       Message.DISCONNECT_FROM_MUSIC_BOOTH,
       (client, message: { musicBoothId: string }) => {
+        
         this.dispatcher.dispatch(new MusicBoothRemoveUserCommand(), {
           client,
           musicBoothId: message.musicBoothId,
@@ -263,7 +264,9 @@ export class SkyOffice extends Room<OfficeState> {
     this.state.whiteboards.forEach((whiteboard) => {
       if (whiteboardRoomIds.has(whiteboard.roomId)) whiteboardRoomIds.delete(whiteboard.roomId)
     })
-
+    this.state.musicBooths.forEach((musicBooth) => {
+      if (musicBoothIds.has(musicBooth.roomId)) musicBoothIds.delete(musicBooth.roomId)
+    })
     console.log('room', this.roomId, 'disposing...')
     this.dispatcher.stop()
   }

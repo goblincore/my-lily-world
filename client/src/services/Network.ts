@@ -326,12 +326,12 @@ export default class Network {
 
   connectToMusicBooth(id: string) {
     console.log('Connect to music booth');
-    this.room?.send(Message.CONNECT_TO_MUSIC_BOOTH, { whiteboardId: id })
+    this.room?.send(Message.CONNECT_TO_MUSIC_BOOTH, { musicBoothId: id })
   }
 
   disconnectFromMusicBooth(id: string) {
     console.log('DisConnect to music booth');
-    this.room?.send(Message.DISCONNECT_FROM_MUSIC_BOOTH, { whiteboardId: id })
+    this.room?.send(Message.DISCONNECT_FROM_MUSIC_BOOTH, { musicBoothId: id })
   }
 
   onStopScreenShare(id: string) {

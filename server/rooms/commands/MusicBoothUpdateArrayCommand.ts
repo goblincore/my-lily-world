@@ -41,7 +41,7 @@ export class MusicBoothRemoveUserCommand extends Command<IOfficeState, Payload> 
   execute(data: Payload) {
     const { client, musicBoothId } = data
     const musicBooth = this.state.musicBooths.get(musicBoothId)
-
+    console.log('MUSIC BOOTH REMOVE USER', client);
     console.log('musicBoothId', musicBoothId);
 
     console.log('musicBooth', musicBooth);

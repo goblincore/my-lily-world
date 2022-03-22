@@ -9,7 +9,7 @@ import Computer from '../items/Computer'
 import Whiteboard from '../items/Whiteboard'
 import MusicBooth from '../items/MusicBooth'
 import VendingMachine from '../items/VendingMachine'
-import {  LilYoutubePlayer } from "../items/MediaPlayer";
+import { LilYoutubePlayer } from '../items/MediaPlayer'
 import '../characters/MyPlayer'
 import '../characters/OtherPlayer'
 import MyPlayer from '../characters/MyPlayer'
@@ -24,7 +24,6 @@ import store from '../stores'
 import { setFocused, setShowChat } from '../stores/ChatStore'
 import { proxy, subscribe, snapshot } from 'valtio/vanilla'
 import { playlistStore } from '../stores/PlaylistStore'
-
 
 export default class Game extends Phaser.Scene {
   network!: Network
@@ -41,7 +40,6 @@ export default class Game extends Phaser.Scene {
   private musicBoothMap = new Map<string, MusicBooth>()
   private youtubePlayer?: LilYoutubePlayer
   private youtubeUrl: string = ''
-  
 
   constructor() {
     super('game')
@@ -125,20 +123,20 @@ export default class Game extends Phaser.Scene {
     //   this.whiteboardMap.set(id, item)
     // })
 
-     // import music booth objects from Tiled map to Phaser
-     const musicBooths = this.physics.add.staticGroup({ classType: MusicBooth })
-     const musicBoothLayer = this.map.getObjectLayer('MusicBooth')
-     musicBoothLayer.objects.forEach((obj, i) => {
-       const item = this.addObjectFromTiled(
-         musicBooths,
-         obj,
-         'musicBooths',
-         'musicBooth'
-       ) as MusicBooth
-       const id = `${i}`
-       item.id = id
-       this.musicBoothMap.set(id, item)
-     })
+    // import music booth objects from Tiled map to Phaser
+    const musicBooths = this.physics.add.staticGroup({ classType: MusicBooth })
+    const musicBoothLayer = this.map.getObjectLayer('MusicBooth')
+    musicBoothLayer.objects.forEach((obj, i) => {
+      const item = this.addObjectFromTiled(
+        musicBooths,
+        obj,
+        'musicBooths',
+        'musicBooth'
+      ) as MusicBooth
+      const id = `${i}`
+      item.id = id
+      this.musicBoothMap.set(id, item)
+    })
 
     // import vending machine objects from Tiled map to Phaser
     // const vendingMachines = this.physics.add.staticGroup({ classType: VendingMachine })
@@ -187,17 +185,17 @@ export default class Game extends Phaser.Scene {
       width: 240,
       height: 180,
     }
-    this.youtubePlayer = new LilYoutubePlayer({...youtubePlayerProps});
-    this.youtubePlayer.load(this.youtubeUrl, false);
-    this.youtubePlayer.alpha = 0;
+    this.youtubePlayer = new LilYoutubePlayer({ ...youtubePlayerProps })
+    this.youtubePlayer.load(this.youtubeUrl, false)
+    this.youtubePlayer.alpha = 0
 
     subscribe(playlistStore, () => {
-      console.log('game subscribe playlist store');
-      this.youtubePlayer?.load(playlistStore.url);
-      if(this.youtubePlayer) {
-      this.youtubePlayer.alpha = 1;
-      this.youtubePlayer.blendMode = Phaser.BlendModes.SCREEN;
-    }
+      console.log('game subscribe playlist store')
+      this.youtubePlayer?.load(playlistStore.url)
+      if (this.youtubePlayer) {
+        this.youtubePlayer.alpha = 1
+        this.youtubePlayer.blendMode = Phaser.BlendModes.SCREEN
+      }
       this.youtubePlayer?.play()
       // this.network.startMusicShare(playlistStore.url);
     })
@@ -283,8 +281,8 @@ export default class Game extends Phaser.Scene {
 
   private handleMyPlayerReady() {
     this.myPlayer.readyToConnect = true
-    console.log('handleMyPlayeRReady');
-    console.log('paylistSTore', playlistStore);
+    console.log('handleMyPlayeRReady')
+    console.log('paylistSTore', playlistStore)
   }
 
   private handleMyVideoConnected() {
@@ -308,6 +306,9 @@ export default class Game extends Phaser.Scene {
     } else if (itemType === ItemType.WHITEBOARD) {
       const whiteboard = this.whiteboardMap.get(itemId)
       whiteboard?.addCurrentUser(playerId)
+    } else if (itemType === ItemType.MUSICBOOTH) {
+      const musicBooth = this.musicBoothMap.get(itemId)
+      musicBooth?.addCurrentUser(playerId)
     }
   }
 
@@ -318,20 +319,23 @@ export default class Game extends Phaser.Scene {
     } else if (itemType === ItemType.WHITEBOARD) {
       const whiteboard = this.whiteboardMap.get(itemId)
       whiteboard?.removeCurrentUser(playerId)
+    } else if (itemType === ItemType.MUSICBOOTH) {
+      const musicBooth = this.musicBoothMap.get(itemId)
+      console.log('REMOVE USER FROM MUSICBOOTH')
+      musicBooth?.removeCurrentUser(playerId)
     }
   }
 
   private handleChatMessageAdded(playerId: string, content: string) {
-    console.log('handleChatMessageAdded');
+    console.log('handleChatMessageAdded')
     const otherPlayer = this.otherPlayerMap.get(playerId)
     otherPlayer?.updateDialogBubble(content)
   }
 
-
-  private handleStartMusicShare(playerId: string, content: any){
-    console.log( 'in game startMusic playing content!!', content);
-    const url = content.content;
-    playlistStore.url = url;
+  private handleStartMusicShare(playerId: string, content: any) {
+    console.log('in game startMusic playing content!!', content)
+    const url = content.content
+    playlistStore.url = url
     // this.youtubePlayer?.load(url, true)
     // if(this.youtubePlayer) {
     //   this.youtubePlayer.alpha = 1;
