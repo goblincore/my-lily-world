@@ -9,6 +9,7 @@ interface MusicBoothState {
   musicBoothId: null | string
   musicBoothUrl: null | string
   urls: Map<string, string>
+  focused: boolean
 }
 
 const initialState: MusicBoothState = {
@@ -16,6 +17,7 @@ const initialState: MusicBoothState = {
   musicBoothId: null,
   musicBoothUrl: null,
   urls: new Map(),
+  focused: false,
 }
 
 export const musicBoothSlice = createSlice({
@@ -45,10 +47,15 @@ export const musicBoothSlice = createSlice({
         `https://www.tldraw.com/r/sky-office-${action.payload.roomId}` // youtube or soundcloud URL
       )
     },
+    setFocused: (state, action: PayloadAction<boolean>) => {
+      const game = phaserGame.scene.keys.game as Game
+      action.payload ? game.disableKeys() : game.enableKeys()
+      state.focused = action.payload
+    },
   },
 })
 
-export const { openMusicBoothDialog, closeMusicBoothDialog, setMusicBoothUrls } =
+export const { openMusicBoothDialog, closeMusicBoothDialog, setMusicBoothUrls, setFocused } =
   musicBoothSlice.actions
 
 export default musicBoothSlice.reducer
