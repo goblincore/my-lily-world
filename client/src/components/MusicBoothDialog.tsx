@@ -3,21 +3,24 @@ import styled from 'styled-components'
 import InputBase from '@mui/material/InputBase'
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
+import Fab from '@mui/material/Fab'
 import Game from '../scenes/Game'
 import phaserGame from '../PhaserGame'
 import { useAppSelector, useAppDispatch } from '../hooks'
 import { togglePlaylistDialogue } from '../stores/UserStore'
+import { openMusicBoothDialog, closeMusicBoothDialog, setFocused } from '../stores/MusicBoothStore'
 import axios from 'axios'
 import { useSnapshot } from 'valtio';
 import { playlistStore } from '../stores/PlaylistStore'
-import { playlistStore2 } from '../stores/PlaylistStore';
+import { playlistStore2 } from '../stores/PlaylistStore'
 
 const Backdrop = styled.div`
   position: fixed;
   top: 0;
   right: 0;
   width: 100vw;
-  height: 100vh;
+  height: 50vh;
+  background: transparent;
   overflow: hidden;
   max-width: 400px;
   padding: 16px 16px 16px 16px;
@@ -26,35 +29,42 @@ const Backdrop = styled.div`
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  background: #fff;
+  background: #eee;
   border-radius: 16px;
-  padding: 16px;
+  padding: 0;
   color: #eee;
-  position: relative;
   display: flex;
   flex-direction: column;
 
   .close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    z-index: 2;
-    color: #666;
+    margin: 0 0 0 auto;
+    padding: 0;
   }
 `
 
 const MusicBoothWrapper = styled.div`
   flex: 1;
   border-radius: 0px;
-  padding-top:50px;
+  border-top: 1px solid #aaa;
   overflow: hidden;
-  margin:0px;
+  padding: 5px 5px;
   width: 100%;
   height: 100%;
 `
 
+const FabWrapper = styled.div`
+  button {
+    font-size: 14px;
+    color: #666;
+    text-transform: lowercase !important;
+    line-height: 100%;
+    background-color: white !important;
+  }
+
+`
 export default function MusicBoothDialog() {
   const musicBoothUrl = useAppSelector((state) => state.musicBooth.musicBoothUrl)
+  const showMusicBoothDialog = useAppSelector((state) => state.musicBooth.musicBoothDialogOpen)
   const dispatch = useAppDispatch()
   const game = phaserGame.scene.keys.game as Game
 
@@ -67,42 +77,60 @@ export default function MusicBoothDialog() {
 
   return (
     <Backdrop>
+    {showMusicBoothDialog ? (
       <Wrapper>
-        <IconButton
-          aria-label="close dialog"
-          className="close"
-          onClick={() => dispatch(togglePlaylistDialogue())}
-          >
-          <CloseIcon />
-        </IconButton>
-        {/* {musicBoothUrl && ( */}
-        <MusicBoothWrapper>
-          <MusicSearch />
-        </MusicBoothWrapper>
-        {/* )} */}
-      </Wrapper>
+          <>
+            <div style={{display: 'flex', alignItems: 'center', padding: '2px 5px'}}>
+              <h3 style={{margin: '5px 0', flexGrow: 1, textAlign: 'center', color: '#888', fontSize: '16px'}}>My Playlist</h3>
+              <IconButton
+                aria-label="close dialog"
+                className="close"
+                onClick={() => dispatch(closeMusicBoothDialog())}
+              >
+                <CloseIcon />
+              </IconButton>
+            </div>
+            {/* {musicBoothUrl && ( */}
+            <MusicBoothWrapper>
+              <MusicSearch />
+            </MusicBoothWrapper>
+            {/* )} */}
+          </>)
+      </Wrapper>)
+      :
+        (
+          <div style={{textAlign: 'right'}}>
+          <FabWrapper>
+            <Fab
+              color="secondary"
+              aria-label="showMusicBooth"
+              onClick={() => {
+                dispatch(openMusicBoothDialog('1'))
+                dispatch(setFocused(true))
+              }}
+            >
+              My Playlist
+            </Fab>
+          </FabWrapper>
+          </div>
+        )
+      }
     </Backdrop>
   )
 }
 
 const InputWrapper = styled.form`
-  box-shadow: 10px 10px 10px #00000018;
   border: 1px solid #42eacb;
   border-radius: 10px;
   display: flex;
-  color: #666;
   flex-direction: row;
-  background: #ccc;
-  .close {
-    color: #666;
-  }
 `
 
 const InputTextField = styled(InputBase)`
   border-radius: 10px;
-  color: #666;
   input {
     padding: 5px;
+    color: #222;
   }
 `
 
@@ -116,6 +144,8 @@ const MusicSearch = () => {
   const [inputValue, setInputValue] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
   const { url } = useSnapshot(playlistStore);
+  const dispatch = useAppDispatch()
+  const focused = useAppSelector((state) => state.musicBooth.focused)
   const game = phaserGame.scene.keys.game as Game
 
   useEffect(() => {
@@ -126,6 +156,12 @@ const MusicSearch = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputValue])
 
+  useEffect(() => {
+    if (focused) {
+      inputRef.current?.focus()
+    }
+  }, [focused])
+
   console.log('data', data);
 
   const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
@@ -134,12 +170,15 @@ const MusicSearch = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    inputRef.current?.blur()
     setInputValue('')
   }
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    console.log("/////////////handleKeyDown")
     if (event.key === 'Escape') {
       inputRef.current?.blur()
+      dispatch(closeMusicBoothDialog())
     }
   }
 
@@ -160,12 +199,17 @@ const MusicSearch = () => {
       <section>
     <InputWrapper onSubmit={handleSubmit}>
       <InputTextField
-        ref={inputRef}
+        inputRef={inputRef}
+        autoFocus={focused}
         fullWidth
         placeholder="Search"
         value={inputValue}
         onKeyDown={handleKeyDown}
         onChange={handleChange}
+        onFocus={() => {
+          if (!focused) dispatch(setFocused(true))
+        }}
+        onBlur={() => dispatch(setFocused(false))}
       />
     </InputWrapper>
 

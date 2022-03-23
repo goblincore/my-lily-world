@@ -2,7 +2,7 @@ import { ItemType } from '../../../types/Items'
 import store from '../stores'
 import Item from './Item'
 import Network from '../services/Network'
-import { openMusicBoothDialog } from '../stores/MusicBoothStore'
+import { openMusicBoothDialog, setFocused } from '../stores/MusicBoothStore'
 
 export default class MusicBooth extends Item {
   id?: string
@@ -49,6 +49,7 @@ export default class MusicBooth extends Item {
   openDialog(network: Network) {
       console.log('MusicBooth instance open Dialog');
     if (!this.id) return
+    store.dispatch(setFocused(true))
     store.dispatch(openMusicBoothDialog(this.id))
     network.connectToMusicBooth(this.id)
   }
