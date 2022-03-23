@@ -19,7 +19,7 @@ import Network from '../services/Network'
 import { IPlayer } from '../../../types/IOfficeState'
 import { PlayerBehavior } from '../../../types/PlayerBehavior'
 import { ItemType } from '../../../types/Items'
-
+import { togglePlaylistDialogue } from '../stores/UserStore'
 import store from '../stores'
 import { setFocused, setShowChat } from '../stores/ChatStore'
 import { proxy, subscribe, snapshot } from 'valtio/vanilla'
@@ -54,6 +54,9 @@ export default class Game extends Phaser.Scene {
     this.input.keyboard.on('keydown-ENTER', (event) => {
       store.dispatch(setShowChat(true))
       store.dispatch(setFocused(true))
+    })
+    this.input.keyboard.on('keydown-P', (event) => {
+      store.dispatch(togglePlaylistDialogue())
     })
     this.input.keyboard.on('keydown-ESC', (event) => {
       store.dispatch(setShowChat(false))

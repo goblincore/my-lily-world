@@ -12,6 +12,7 @@ import VideoConnectionDialog from './components/VideoConnectionDialog'
 import Chat from './components/Chat'
 import HelperButtonGroup from './components/HelperButtonGroup'
 
+
 const Backdrop = styled.div`
   position: absolute;
   height: 100%;
@@ -25,6 +26,7 @@ function App() {
   const musicBoothDialogOpen = useAppSelector((state) => state.musicBooth.musicBoothDialogOpen)
   const videoConnected = useAppSelector((state) => state.user.videoConnected)
   const roomJoined = useAppSelector((state) => state.room.roomJoined)
+  const userPlaylistDialogOpen = useAppSelector((state)=> state.user.userPlaylistDialogueOpen)
 
   let ui: JSX.Element
   if (loggedIn) {
@@ -40,6 +42,9 @@ function App() {
       ui = (
         /* Render Chat or VideoConnectionDialog if no dialogs are opened. */
         <>
+          {userPlaylistDialogOpen && (
+            <MusicBoothDialog />
+          )}
           <Chat />
           {/* Render VideoConnectionDialog if user is not connected to a webcam. */}
           {/* {!videoConnected && <VideoConnectionDialog />} */}

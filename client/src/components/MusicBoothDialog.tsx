@@ -6,7 +6,7 @@ import CloseIcon from '@mui/icons-material/Close'
 import Game from '../scenes/Game'
 import phaserGame from '../PhaserGame'
 import { useAppSelector, useAppDispatch } from '../hooks'
-import { closeMusicBoothDialog } from '../stores/MusicBoothStore'
+import { togglePlaylistDialogue } from '../stores/UserStore'
 import axios from 'axios'
 import { useSnapshot } from 'valtio';
 import { playlistStore } from '../stores/PlaylistStore'
@@ -21,6 +21,7 @@ const Backdrop = styled.div`
   overflow: hidden;
   max-width: 400px;
   padding: 16px 16px 16px 16px;
+  z-index:99;
 `
 const Wrapper = styled.div`
   width: 100%;
@@ -38,6 +39,7 @@ const Wrapper = styled.div`
     top: 16px;
     right: 16px;
     z-index: 2;
+    color: #666;
   }
 `
 
@@ -69,8 +71,8 @@ export default function MusicBoothDialog() {
         <IconButton
           aria-label="close dialog"
           className="close"
-          onClick={() => dispatch(closeMusicBoothDialog())}
-        >
+          onClick={() => dispatch(togglePlaylistDialogue())}
+          >
           <CloseIcon />
         </IconButton>
         {/* {musicBoothUrl && ( */}
@@ -91,6 +93,9 @@ const InputWrapper = styled.form`
   color: #666;
   flex-direction: row;
   background: #ccc;
+  .close {
+    color: #666;
+  }
 `
 
 const InputTextField = styled(InputBase)`
@@ -114,7 +119,6 @@ const MusicSearch = () => {
   const game = phaserGame.scene.keys.game as Game
 
   useEffect(() => {
-      console.log('PLAYLIST STORE URL', url);
      axios.get(`http://localhost:2567/youtube/${inputValue}`).then((response) => {
       
       setData(response?.data?.items)
