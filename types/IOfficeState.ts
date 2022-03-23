@@ -7,6 +7,7 @@ export interface IPlayer extends Schema {
   anim: string
   readyToConnect: boolean
   videoConnected: boolean
+  userPlaylist?: ArraySchema<IPlaylistItem>
 }
 
 export interface IComputer extends Schema {
