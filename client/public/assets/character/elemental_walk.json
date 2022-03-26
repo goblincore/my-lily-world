@@ -1,0 +1,1700 @@
+{
+	"textures": [
+		{
+			"image": "elemental_walk.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 2021,
+				"h": 339
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "elemental_walk-40.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 27,
+						"w": 80,
+						"h": 89
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 80,
+						"h": 89
+					}
+				},
+				{
+					"filename": "elemental_walk-53.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 24,
+						"w": 69,
+						"h": 89
+					},
+					"frame": {
+						"x": 83,
+						"y": 1,
+						"w": 69,
+						"h": 89
+					}
+				},
+				{
+					"filename": "elemental_walk-54.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 30,
+						"y": 22,
+						"w": 69,
+						"h": 89
+					},
+					"frame": {
+						"x": 154,
+						"y": 1,
+						"w": 69,
+						"h": 89
+					}
+				},
+				{
+					"filename": "elemental_walk-39.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 26,
+						"w": 84,
+						"h": 90
+					},
+					"frame": {
+						"x": 225,
+						"y": 1,
+						"w": 84,
+						"h": 90
+					}
+				},
+				{
+					"filename": "elemental_walk-55.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 26,
+						"y": 21,
+						"w": 74,
+						"h": 92
+					},
+					"frame": {
+						"x": 311,
+						"y": 1,
+						"w": 74,
+						"h": 92
+					}
+				},
+				{
+					"filename": "elemental_walk-30.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 27,
+						"y": 26,
+						"w": 61,
+						"h": 93
+					},
+					"frame": {
+						"x": 387,
+						"y": 1,
+						"w": 61,
+						"h": 93
+					}
+				},
+				{
+					"filename": "elemental_walk-38.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 15,
+						"y": 25,
+						"w": 81,
+						"h": 93
+					},
+					"frame": {
+						"x": 450,
+						"y": 1,
+						"w": 81,
+						"h": 93
+					}
+				},
+				{
+					"filename": "elemental_walk-41.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 25,
+						"w": 77,
+						"h": 93
+					},
+					"frame": {
+						"x": 533,
+						"y": 1,
+						"w": 77,
+						"h": 93
+					}
+				},
+				{
+					"filename": "elemental_walk-46.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 26,
+						"w": 78,
+						"h": 93
+					},
+					"frame": {
+						"x": 612,
+						"y": 1,
+						"w": 78,
+						"h": 93
+					}
+				},
+				{
+					"filename": "elemental_walk-45.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 27,
+						"w": 79,
+						"h": 94
+					},
+					"frame": {
+						"x": 692,
+						"y": 1,
+						"w": 79,
+						"h": 94
+					}
+				},
+				{
+					"filename": "elemental_walk-49.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 27,
+						"w": 78,
+						"h": 94
+					},
+					"frame": {
+						"x": 773,
+						"y": 1,
+						"w": 78,
+						"h": 94
+					}
+				},
+				{
+					"filename": "elemental_walk-66.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 28,
+						"y": 18,
+						"w": 58,
+						"h": 94
+					},
+					"frame": {
+						"x": 853,
+						"y": 1,
+						"w": 58,
+						"h": 94
+					}
+				},
+				{
+					"filename": "elemental_walk-23.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 29,
+						"y": 26,
+						"w": 63,
+						"h": 95
+					},
+					"frame": {
+						"x": 913,
+						"y": 1,
+						"w": 63,
+						"h": 95
+					}
+				},
+				{
+					"filename": "elemental_walk-44.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 27,
+						"w": 79,
+						"h": 95
+					},
+					"frame": {
+						"x": 978,
+						"y": 1,
+						"w": 79,
+						"h": 95
+					}
+				},
+				{
+					"filename": "elemental_walk-22.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 34,
+						"y": 25,
+						"w": 59,
+						"h": 96
+					},
+					"frame": {
+						"x": 1059,
+						"y": 1,
+						"w": 59,
+						"h": 96
+					}
+				},
+				{
+					"filename": "elemental_walk-43.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 28,
+						"w": 78,
+						"h": 96
+					},
+					"frame": {
+						"x": 1120,
+						"y": 1,
+						"w": 78,
+						"h": 96
+					}
+				},
+				{
+					"filename": "elemental_walk-51.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 26,
+						"y": 20,
+						"w": 71,
+						"h": 96
+					},
+					"frame": {
+						"x": 1200,
+						"y": 1,
+						"w": 71,
+						"h": 96
+					}
+				},
+				{
+					"filename": "elemental_walk-52.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 26,
+						"y": 17,
+						"w": 72,
+						"h": 96
+					},
+					"frame": {
+						"x": 1273,
+						"y": 1,
+						"w": 72,
+						"h": 96
+					}
+				},
+				{
+					"filename": "elemental_walk-64.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 32,
+						"y": 17,
+						"w": 60,
+						"h": 96
+					},
+					"frame": {
+						"x": 1347,
+						"y": 1,
+						"w": 60,
+						"h": 96
+					}
+				},
+				{
+					"filename": "elemental_walk-67.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 17,
+						"w": 65,
+						"h": 96
+					},
+					"frame": {
+						"x": 1409,
+						"y": 1,
+						"w": 65,
+						"h": 96
+					}
+				},
+				{
+					"filename": "elemental_walk-68.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 26,
+						"y": 19,
+						"w": 70,
+						"h": 96
+					},
+					"frame": {
+						"x": 1476,
+						"y": 1,
+						"w": 70,
+						"h": 96
+					}
+				},
+				{
+					"filename": "elemental_walk-13.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 22,
+						"w": 69,
+						"h": 97
+					},
+					"frame": {
+						"x": 1548,
+						"y": 1,
+						"w": 69,
+						"h": 97
+					}
+				},
+				{
+					"filename": "elemental_walk-20.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 37,
+						"y": 24,
+						"w": 44,
+						"h": 97
+					},
+					"frame": {
+						"x": 1619,
+						"y": 1,
+						"w": 44,
+						"h": 97
+					}
+				},
+				{
+					"filename": "elemental_walk-21.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 37,
+						"y": 24,
+						"w": 51,
+						"h": 97
+					},
+					"frame": {
+						"x": 1665,
+						"y": 1,
+						"w": 51,
+						"h": 97
+					}
+				},
+				{
+					"filename": "elemental_walk-24.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 27,
+						"y": 25,
+						"w": 59,
+						"h": 97
+					},
+					"frame": {
+						"x": 1718,
+						"y": 1,
+						"w": 59,
+						"h": 97
+					}
+				},
+				{
+					"filename": "elemental_walk-34.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 12,
+						"y": 27,
+						"w": 86,
+						"h": 97
+					},
+					"frame": {
+						"x": 1779,
+						"y": 1,
+						"w": 86,
+						"h": 97
+					}
+				},
+				{
+					"filename": "elemental_walk-35.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 11,
+						"y": 28,
+						"w": 84,
+						"h": 97
+					},
+					"frame": {
+						"x": 1867,
+						"y": 1,
+						"w": 84,
+						"h": 97
+					}
+				},
+				{
+					"filename": "elemental_walk-63.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 27,
+						"y": 18,
+						"w": 63,
+						"h": 98
+					},
+					"frame": {
+						"x": 1953,
+						"y": 1,
+						"w": 63,
+						"h": 98
+					}
+				},
+				{
+					"filename": "elemental_walk-31.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 24,
+						"w": 71,
+						"h": 98
+					},
+					"frame": {
+						"x": 1,
+						"y": 92,
+						"w": 71,
+						"h": 98
+					}
+				},
+				{
+					"filename": "elemental_walk-33.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 28,
+						"w": 84,
+						"h": 98
+					},
+					"frame": {
+						"x": 74,
+						"y": 92,
+						"w": 84,
+						"h": 98
+					}
+				},
+				{
+					"filename": "elemental_walk-26.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 33,
+						"y": 24,
+						"w": 58,
+						"h": 99
+					},
+					"frame": {
+						"x": 160,
+						"y": 92,
+						"w": 58,
+						"h": 99
+					}
+				},
+				{
+					"filename": "elemental_walk-42.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 25,
+						"w": 77,
+						"h": 98
+					},
+					"frame": {
+						"x": 220,
+						"y": 93,
+						"w": 77,
+						"h": 98
+					}
+				},
+				{
+					"filename": "elemental_walk-50.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 21,
+						"w": 74,
+						"h": 98
+					},
+					"frame": {
+						"x": 299,
+						"y": 95,
+						"w": 74,
+						"h": 98
+					}
+				},
+				{
+					"filename": "elemental_walk-56.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 18,
+						"y": 19,
+						"w": 76,
+						"h": 98
+					},
+					"frame": {
+						"x": 375,
+						"y": 96,
+						"w": 76,
+						"h": 98
+					}
+				},
+				{
+					"filename": "elemental_walk-59.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 12,
+						"y": 24,
+						"w": 94,
+						"h": 98
+					},
+					"frame": {
+						"x": 453,
+						"y": 96,
+						"w": 94,
+						"h": 98
+					}
+				},
+				{
+					"filename": "elemental_walk-69.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 31,
+						"y": 19,
+						"w": 71,
+						"h": 98
+					},
+					"frame": {
+						"x": 549,
+						"y": 96,
+						"w": 71,
+						"h": 98
+					}
+				},
+				{
+					"filename": "elemental_walk-61.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 31,
+						"y": 17,
+						"w": 51,
+						"h": 99
+					},
+					"frame": {
+						"x": 622,
+						"y": 96,
+						"w": 51,
+						"h": 99
+					}
+				},
+				{
+					"filename": "elemental_walk-76.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 26,
+						"y": 9,
+						"w": 72,
+						"h": 98
+					},
+					"frame": {
+						"x": 675,
+						"y": 97,
+						"w": 72,
+						"h": 98
+					}
+				},
+				{
+					"filename": "elemental_walk-36.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 25,
+						"w": 72,
+						"h": 99
+					},
+					"frame": {
+						"x": 749,
+						"y": 97,
+						"w": 72,
+						"h": 99
+					}
+				},
+				{
+					"filename": "elemental_walk-48.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 26,
+						"w": 78,
+						"h": 99
+					},
+					"frame": {
+						"x": 823,
+						"y": 97,
+						"w": 78,
+						"h": 99
+					}
+				},
+				{
+					"filename": "elemental_walk-62.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 17,
+						"w": 59,
+						"h": 99
+					},
+					"frame": {
+						"x": 903,
+						"y": 98,
+						"w": 59,
+						"h": 99
+					}
+				},
+				{
+					"filename": "elemental_walk-11.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 22,
+						"y": 22,
+						"w": 71,
+						"h": 100
+					},
+					"frame": {
+						"x": 964,
+						"y": 98,
+						"w": 71,
+						"h": 100
+					}
+				},
+				{
+					"filename": "elemental_walk-28.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 24,
+						"w": 70,
+						"h": 100
+					},
+					"frame": {
+						"x": 1037,
+						"y": 99,
+						"w": 70,
+						"h": 100
+					}
+				},
+				{
+					"filename": "elemental_walk-37.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 22,
+						"w": 79,
+						"h": 100
+					},
+					"frame": {
+						"x": 1109,
+						"y": 99,
+						"w": 79,
+						"h": 100
+					}
+				},
+				{
+					"filename": "elemental_walk-47.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 24,
+						"w": 79,
+						"h": 100
+					},
+					"frame": {
+						"x": 1190,
+						"y": 99,
+						"w": 79,
+						"h": 100
+					}
+				},
+				{
+					"filename": "elemental_walk-60.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 38,
+						"y": 17,
+						"w": 44,
+						"h": 100
+					},
+					"frame": {
+						"x": 1271,
+						"y": 99,
+						"w": 44,
+						"h": 100
+					}
+				},
+				{
+					"filename": "elemental_walk-29.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 25,
+						"w": 71,
+						"h": 101
+					},
+					"frame": {
+						"x": 1317,
+						"y": 99,
+						"w": 71,
+						"h": 101
+					}
+				},
+				{
+					"filename": "elemental_walk-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 19,
+						"w": 79,
+						"h": 101
+					},
+					"frame": {
+						"x": 1390,
+						"y": 99,
+						"w": 79,
+						"h": 101
+					}
+				},
+				{
+					"filename": "elemental_walk-12.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 22,
+						"w": 71,
+						"h": 102
+					},
+					"frame": {
+						"x": 1471,
+						"y": 99,
+						"w": 71,
+						"h": 102
+					}
+				},
+				{
+					"filename": "elemental_walk-14.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 23,
+						"w": 70,
+						"h": 102
+					},
+					"frame": {
+						"x": 1544,
+						"y": 100,
+						"w": 70,
+						"h": 102
+					}
+				},
+				{
+					"filename": "elemental_walk-16.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 24,
+						"y": 20,
+						"w": 76,
+						"h": 102
+					},
+					"frame": {
+						"x": 1616,
+						"y": 100,
+						"w": 76,
+						"h": 102
+					}
+				},
+				{
+					"filename": "elemental_walk-32.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 24,
+						"y": 23,
+						"w": 79,
+						"h": 102
+					},
+					"frame": {
+						"x": 1694,
+						"y": 100,
+						"w": 79,
+						"h": 102
+					}
+				},
+				{
+					"filename": "elemental_walk-58.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 23,
+						"w": 92,
+						"h": 102
+					},
+					"frame": {
+						"x": 1775,
+						"y": 100,
+						"w": 92,
+						"h": 102
+					}
+				},
+				{
+					"filename": "elemental_walk-0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 21,
+						"w": 80,
+						"h": 103
+					},
+					"frame": {
+						"x": 1869,
+						"y": 100,
+						"w": 80,
+						"h": 103
+					}
+				},
+				{
+					"filename": "elemental_walk-27.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 31,
+						"y": 23,
+						"w": 65,
+						"h": 103
+					},
+					"frame": {
+						"x": 1951,
+						"y": 101,
+						"w": 65,
+						"h": 103
+					}
+				},
+				{
+					"filename": "elemental_walk-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 21,
+						"w": 75,
+						"h": 103
+					},
+					"frame": {
+						"x": 1,
+						"y": 192,
+						"w": 75,
+						"h": 103
+					}
+				},
+				{
+					"filename": "elemental_walk-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 23,
+						"w": 78,
+						"h": 104
+					},
+					"frame": {
+						"x": 78,
+						"y": 192,
+						"w": 78,
+						"h": 104
+					}
+				},
+				{
+					"filename": "elemental_walk-74.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 12,
+						"w": 85,
+						"h": 104
+					},
+					"frame": {
+						"x": 158,
+						"y": 193,
+						"w": 85,
+						"h": 104
+					}
+				},
+				{
+					"filename": "elemental_walk-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 22,
+						"w": 78,
+						"h": 105
+					},
+					"frame": {
+						"x": 245,
+						"y": 195,
+						"w": 78,
+						"h": 105
+					}
+				},
+				{
+					"filename": "elemental_walk-57.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 18,
+						"w": 91,
+						"h": 105
+					},
+					"frame": {
+						"x": 325,
+						"y": 196,
+						"w": 91,
+						"h": 105
+					}
+				},
+				{
+					"filename": "elemental_walk-70.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 31,
+						"y": 9,
+						"w": 60,
+						"h": 105
+					},
+					"frame": {
+						"x": 418,
+						"y": 196,
+						"w": 60,
+						"h": 105
+					}
+				},
+				{
+					"filename": "elemental_walk-18.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 17,
+						"y": 21,
+						"w": 92,
+						"h": 106
+					},
+					"frame": {
+						"x": 480,
+						"y": 196,
+						"w": 92,
+						"h": 106
+					}
+				},
+				{
+					"filename": "elemental_walk-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 19,
+						"w": 79,
+						"h": 106
+					},
+					"frame": {
+						"x": 574,
+						"y": 197,
+						"w": 79,
+						"h": 106
+					}
+				},
+				{
+					"filename": "elemental_walk-71.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 22,
+						"y": 10,
+						"w": 72,
+						"h": 106
+					},
+					"frame": {
+						"x": 655,
+						"y": 197,
+						"w": 72,
+						"h": 106
+					}
+				},
+				{
+					"filename": "elemental_walk-73.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 10,
+						"w": 84,
+						"h": 106
+					},
+					"frame": {
+						"x": 729,
+						"y": 198,
+						"w": 84,
+						"h": 106
+					}
+				},
+				{
+					"filename": "elemental_walk-77.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 9,
+						"w": 79,
+						"h": 106
+					},
+					"frame": {
+						"x": 815,
+						"y": 198,
+						"w": 79,
+						"h": 106
+					}
+				},
+				{
+					"filename": "elemental_walk-65.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 34,
+						"y": 17,
+						"w": 61,
+						"h": 108
+					},
+					"frame": {
+						"x": 896,
+						"y": 199,
+						"w": 61,
+						"h": 108
+					}
+				},
+				{
+					"filename": "elemental_walk-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 20,
+						"w": 76,
+						"h": 108
+					},
+					"frame": {
+						"x": 959,
+						"y": 200,
+						"w": 76,
+						"h": 108
+					}
+				},
+				{
+					"filename": "elemental_walk-72.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 16,
+						"y": 10,
+						"w": 79,
+						"h": 107
+					},
+					"frame": {
+						"x": 1037,
+						"y": 201,
+						"w": 79,
+						"h": 107
+					}
+				},
+				{
+					"filename": "elemental_walk-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 21,
+						"w": 78,
+						"h": 108
+					},
+					"frame": {
+						"x": 1118,
+						"y": 201,
+						"w": 78,
+						"h": 108
+					}
+				},
+				{
+					"filename": "elemental_walk-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 21,
+						"w": 78,
+						"h": 110
+					},
+					"frame": {
+						"x": 1198,
+						"y": 201,
+						"w": 78,
+						"h": 110
+					}
+				},
+				{
+					"filename": "elemental_walk-17.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 20,
+						"w": 90,
+						"h": 111
+					},
+					"frame": {
+						"x": 1278,
+						"y": 202,
+						"w": 90,
+						"h": 111
+					}
+				},
+				{
+					"filename": "elemental_walk-78.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 10,
+						"w": 81,
+						"h": 111
+					},
+					"frame": {
+						"x": 1370,
+						"y": 202,
+						"w": 81,
+						"h": 111
+					}
+				},
+				{
+					"filename": "elemental_walk-79.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 29,
+						"y": 12,
+						"w": 84,
+						"h": 111
+					},
+					"frame": {
+						"x": 1453,
+						"y": 203,
+						"w": 84,
+						"h": 111
+					}
+				},
+				{
+					"filename": "elemental_walk-9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 23,
+						"w": 78,
+						"h": 111
+					},
+					"frame": {
+						"x": 1539,
+						"y": 204,
+						"w": 78,
+						"h": 111
+					}
+				},
+				{
+					"filename": "elemental_walk-19.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 12,
+						"y": 22,
+						"w": 94,
+						"h": 112
+					},
+					"frame": {
+						"x": 1619,
+						"y": 204,
+						"w": 94,
+						"h": 112
+					}
+				},
+				{
+					"filename": "elemental_walk-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 21,
+						"w": 79,
+						"h": 115
+					},
+					"frame": {
+						"x": 1715,
+						"y": 204,
+						"w": 79,
+						"h": 115
+					}
+				},
+				{
+					"filename": "elemental_walk-15.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 20,
+						"w": 74,
+						"h": 118
+					},
+					"frame": {
+						"x": 1796,
+						"y": 205,
+						"w": 74,
+						"h": 118
+					}
+				},
+				{
+					"filename": "elemental_walk-75.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 9,
+						"w": 85,
+						"h": 118
+					},
+					"frame": {
+						"x": 1872,
+						"y": 206,
+						"w": 85,
+						"h": 118
+					}
+				},
+				{
+					"filename": "elemental_walk-25.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 0,
+						"w": 61,
+						"h": 132
+					},
+					"frame": {
+						"x": 1959,
+						"y": 206,
+						"w": 61,
+						"h": 132
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:f62d801c218f30e921d403c36beb1e5c:b247169bbcc3c4960e6dec95daf17f80:fc4987d8f6d97da3a4072a61fdc9e8ae$"
+	}
+}
