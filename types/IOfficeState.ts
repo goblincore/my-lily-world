@@ -37,6 +37,14 @@ export interface IPlaylistItem extends Schema {
   name: string
 }
 
+export interface ICurrentPlaybackItem extends Schema {
+  status: string
+  link: string | null
+  currentDjNumber: number
+  startTime: number | string
+  duration: number
+}
+
 export interface IOfficeState extends Schema {
   players: MapSchema<IPlayer>
   computers: MapSchema<IComputer>
@@ -44,4 +52,5 @@ export interface IOfficeState extends Schema {
   musicBooths: MapSchema<IMusicBooth>
   chatMessages: ArraySchema<IChatMessage>
   playlistItems: ArraySchema<IPlaylistItem>
+  currentPlaybackItem: ICurrentPlaybackItem
 }

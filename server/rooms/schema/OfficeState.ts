@@ -7,6 +7,7 @@ import {
   IMusicBooth,
   IChatMessage,
   IPlaylistItem,
+  ICurrentPlaybackItem,
 } from '../../../types/IOfficeState'
 
 export class PlaylistItem extends Schema implements IPlaylistItem {
@@ -46,6 +47,15 @@ export class MusicBooth extends Schema implements IMusicBooth {
   @type({ set: 'string' }) connectedUser = new SetSchema<string>()
 }
 
+export class CurrentPlaybackItem extends Schema implements ICurrentPlaybackItem {
+  @type('string' ) status = null
+  @type('string') link = null
+  @type('number') currentDjNumber: number = null
+  @type('number') startTime = new Date()
+  @type('number') duration = null
+}
+
+
 export class OfficeState extends Schema implements IOfficeState {
   @type({ map: Player })
   players = new MapSchema<Player>()
@@ -64,6 +74,10 @@ export class OfficeState extends Schema implements IOfficeState {
 
   @type([PlaylistItem])
   playlistItems = new ArraySchema<PlaylistItem>()
+
+  @type(CurrentPlaybackItem)
+  currentPlaybackItem = new CurrentPlaybackItem()
+
 }
 
 
