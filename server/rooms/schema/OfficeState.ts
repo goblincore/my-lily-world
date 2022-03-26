@@ -51,7 +51,7 @@ export class CurrentPlaybackItem extends Schema implements ICurrentPlaybackItem 
   @type('string' ) status = null
   @type('string') link = null
   @type('number') currentDjNumber: number = null
-  @type('number') startTime = new Date()
+  @type('string') startTime = new Date().toISOString()
   @type('number') duration = null
 }
 

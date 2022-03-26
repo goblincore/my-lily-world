@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt'
 import { Room, Client, ServerError } from 'colyseus'
 import { Dispatcher } from '@colyseus/command'
-import { Player, OfficeState, Computer, Whiteboard, MusicBooth } from './schema/OfficeState'
+import { Player, OfficeState, Computer, Whiteboard, MusicBooth, CurrentPlaybackItem } from './schema/OfficeState'
 import { Message } from '../../types/Messages'
 import { IRoomData } from '../../types/Rooms'
 import { whiteboardRoomIds, musicBoothIds } from './schema/OfficeState'
@@ -200,18 +200,25 @@ export class SkyOffice extends Room<OfficeState> {
 
       // when a player send a chat message, update the message array and broadcast to all connected clients except the sender
       this.onMessage(Message.ADD_PLAYLIST_ITEM, (client, message: { content: string }) => {
-        // update the message array (so that players join later can also see the message)
-        this.dispatcher.dispatch(new MusicBoothStartPlaySongUserCommand(), {
+
+        console.log('ADD ITEM to user playlist content', message)
+        this.dispatcher.dispatch(new AddItemToUserPlaylistUserCommand(), {
           client,
-          content: message.content,
+          content: message,
         })
+
+        // update the message array (so that players join later can also see the message)
+        // this.dispatcher.dispatch(new MusicBoothStartPlaySongUserCommand(), {
+        //   client,
+        //   content: message.content,
+        // })
   
         // broadcast to all currently connected clients except the sender (to render in-game dialog on top of the character)
-        this.broadcast(
-          Message.ADD_PLAYLIST_ITEM,
-          { clientId: client.sessionId, content: message.content },
-          { except: client }
-        )
+        // this.broadcast(
+        //   Message.ADD_PLAYLIST_ITEM,
+        //   { clientId: client.sessionId, content: message.content },
+        //   { except: client }
+        // )
       })
 
 
@@ -235,7 +242,9 @@ export class SkyOffice extends Room<OfficeState> {
       id: this.roomId,
       name: this.name,
       description: this.description,
-      playlistItems: this.state.playlistItems
+      musicBooths: this.state.musicBooths,
+      playlistItems: this.state.playlistItems, 
+      currentPlaybackItem: this.state.currentPlaybackItem
     })
   }
 

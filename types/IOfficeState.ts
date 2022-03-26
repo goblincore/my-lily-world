@@ -38,11 +38,11 @@ export interface IPlaylistItem extends Schema {
 }
 
 export interface ICurrentPlaybackItem extends Schema {
-  status: string
+  status: string | null
   link: string | null
   currentDjNumber: number
-  startTime: number | string
-  duration: number
+  startTime: number | string | null
+  duration: number | null
 }
 
 export interface IOfficeState extends Schema {
@@ -52,5 +52,5 @@ export interface IOfficeState extends Schema {
   musicBooths: MapSchema<IMusicBooth>
   chatMessages: ArraySchema<IChatMessage>
   playlistItems: ArraySchema<IPlaylistItem>
-  currentPlaybackItem: ICurrentPlaybackItem
+  currentPlaybackItem: ICurrentPlaybackItem 
 }
