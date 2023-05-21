@@ -4,11 +4,116 @@
 			"image": "elemental_walk.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 2021,
-				"h": 339
+				"w": 509,
+				"h": 1947
 			},
 			"scale": 1,
 			"frames": [
+				{
+					"filename": "elemental-idle-20.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 24,
+						"w": 91,
+						"h": 85
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 91,
+						"h": 85
+					}
+				},
+				{
+					"filename": "elemental-idle-24.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 25,
+						"w": 91,
+						"h": 85
+					},
+					"frame": {
+						"x": 94,
+						"y": 1,
+						"w": 91,
+						"h": 85
+					}
+				},
+				{
+					"filename": "elemental-idle-21.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 24,
+						"w": 91,
+						"h": 86
+					},
+					"frame": {
+						"x": 187,
+						"y": 1,
+						"w": 91,
+						"h": 86
+					}
+				},
+				{
+					"filename": "elemental-idle-22.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 24,
+						"w": 90,
+						"h": 86
+					},
+					"frame": {
+						"x": 280,
+						"y": 1,
+						"w": 90,
+						"h": 86
+					}
+				},
+				{
+					"filename": "elemental-idle-23.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 25,
+						"w": 91,
+						"h": 86
+					},
+					"frame": {
+						"x": 372,
+						"y": 1,
+						"w": 91,
+						"h": 86
+					}
+				},
 				{
 					"filename": "elemental_walk-40.png",
 					"rotated": false,
@@ -25,7 +130,7 @@
 					},
 					"frame": {
 						"x": 1,
-						"y": 1,
+						"y": 88,
 						"w": 80,
 						"h": 89
 					}
@@ -46,7 +151,7 @@
 					},
 					"frame": {
 						"x": 83,
-						"y": 1,
+						"y": 88,
 						"w": 69,
 						"h": 89
 					}
@@ -67,7 +172,7 @@
 					},
 					"frame": {
 						"x": 154,
-						"y": 1,
+						"y": 89,
 						"w": 69,
 						"h": 89
 					}
@@ -88,7 +193,7 @@
 					},
 					"frame": {
 						"x": 225,
-						"y": 1,
+						"y": 89,
 						"w": 84,
 						"h": 90
 					}
@@ -109,9 +214,30 @@
 					},
 					"frame": {
 						"x": 311,
-						"y": 1,
+						"y": 89,
 						"w": 74,
 						"h": 92
+					}
+				},
+				{
+					"filename": "elemental-idle-18.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 24,
+						"w": 82,
+						"h": 93
+					},
+					"frame": {
+						"x": 387,
+						"y": 89,
+						"w": 82,
+						"h": 93
 					}
 				},
 				{
@@ -129,8 +255,8 @@
 						"h": 93
 					},
 					"frame": {
-						"x": 387,
-						"y": 1,
+						"x": 1,
+						"y": 179,
 						"w": 61,
 						"h": 93
 					}
@@ -150,8 +276,8 @@
 						"h": 93
 					},
 					"frame": {
-						"x": 450,
-						"y": 1,
+						"x": 64,
+						"y": 179,
 						"w": 81,
 						"h": 93
 					}
@@ -171,8 +297,8 @@
 						"h": 93
 					},
 					"frame": {
-						"x": 533,
-						"y": 1,
+						"x": 147,
+						"y": 181,
 						"w": 77,
 						"h": 93
 					}
@@ -192,8 +318,8 @@
 						"h": 93
 					},
 					"frame": {
-						"x": 612,
-						"y": 1,
+						"x": 226,
+						"y": 181,
 						"w": 78,
 						"h": 93
 					}
@@ -213,8 +339,8 @@
 						"h": 94
 					},
 					"frame": {
-						"x": 692,
-						"y": 1,
+						"x": 306,
+						"y": 183,
 						"w": 79,
 						"h": 94
 					}
@@ -234,8 +360,8 @@
 						"h": 94
 					},
 					"frame": {
-						"x": 773,
-						"y": 1,
+						"x": 387,
+						"y": 184,
 						"w": 78,
 						"h": 94
 					}
@@ -255,10 +381,31 @@
 						"h": 94
 					},
 					"frame": {
-						"x": 853,
-						"y": 1,
+						"x": 1,
+						"y": 274,
 						"w": 58,
 						"h": 94
+					}
+				},
+				{
+					"filename": "elemental-idle-17.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 23,
+						"w": 80,
+						"h": 95
+					},
+					"frame": {
+						"x": 61,
+						"y": 274,
+						"w": 80,
+						"h": 95
 					}
 				},
 				{
@@ -276,8 +423,8 @@
 						"h": 95
 					},
 					"frame": {
-						"x": 913,
-						"y": 1,
+						"x": 143,
+						"y": 276,
 						"w": 63,
 						"h": 95
 					}
@@ -297,10 +444,136 @@
 						"h": 95
 					},
 					"frame": {
-						"x": 978,
-						"y": 1,
+						"x": 208,
+						"y": 276,
 						"w": 79,
 						"h": 95
+					}
+				},
+				{
+					"filename": "elemental-idle-0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 31,
+						"w": 91,
+						"h": 96
+					},
+					"frame": {
+						"x": 289,
+						"y": 279,
+						"w": 91,
+						"h": 96
+					}
+				},
+				{
+					"filename": "elemental-idle-15.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 22,
+						"w": 78,
+						"h": 96
+					},
+					"frame": {
+						"x": 382,
+						"y": 280,
+						"w": 78,
+						"h": 96
+					}
+				},
+				{
+					"filename": "elemental_walk-20.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 37,
+						"y": 24,
+						"w": 44,
+						"h": 97
+					},
+					"frame": {
+						"x": 462,
+						"y": 280,
+						"w": 44,
+						"h": 97
+					}
+				},
+				{
+					"filename": "elemental-idle-19.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 23,
+						"w": 80,
+						"h": 96
+					},
+					"frame": {
+						"x": 1,
+						"y": 371,
+						"w": 80,
+						"h": 96
+					}
+				},
+				{
+					"filename": "elemental_walk-21.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 37,
+						"y": 24,
+						"w": 51,
+						"h": 97
+					},
+					"frame": {
+						"x": 83,
+						"y": 371,
+						"w": 51,
+						"h": 97
+					}
+				},
+				{
+					"filename": "elemental-idle-27.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 10,
+						"w": 78,
+						"h": 96
+					},
+					"frame": {
+						"x": 136,
+						"y": 373,
+						"w": 78,
+						"h": 96
 					}
 				},
 				{
@@ -318,10 +591,73 @@
 						"h": 96
 					},
 					"frame": {
-						"x": 1059,
-						"y": 1,
+						"x": 216,
+						"y": 373,
 						"w": 59,
 						"h": 96
+					}
+				},
+				{
+					"filename": "elemental-idle-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 32,
+						"w": 90,
+						"h": 96
+					},
+					"frame": {
+						"x": 277,
+						"y": 377,
+						"w": 90,
+						"h": 96
+					}
+				},
+				{
+					"filename": "elemental-idle-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 32,
+						"w": 91,
+						"h": 96
+					},
+					"frame": {
+						"x": 369,
+						"y": 378,
+						"w": 91,
+						"h": 96
+					}
+				},
+				{
+					"filename": "elemental-idle-30.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 22,
+						"y": 7,
+						"w": 46,
+						"h": 98
+					},
+					"frame": {
+						"x": 462,
+						"y": 379,
+						"w": 46,
+						"h": 98
 					}
 				},
 				{
@@ -339,8 +675,8 @@
 						"h": 96
 					},
 					"frame": {
-						"x": 1120,
-						"y": 1,
+						"x": 1,
+						"y": 469,
 						"w": 78,
 						"h": 96
 					}
@@ -360,8 +696,8 @@
 						"h": 96
 					},
 					"frame": {
-						"x": 1200,
-						"y": 1,
+						"x": 81,
+						"y": 471,
 						"w": 71,
 						"h": 96
 					}
@@ -381,10 +717,31 @@
 						"h": 96
 					},
 					"frame": {
-						"x": 1273,
-						"y": 1,
+						"x": 154,
+						"y": 471,
 						"w": 72,
 						"h": 96
+					}
+				},
+				{
+					"filename": "elemental-idle-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 22,
+						"y": 21,
+						"w": 47,
+						"h": 98
+					},
+					"frame": {
+						"x": 228,
+						"y": 471,
+						"w": 47,
+						"h": 98
 					}
 				},
 				{
@@ -402,8 +759,8 @@
 						"h": 96
 					},
 					"frame": {
-						"x": 1347,
-						"y": 1,
+						"x": 277,
+						"y": 475,
 						"w": 60,
 						"h": 96
 					}
@@ -423,10 +780,52 @@
 						"h": 96
 					},
 					"frame": {
-						"x": 1409,
-						"y": 1,
+						"x": 339,
+						"y": 476,
 						"w": 65,
 						"h": 96
+					}
+				},
+				{
+					"filename": "elemental-idle-32.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 8,
+						"w": 47,
+						"h": 99
+					},
+					"frame": {
+						"x": 406,
+						"y": 476,
+						"w": 47,
+						"h": 99
+					}
+				},
+				{
+					"filename": "elemental_walk-61.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 31,
+						"y": 17,
+						"w": 51,
+						"h": 99
+					},
+					"frame": {
+						"x": 455,
+						"y": 479,
+						"w": 51,
+						"h": 99
 					}
 				},
 				{
@@ -444,72 +843,30 @@
 						"h": 96
 					},
 					"frame": {
-						"x": 1476,
-						"y": 1,
+						"x": 1,
+						"y": 567,
 						"w": 70,
 						"h": 96
 					}
 				},
 				{
-					"filename": "elemental_walk-13.png",
+					"filename": "elemental-idle-1.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 124,
-						"h": 138
+						"w": 114,
+						"h": 140
 					},
 					"spriteSourceSize": {
-						"x": 25,
-						"y": 22,
-						"w": 69,
+						"x": 0,
+						"y": 31,
+						"w": 91,
 						"h": 97
 					},
 					"frame": {
-						"x": 1548,
-						"y": 1,
-						"w": 69,
-						"h": 97
-					}
-				},
-				{
-					"filename": "elemental_walk-20.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 124,
-						"h": 138
-					},
-					"spriteSourceSize": {
-						"x": 37,
-						"y": 24,
-						"w": 44,
-						"h": 97
-					},
-					"frame": {
-						"x": 1619,
-						"y": 1,
-						"w": 44,
-						"h": 97
-					}
-				},
-				{
-					"filename": "elemental_walk-21.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 124,
-						"h": 138
-					},
-					"spriteSourceSize": {
-						"x": 37,
-						"y": 24,
-						"w": 51,
-						"h": 97
-					},
-					"frame": {
-						"x": 1665,
-						"y": 1,
-						"w": 51,
+						"x": 73,
+						"y": 569,
+						"w": 91,
 						"h": 97
 					}
 				},
@@ -528,35 +885,56 @@
 						"h": 97
 					},
 					"frame": {
-						"x": 1718,
-						"y": 1,
+						"x": 166,
+						"y": 569,
 						"w": 59,
 						"h": 97
 					}
 				},
 				{
-					"filename": "elemental_walk-34.png",
+					"filename": "elemental-idle-2.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 124,
-						"h": 138
+						"w": 114,
+						"h": 140
 					},
 					"spriteSourceSize": {
-						"x": 12,
-						"y": 27,
-						"w": 86,
+						"x": 0,
+						"y": 31,
+						"w": 91,
 						"h": 97
 					},
 					"frame": {
-						"x": 1779,
-						"y": 1,
-						"w": 86,
+						"x": 227,
+						"y": 573,
+						"w": 91,
 						"h": 97
 					}
 				},
 				{
-					"filename": "elemental_walk-35.png",
+					"filename": "elemental-idle-25.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 9,
+						"w": 75,
+						"h": 97
+					},
+					"frame": {
+						"x": 320,
+						"y": 574,
+						"w": 75,
+						"h": 97
+					}
+				},
+				{
+					"filename": "elemental_walk-13.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -564,15 +942,15 @@
 						"h": 138
 					},
 					"spriteSourceSize": {
-						"x": 11,
-						"y": 28,
-						"w": 84,
+						"x": 25,
+						"y": 22,
+						"w": 69,
 						"h": 97
 					},
 					"frame": {
-						"x": 1867,
-						"y": 1,
-						"w": 84,
+						"x": 397,
+						"y": 580,
+						"w": 69,
 						"h": 97
 					}
 				},
@@ -591,10 +969,31 @@
 						"h": 98
 					},
 					"frame": {
-						"x": 1953,
-						"y": 1,
+						"x": 1,
+						"y": 665,
 						"w": 63,
 						"h": 98
+					}
+				},
+				{
+					"filename": "elemental_walk-34.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 12,
+						"y": 27,
+						"w": 86,
+						"h": 97
+					},
+					"frame": {
+						"x": 66,
+						"y": 668,
+						"w": 86,
+						"h": 97
 					}
 				},
 				{
@@ -612,14 +1011,14 @@
 						"h": 98
 					},
 					"frame": {
-						"x": 1,
-						"y": 92,
+						"x": 154,
+						"y": 668,
 						"w": 71,
 						"h": 98
 					}
 				},
 				{
-					"filename": "elemental_walk-33.png",
+					"filename": "elemental_walk-35.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -627,15 +1026,57 @@
 						"h": 138
 					},
 					"spriteSourceSize": {
-						"x": 19,
+						"x": 11,
 						"y": 28,
 						"w": 84,
+						"h": 97
+					},
+					"frame": {
+						"x": 227,
+						"y": 672,
+						"w": 84,
+						"h": 97
+					}
+				},
+				{
+					"filename": "elemental-idle-35.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 5,
+						"w": 79,
 						"h": 98
 					},
 					"frame": {
-						"x": 74,
-						"y": 92,
-						"w": 84,
+						"x": 313,
+						"y": 673,
+						"w": 79,
+						"h": 98
+					}
+				},
+				{
+					"filename": "elemental-idle-37.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 5,
+						"w": 80,
+						"h": 98
+					},
+					"frame": {
+						"x": 394,
+						"y": 679,
+						"w": 80,
 						"h": 98
 					}
 				},
@@ -654,10 +1095,73 @@
 						"h": 99
 					},
 					"frame": {
-						"x": 160,
-						"y": 92,
+						"x": 1,
+						"y": 765,
 						"w": 58,
 						"h": 99
+					}
+				},
+				{
+					"filename": "elemental-idle-38.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 6,
+						"w": 82,
+						"h": 98
+					},
+					"frame": {
+						"x": 61,
+						"y": 767,
+						"w": 82,
+						"h": 98
+					}
+				},
+				{
+					"filename": "elemental-idle-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 24,
+						"w": 75,
+						"h": 98
+					},
+					"frame": {
+						"x": 145,
+						"y": 768,
+						"w": 75,
+						"h": 98
+					}
+				},
+				{
+					"filename": "elemental_walk-33.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 28,
+						"w": 84,
+						"h": 98
+					},
+					"frame": {
+						"x": 222,
+						"y": 771,
+						"w": 84,
+						"h": 98
 					}
 				},
 				{
@@ -675,8 +1179,8 @@
 						"h": 98
 					},
 					"frame": {
-						"x": 220,
-						"y": 93,
+						"x": 308,
+						"y": 773,
 						"w": 77,
 						"h": 98
 					}
@@ -696,10 +1200,31 @@
 						"h": 98
 					},
 					"frame": {
-						"x": 299,
-						"y": 95,
+						"x": 387,
+						"y": 779,
 						"w": 74,
 						"h": 98
+					}
+				},
+				{
+					"filename": "elemental_walk-60.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 38,
+						"y": 17,
+						"w": 44,
+						"h": 100
+					},
+					"frame": {
+						"x": 463,
+						"y": 779,
+						"w": 44,
+						"h": 100
 					}
 				},
 				{
@@ -717,8 +1242,8 @@
 						"h": 98
 					},
 					"frame": {
-						"x": 375,
-						"y": 96,
+						"x": 1,
+						"y": 867,
 						"w": 76,
 						"h": 98
 					}
@@ -738,8 +1263,8 @@
 						"h": 98
 					},
 					"frame": {
-						"x": 453,
-						"y": 96,
+						"x": 79,
+						"y": 868,
 						"w": 94,
 						"h": 98
 					}
@@ -759,31 +1284,10 @@
 						"h": 98
 					},
 					"frame": {
-						"x": 549,
-						"y": 96,
+						"x": 175,
+						"y": 871,
 						"w": 71,
 						"h": 98
-					}
-				},
-				{
-					"filename": "elemental_walk-61.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 124,
-						"h": 138
-					},
-					"spriteSourceSize": {
-						"x": 31,
-						"y": 17,
-						"w": 51,
-						"h": 99
-					},
-					"frame": {
-						"x": 622,
-						"y": 96,
-						"w": 51,
-						"h": 99
 					}
 				},
 				{
@@ -801,10 +1305,73 @@
 						"h": 98
 					},
 					"frame": {
-						"x": 675,
-						"y": 97,
+						"x": 248,
+						"y": 873,
 						"w": 72,
 						"h": 98
+					}
+				},
+				{
+					"filename": "elemental_walk-62.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 17,
+						"w": 59,
+						"h": 99
+					},
+					"frame": {
+						"x": 322,
+						"y": 873,
+						"w": 59,
+						"h": 99
+					}
+				},
+				{
+					"filename": "elemental-idle-26.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 9,
+						"w": 76,
+						"h": 99
+					},
+					"frame": {
+						"x": 383,
+						"y": 879,
+						"w": 76,
+						"h": 99
+					}
+				},
+				{
+					"filename": "elemental-idle-13.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 23,
+						"w": 47,
+						"h": 101
+					},
+					"frame": {
+						"x": 461,
+						"y": 881,
+						"w": 47,
+						"h": 101
 					}
 				},
 				{
@@ -822,9 +1389,51 @@
 						"h": 99
 					},
 					"frame": {
-						"x": 749,
-						"y": 97,
+						"x": 1,
+						"y": 967,
 						"w": 72,
+						"h": 99
+					}
+				},
+				{
+					"filename": "elemental-idle-29.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 11,
+						"w": 77,
+						"h": 99
+					},
+					"frame": {
+						"x": 75,
+						"y": 968,
+						"w": 77,
+						"h": 99
+					}
+				},
+				{
+					"filename": "elemental-idle-36.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 5,
+						"w": 80,
+						"h": 99
+					},
+					"frame": {
+						"x": 154,
+						"y": 971,
+						"w": 80,
 						"h": 99
 					}
 				},
@@ -843,31 +1452,73 @@
 						"h": 99
 					},
 					"frame": {
-						"x": 823,
-						"y": 97,
+						"x": 236,
+						"y": 973,
 						"w": 78,
 						"h": 99
 					}
 				},
 				{
-					"filename": "elemental_walk-62.png",
+					"filename": "elemental-idle-31.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 124,
-						"h": 138
+						"w": 114,
+						"h": 140
 					},
 					"spriteSourceSize": {
-						"x": 25,
-						"y": 17,
-						"w": 59,
-						"h": 99
+						"x": 22,
+						"y": 6,
+						"w": 46,
+						"h": 101
 					},
 					"frame": {
-						"x": 903,
-						"y": 98,
-						"w": 59,
-						"h": 99
+						"x": 316,
+						"y": 974,
+						"w": 46,
+						"h": 101
+					}
+				},
+				{
+					"filename": "elemental-idle-16.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 24,
+						"w": 79,
+						"h": 100
+					},
+					"frame": {
+						"x": 364,
+						"y": 980,
+						"w": 79,
+						"h": 100
+					}
+				},
+				{
+					"filename": "elemental-idle-34.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 22,
+						"y": 9,
+						"w": 46,
+						"h": 101
+					},
+					"frame": {
+						"x": 445,
+						"y": 984,
+						"w": 46,
+						"h": 101
 					}
 				},
 				{
@@ -885,8 +1536,8 @@
 						"h": 100
 					},
 					"frame": {
-						"x": 964,
-						"y": 98,
+						"x": 1,
+						"y": 1068,
 						"w": 71,
 						"h": 100
 					}
@@ -906,9 +1557,30 @@
 						"h": 100
 					},
 					"frame": {
-						"x": 1037,
-						"y": 99,
+						"x": 74,
+						"y": 1069,
 						"w": 70,
+						"h": 100
+					}
+				},
+				{
+					"filename": "elemental-idle-39.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 6,
+						"w": 79,
+						"h": 100
+					},
+					"frame": {
+						"x": 146,
+						"y": 1072,
+						"w": 79,
 						"h": 100
 					}
 				},
@@ -927,10 +1599,31 @@
 						"h": 100
 					},
 					"frame": {
-						"x": 1109,
-						"y": 99,
+						"x": 227,
+						"y": 1074,
 						"w": 79,
 						"h": 100
+					}
+				},
+				{
+					"filename": "elemental-idle-14.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 22,
+						"w": 46,
+						"h": 103
+					},
+					"frame": {
+						"x": 308,
+						"y": 1077,
+						"w": 46,
+						"h": 103
 					}
 				},
 				{
@@ -948,30 +1641,9 @@
 						"h": 100
 					},
 					"frame": {
-						"x": 1190,
-						"y": 99,
+						"x": 356,
+						"y": 1082,
 						"w": 79,
-						"h": 100
-					}
-				},
-				{
-					"filename": "elemental_walk-60.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 124,
-						"h": 138
-					},
-					"spriteSourceSize": {
-						"x": 38,
-						"y": 17,
-						"w": 44,
-						"h": 100
-					},
-					"frame": {
-						"x": 1271,
-						"y": 99,
-						"w": 44,
 						"h": 100
 					}
 				},
@@ -990,9 +1662,72 @@
 						"h": 101
 					},
 					"frame": {
-						"x": 1317,
-						"y": 99,
+						"x": 437,
+						"y": 1087,
 						"w": 71,
+						"h": 101
+					}
+				},
+				{
+					"filename": "elemental-idle-28.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 11,
+						"w": 77,
+						"h": 101
+					},
+					"frame": {
+						"x": 1,
+						"y": 1171,
+						"w": 77,
+						"h": 101
+					}
+				},
+				{
+					"filename": "elemental-idle-33.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 7,
+						"w": 48,
+						"h": 103
+					},
+					"frame": {
+						"x": 80,
+						"y": 1171,
+						"w": 48,
+						"h": 103
+					}
+				},
+				{
+					"filename": "elemental-idle-9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 25,
+						"w": 78,
+						"h": 101
+					},
+					"frame": {
+						"x": 130,
+						"y": 1174,
+						"w": 78,
 						"h": 101
 					}
 				},
@@ -1011,10 +1746,73 @@
 						"h": 101
 					},
 					"frame": {
-						"x": 1390,
-						"y": 99,
+						"x": 210,
+						"y": 1176,
 						"w": 79,
 						"h": 101
+					}
+				},
+				{
+					"filename": "elemental-idle-12.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 21,
+						"w": 46,
+						"h": 104
+					},
+					"frame": {
+						"x": 291,
+						"y": 1182,
+						"w": 46,
+						"h": 104
+					}
+				},
+				{
+					"filename": "elemental-idle-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 24,
+						"w": 76,
+						"h": 102
+					},
+					"frame": {
+						"x": 339,
+						"y": 1184,
+						"w": 76,
+						"h": 102
+					}
+				},
+				{
+					"filename": "elemental-idle-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 25,
+						"w": 77,
+						"h": 102
+					},
+					"frame": {
+						"x": 417,
+						"y": 1190,
+						"w": 77,
+						"h": 102
 					}
 				},
 				{
@@ -1032,8 +1830,8 @@
 						"h": 102
 					},
 					"frame": {
-						"x": 1471,
-						"y": 99,
+						"x": 1,
+						"y": 1274,
 						"w": 71,
 						"h": 102
 					}
@@ -1053,8 +1851,8 @@
 						"h": 102
 					},
 					"frame": {
-						"x": 1544,
-						"y": 100,
+						"x": 74,
+						"y": 1277,
 						"w": 70,
 						"h": 102
 					}
@@ -1074,10 +1872,31 @@
 						"h": 102
 					},
 					"frame": {
-						"x": 1616,
-						"y": 100,
+						"x": 146,
+						"y": 1279,
 						"w": 76,
 						"h": 102
+					}
+				},
+				{
+					"filename": "elemental_walk-27.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 31,
+						"y": 23,
+						"w": 65,
+						"h": 103
+					},
+					"frame": {
+						"x": 224,
+						"y": 1279,
+						"w": 65,
+						"h": 103
 					}
 				},
 				{
@@ -1095,8 +1914,8 @@
 						"h": 102
 					},
 					"frame": {
-						"x": 1694,
-						"y": 100,
+						"x": 291,
+						"y": 1288,
 						"w": 79,
 						"h": 102
 					}
@@ -1116,10 +1935,31 @@
 						"h": 102
 					},
 					"frame": {
-						"x": 1775,
-						"y": 100,
+						"x": 372,
+						"y": 1294,
 						"w": 92,
 						"h": 102
+					}
+				},
+				{
+					"filename": "elemental_walk-70.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 31,
+						"y": 9,
+						"w": 60,
+						"h": 105
+					},
+					"frame": {
+						"x": 1,
+						"y": 1378,
+						"w": 60,
+						"h": 105
 					}
 				},
 				{
@@ -1137,30 +1977,9 @@
 						"h": 103
 					},
 					"frame": {
-						"x": 1869,
-						"y": 100,
+						"x": 63,
+						"y": 1381,
 						"w": 80,
-						"h": 103
-					}
-				},
-				{
-					"filename": "elemental_walk-27.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 124,
-						"h": 138
-					},
-					"spriteSourceSize": {
-						"x": 31,
-						"y": 23,
-						"w": 65,
-						"h": 103
-					},
-					"frame": {
-						"x": 1951,
-						"y": 101,
-						"w": 65,
 						"h": 103
 					}
 				},
@@ -1179,10 +1998,31 @@
 						"h": 103
 					},
 					"frame": {
-						"x": 1,
-						"y": 192,
+						"x": 145,
+						"y": 1383,
 						"w": 75,
 						"h": 103
+					}
+				},
+				{
+					"filename": "elemental-idle-11.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 21,
+						"w": 46,
+						"h": 107
+					},
+					"frame": {
+						"x": 222,
+						"y": 1384,
+						"w": 46,
+						"h": 107
 					}
 				},
 				{
@@ -1200,8 +2040,8 @@
 						"h": 104
 					},
 					"frame": {
-						"x": 78,
-						"y": 192,
+						"x": 270,
+						"y": 1392,
 						"w": 78,
 						"h": 104
 					}
@@ -1221,10 +2061,52 @@
 						"h": 104
 					},
 					"frame": {
-						"x": 158,
-						"y": 193,
+						"x": 350,
+						"y": 1398,
 						"w": 85,
 						"h": 104
+					}
+				},
+				{
+					"filename": "elemental_walk-65.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 34,
+						"y": 17,
+						"w": 61,
+						"h": 108
+					},
+					"frame": {
+						"x": 437,
+						"y": 1398,
+						"w": 61,
+						"h": 108
+					}
+				},
+				{
+					"filename": "elemental-idle-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 114,
+						"h": 140
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 24,
+						"w": 78,
+						"h": 105
+					},
+					"frame": {
+						"x": 1,
+						"y": 1486,
+						"w": 78,
+						"h": 105
 					}
 				},
 				{
@@ -1242,8 +2124,8 @@
 						"h": 105
 					},
 					"frame": {
-						"x": 245,
-						"y": 195,
+						"x": 81,
+						"y": 1488,
 						"w": 78,
 						"h": 105
 					}
@@ -1263,30 +2145,9 @@
 						"h": 105
 					},
 					"frame": {
-						"x": 325,
-						"y": 196,
+						"x": 161,
+						"y": 1493,
 						"w": 91,
-						"h": 105
-					}
-				},
-				{
-					"filename": "elemental_walk-70.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 124,
-						"h": 138
-					},
-					"spriteSourceSize": {
-						"x": 31,
-						"y": 9,
-						"w": 60,
-						"h": 105
-					},
-					"frame": {
-						"x": 418,
-						"y": 196,
-						"w": 60,
 						"h": 105
 					}
 				},
@@ -1305,8 +2166,8 @@
 						"h": 106
 					},
 					"frame": {
-						"x": 480,
-						"y": 196,
+						"x": 254,
+						"y": 1498,
 						"w": 92,
 						"h": 106
 					}
@@ -1326,8 +2187,8 @@
 						"h": 106
 					},
 					"frame": {
-						"x": 574,
-						"y": 197,
+						"x": 348,
+						"y": 1504,
 						"w": 79,
 						"h": 106
 					}
@@ -1347,9 +2208,51 @@
 						"h": 106
 					},
 					"frame": {
-						"x": 655,
-						"y": 197,
+						"x": 429,
+						"y": 1508,
 						"w": 72,
+						"h": 106
+					}
+				},
+				{
+					"filename": "elemental_walk-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 20,
+						"w": 76,
+						"h": 108
+					},
+					"frame": {
+						"x": 1,
+						"y": 1593,
+						"w": 76,
+						"h": 108
+					}
+				},
+				{
+					"filename": "elemental_walk-77.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 9,
+						"w": 79,
+						"h": 106
+					},
+					"frame": {
+						"x": 79,
+						"y": 1595,
+						"w": 79,
 						"h": 106
 					}
 				},
@@ -1368,73 +2271,10 @@
 						"h": 106
 					},
 					"frame": {
-						"x": 729,
-						"y": 198,
+						"x": 160,
+						"y": 1600,
 						"w": 84,
 						"h": 106
-					}
-				},
-				{
-					"filename": "elemental_walk-77.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 124,
-						"h": 138
-					},
-					"spriteSourceSize": {
-						"x": 21,
-						"y": 9,
-						"w": 79,
-						"h": 106
-					},
-					"frame": {
-						"x": 815,
-						"y": 198,
-						"w": 79,
-						"h": 106
-					}
-				},
-				{
-					"filename": "elemental_walk-65.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 124,
-						"h": 138
-					},
-					"spriteSourceSize": {
-						"x": 34,
-						"y": 17,
-						"w": 61,
-						"h": 108
-					},
-					"frame": {
-						"x": 896,
-						"y": 199,
-						"w": 61,
-						"h": 108
-					}
-				},
-				{
-					"filename": "elemental_walk-2.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 124,
-						"h": 138
-					},
-					"spriteSourceSize": {
-						"x": 21,
-						"y": 20,
-						"w": 76,
-						"h": 108
-					},
-					"frame": {
-						"x": 959,
-						"y": 200,
-						"w": 76,
-						"h": 108
 					}
 				},
 				{
@@ -1452,8 +2292,8 @@
 						"h": 107
 					},
 					"frame": {
-						"x": 1037,
-						"y": 201,
+						"x": 246,
+						"y": 1606,
 						"w": 79,
 						"h": 107
 					}
@@ -1473,8 +2313,8 @@
 						"h": 108
 					},
 					"frame": {
-						"x": 1118,
-						"y": 201,
+						"x": 327,
+						"y": 1612,
 						"w": 78,
 						"h": 108
 					}
@@ -1494,8 +2334,8 @@
 						"h": 110
 					},
 					"frame": {
-						"x": 1198,
-						"y": 201,
+						"x": 407,
+						"y": 1616,
 						"w": 78,
 						"h": 110
 					}
@@ -1515,8 +2355,8 @@
 						"h": 111
 					},
 					"frame": {
-						"x": 1278,
-						"y": 202,
+						"x": 1,
+						"y": 1703,
 						"w": 90,
 						"h": 111
 					}
@@ -1536,8 +2376,8 @@
 						"h": 111
 					},
 					"frame": {
-						"x": 1370,
-						"y": 202,
+						"x": 93,
+						"y": 1708,
 						"w": 81,
 						"h": 111
 					}
@@ -1557,8 +2397,8 @@
 						"h": 111
 					},
 					"frame": {
-						"x": 1453,
-						"y": 203,
+						"x": 176,
+						"y": 1715,
 						"w": 84,
 						"h": 111
 					}
@@ -1578,8 +2418,8 @@
 						"h": 111
 					},
 					"frame": {
-						"x": 1539,
-						"y": 204,
+						"x": 262,
+						"y": 1722,
 						"w": 78,
 						"h": 111
 					}
@@ -1599,10 +2439,31 @@
 						"h": 112
 					},
 					"frame": {
-						"x": 1619,
-						"y": 204,
+						"x": 342,
+						"y": 1728,
 						"w": 94,
 						"h": 112
+					}
+				},
+				{
+					"filename": "elemental_walk-25.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 138
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 0,
+						"w": 61,
+						"h": 132
+					},
+					"frame": {
+						"x": 438,
+						"y": 1728,
+						"w": 61,
+						"h": 132
 					}
 				},
 				{
@@ -1620,8 +2481,8 @@
 						"h": 115
 					},
 					"frame": {
-						"x": 1715,
-						"y": 204,
+						"x": 1,
+						"y": 1816,
 						"w": 79,
 						"h": 115
 					}
@@ -1641,8 +2502,8 @@
 						"h": 118
 					},
 					"frame": {
-						"x": 1796,
-						"y": 205,
+						"x": 82,
+						"y": 1821,
 						"w": 74,
 						"h": 118
 					}
@@ -1662,31 +2523,10 @@
 						"h": 118
 					},
 					"frame": {
-						"x": 1872,
-						"y": 206,
+						"x": 158,
+						"y": 1828,
 						"w": 85,
 						"h": 118
-					}
-				},
-				{
-					"filename": "elemental_walk-25.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 124,
-						"h": 138
-					},
-					"spriteSourceSize": {
-						"x": 23,
-						"y": 0,
-						"w": 61,
-						"h": 132
-					},
-					"frame": {
-						"x": 1959,
-						"y": 206,
-						"w": 61,
-						"h": 132
 					}
 				}
 			]
@@ -1695,6 +2535,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:f62d801c218f30e921d403c36beb1e5c:b247169bbcc3c4960e6dec95daf17f80:fc4987d8f6d97da3a4072a61fdc9e8ae$"
+		"smartupdate": "$TexturePacker:SmartUpdate:c190f39806d56482563317d33e29e21f:d62ea0c4f6fad2f12e7452110007f37c:fc4987d8f6d97da3a4072a61fdc9e8ae$"
 	}
 }

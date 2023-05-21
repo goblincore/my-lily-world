@@ -186,6 +186,7 @@ export default class Game extends Phaser.Scene {
       height: 180,
     }
     this.youtubePlayer = new LilYoutubePlayer({ ...youtubePlayerProps })
+    console.log('this.youtubeUrl', this.youtubeUrl);
     this.youtubePlayer.load(this.youtubeUrl, false)
     this.youtubePlayer.alpha = 0
 
